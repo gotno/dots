@@ -11,40 +11,52 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'mileszs/ack.vim'
+" vim
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
+Plug 'wesQ3/vim-windowswap' " cut/paste windows with `<leader>ww`
+Plug 'kopischke/vim-stay' " keep folds, cursor position etc
+
+" syntax
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'Shutnik/jshint2.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-sensible'
-Plug 'airblade/vim-gitgutter'
-Plug 'statianzo/vim-jade'
-Plug 'wesQ3/vim-windowswap' " cut/paste windows with `<leader>ww`
-Plug 'Valloric/YouCompleteMe'
-Plug 'majutsushi/tagbar'
-Plug 'kopischke/vim-stay' " keep folds, cursor position etc
-Plug 'w0rp/ale'
-Plug 'tpope/vim-markdown'
-Plug 'ap/vim-css-color'
 Plug 'sirtaj/vim-openscad'
+Plug 'ap/vim-css-color'
+Plug 'tpope/vim-markdown'
+Plug 'statianzo/vim-jade'
+
+" linting
+Plug 'w0rp/ale'
+" Plug 'Shutnik/jshint2.vim'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" tags and autocomplete
+" Plug 'Valloric/YouCompleteMe'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'ackyshake/VimCompletesMe'
+Plug 'majutsushi/tagbar'
+
+" common
+Plug 'tpope/vim-commentary'
+
 call plug#end()
 
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
+" let g:ycm_server_keep_logfiles = 0
+" let g:ycm_server_log_level = 'debug'
 
-if has('python3')
-  silent! python3 1
-endif
+" if has('python3')
+"   silent! python3 1
+" endif
 
-"force the old regex engine to avoid hella slow ruby syntax highlighting
-set re=1
+" force the old regex engine to avoid hella slow ruby syntax highlighting
+" set re=1
 
 "80th column warning
 if exists('+colorcolumn')
@@ -74,8 +86,8 @@ set autoindent
 filetype plugin indent on
 
 " tab completion
-imap <Tab> <C-P>
-imap <S-Tab> <C-X><C-O>
+" imap <Tab> <C-P>
+" imap <S-Tab> <C-X><C-O>
 
 " move swap files out of current directory
 set bdir-=.
@@ -110,8 +122,6 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set mouse=nicr
-"use `set list` for
-set listchars=tab:.\ ,eol:¬
 
 nnoremap j gj
 nnoremap k gk
@@ -120,21 +130,14 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 nnoremap ; :
 
-" save on FocusLost
-" au FocusLost * :wa
 
 " custom functions
-
 " copy full file path of current buffer
 map <leader>yp :let @* = expand("%:p")<CR>
 map <leader>cd :let @* = expand("%:p:h")<CR>
 
 " kill all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-nnoremap <leader>a :Ack
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
 
 " enter for G
 nnoremap <CR> G
@@ -176,14 +179,11 @@ vnoremap <tab> %
 nnoremap <leader><tab> %
 runtime macros/matchit.vim
 
-" ctrl+c to break a line
-imap <C-c> <CR><Esc>O
-
 " jshint2
-let jshint2_read = 1
-let jshint2_save = 1
-let jshint2_confirm = 0
-let jshint2_height = 4
+" let jshint2_read = 1
+" let jshint2_save = 1
+" let jshint2_confirm = 0
+" let jshint2_height = 4
 
 " vim-markdown fenced code highlighting (requires explicitly specified languages)
 let g:markdown_fenced_languages = ['json', 'javascript', 'ruby', 'xml']
