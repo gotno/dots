@@ -1,13 +1,11 @@
 [user]
-	email = willfloyd@coverhound.com
 	name = Will Floyd
-
+	email = willfloyd@coverhound.com
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = ~/.gitignore
 [push]
 	default = simple
-
 [alias]
   br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
-
-[core]
-
-[init]
