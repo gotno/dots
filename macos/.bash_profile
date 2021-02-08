@@ -49,6 +49,9 @@ ru() {
   fi
 }
 
+# env variables to make mysql2 gem compile correctly
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
  # asdf config should go after any other $PATH stuff
