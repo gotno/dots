@@ -49,6 +49,8 @@ ru() {
   fi
 }
 
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
  # asdf config should go after any other $PATH stuff
 . /usr/local/opt/asdf/asdf.sh
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
