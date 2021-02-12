@@ -53,6 +53,7 @@ ru() {
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
  # asdf config should go after any other $PATH stuff
 . /usr/local/opt/asdf/asdf.sh
