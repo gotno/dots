@@ -1,0 +1,11 @@
+[user]
+  name = Will Floyd
+  email = floyd.will@gmail.com
+[init]
+  defaultBranch = main
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = simple
+[pull]
+  rebase = false

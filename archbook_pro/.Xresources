@@ -1,0 +1,17 @@
+!hidpi
+Xft.dpi: 192
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+URxvt.font: xft:Source Code Pro:size=8
+URxvt.scrollBar: false
+
+!clipboard
+URxvt.perl-ext-common: clipboard,resize-font
+URxvt.clipboard.autocopy: true
+URxvt.keysym.C-c: perl:clipboard:copy
+URxvt.keysym.C-v: perl:clipboard:paste
