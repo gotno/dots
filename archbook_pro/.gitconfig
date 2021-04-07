@@ -1,0 +1,13 @@
+[user]
+  name = Will Floyd
+  email = floyd.will@gmail.com
+[init]
+  defaultBranch = main
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = simple
+[pull]
+  rebase = false
+[alias]
+  br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'

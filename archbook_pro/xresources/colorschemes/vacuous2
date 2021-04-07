@@ -1,0 +1,38 @@
+!vacuous2
+
+#define c00 #202020
+#define c01 #b91e2e
+#define c02 #81957c
+#define c03 #f9bb80
+#define c04 #356579
+#define c05 #2d2031
+#define c06 #0b3452
+#define c07 #909090
+#define c08 #606060
+#define c09 #d14548
+#define c10 #a7b79a
+#define c11 #fae3a0
+#define c12 #7491a1
+#define c13 #87314e
+#define c14 #0f829d
+#define c15 #fff0f0
+
+#define cFG #d2c5bc
+#define cBG #101010
+
+*.color0: c00
+*.color1: c01
+*.color2: c02
+*.color3: c03
+*.color4: c04
+*.color5: c05
+*.color6: c06
+*.color7: c07
+*.color8: c08
+*.color9: c09
+*.color10: c10
+*.color11: c11
+*.color12: c12
+*.color13: c13
+*.color14: c14
+*.color15: c15

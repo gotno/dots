@@ -1,0 +1,8 @@
+!hidpi
+#include "/home/ont/dev/dots/archbook_pro/xresources/hidpi"
+
+!colors
+#include "/home/ont/dev/dots/archbook_pro/xresources/colorschemes/vacuous2"
+
+!urxvt
+#include "/home/ont/dev/dots/archbook_pro/xresources/urxvt"
