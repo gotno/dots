@@ -15,6 +15,7 @@ alias gu="git push"
 alias gU="git push -u origin HEAD"
 alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
+alias gundo="git reset --soft HEAD~1"
 
 # prompt
 SKULL=$'\xE2\x98\xA0'
@@ -54,6 +55,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/ont/.script:$PATH"
 
  # asdf config should go after any other $PATH stuff
 . /usr/local/opt/asdf/asdf.sh
