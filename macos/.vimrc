@@ -195,6 +195,7 @@ set noshowmode
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
 " filetypes
+au BufNewFile,BufRead *.js.snap set filetype=javascript
 au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.sass set filetype=css
 au BufNewFile,BufRead *.ejs set filetype=html
