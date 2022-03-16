@@ -30,7 +30,7 @@ ru() {
 }
 
 # prompt
-PROMPT="$(echo $PROMPT | sed s/\%c/\%5~/)"
+PROMPT="$(echo $PROMPT | sed s/\%c/\%5~\ \%D\{\%T\}/)"
 PROMPT+=$'\n'
 PROMPT+="%F{038}☠"
 PROMPT+='%{$reset_color%}  '
