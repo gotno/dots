@@ -1,7 +1,9 @@
+let mapleader = "\<Space>"
+
 " vim-plug stuff. this will run one time, if vim-plug isn't already installed.
 " add the repository for any plugin you need here.
-" if you add others or want to update, run `:PlugInstall` again after
-" reloading .vimrc
+" if you add others or want to update, reload .vimrc and run `:PlugInstall`
+" if you remove any, reload .vimrc and run `:PlugClean`
 
 " Install vim-plug if we don't already have it
 if empty(glob("~/.vim/autoload/plug.vim"))
@@ -38,10 +40,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " tags and autocomplete
-" Plug 'Valloric/YouCompleteMe'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'ackyshake/VimCompletesMe'
-Plug 'majutsushi/tagbar'
 
 " common
 Plug 'tpope/vim-commentary'
@@ -65,8 +64,6 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>81v.\+', -1)
   endif
 highlight ColorColumn ctermbg=8
-
-let mapleader = "\<Space>"
 
 " linter settings
 let g:ale_sign_column_always = 1
@@ -101,9 +98,9 @@ set undodir+=/tmp
 set undofile
 
 " tabs
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " general
@@ -212,3 +209,22 @@ let @c='jIconsole.log("ly$A:", ");'
 
 " vim-stay
 set viewoptions=cursor,folds,slash,unix
+
+" wrap/unwrap knockout component templates
+function! RemoveKOTemplating() range
+  silent! execute a:firstline . "," . a:lastline . 's/\s''/ /'
+  silent! execute a:firstline . "," . a:lastline .'s/''\s\=+\=$//g'
+endfunction
+xnoremap <leader>K :call RemoveKOTemplating()<cr>
+
+function! AddKOTemplating() range
+  let columncount=len(matchlist(getline(a:firstline), '\(\s*\)')[1])
+
+  " add the beginning `'` at the appropriate column
+  silent! execute a:firstline . "," . a:lastline . 's/^\s\{' . columncount . '}/' . repeat(' ', columncount) . '''/'
+  " add the ending `' +`
+  silent! execute a:firstline . "," . a:lastline . 's/\(.\)$/\1'' +/'
+  " remove the ` +` on the last line
+  silent! execute a:lastline . "," . a:lastline .  's/\s+$//'
+endfunction
+xnoremap <leader>k :call AddKOTemplating()<cr>
