@@ -13,7 +13,67 @@ alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
 
-alias ack_no_junk="ack --ignore-dir=log --ignore-dir=common --ignore-dir=client-bundler"
+# using ag, search file contents of files in relevant bc directories,
+# skipping duplicates, logs, and bundled code
+# usage: `ab [pattern]`
+ab() {
+  ag \
+    `# exlude the following file/directory names from the search` \
+    --ignore log \
+    --ignore common \
+    --ignore string-extractor \
+    --ignore string-loader \
+    --ignore client-bundler \
+    --ignore global_head_bundle.js \
+    --ignore global_foot1_bundle.js \
+    --ignore global_foot2_bundle.js \
+    --ignore global_admin_bundle.js \
+    --ignore vendor.js \
+    --ignore vendor.js.map \
+    --ignore index.js.map \
+    --ignore core.js \
+    --ignore bcoak_bundle.js \
+    --ignore jslib \
+    --ignore public-endpoint-haproxy-config-generator \
+    -C${2:-0} \
+    $1 \
+    `# search the following directories` \
+    ~/bc/bandcamp/trunk/common \
+    ~/bc/bandcamp/trunk/shared \
+    ~/bc/bandcamp/trunk/trackpipe \
+    ~/bc/bandcamp/trunk/util \
+    ~/bc/bandcamp/services
+}
+
+# using ag, search file contents of files in a service,
+# skipping common
+# usage: `abs [pattern]`
+abs() {
+  ag \
+    `# exlude the following file/directory names from the search` \
+    --ignore common \
+    --ignore var \
+    $1 \
+    `# search the following directories` \
+    .
+}
+
+# using fd, search file and directory names in relevant bc directories,
+# skipping services/*/common directories
+# usage: `fb [pattern]`
+fb() {
+  fd \
+    `# exlude the following file/directory names from the search` \
+    --exclude 'common' \
+    --exclude 'client-bundler' \
+    $1 \
+    `# search the following directories` \
+    ~/bc/bandcamp/trunk/common \
+    ~/bc/bandcamp/trunk/shared \
+    ~/bc/bandcamp/trunk/trackpipe \
+    ~/bc/bandcamp/trunk/util \
+    ~/bc/bandcamp/services
+}
 
 # source ranger when running it so the underlying shell follows in-app navigation
 alias ranger=". ranger"
