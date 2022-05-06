@@ -81,6 +81,12 @@ set number
 " indenting
 set autoindent
 filetype plugin indent on
+set smarttab
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+autocmd FileType ruby setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " tab completion
 " imap <Tab> <C-P>
@@ -96,12 +102,6 @@ set dir+=/tmp
 set undodir-=.
 set undodir+=/tmp
 set undofile
-
-" tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
 
 " general
 set t_Co=256
