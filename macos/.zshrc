@@ -33,6 +33,8 @@ ab() {
     --ignore index.js.map \
     --ignore core.js \
     --ignore bcoak_bundle.js \
+    --ignore entry-index.js.map \
+    --ignore entry-adminLiveApproval.js.map \
     --ignore jslib \
     --ignore public-endpoint-haproxy-config-generator \
     -C${2:-0} \
@@ -77,6 +79,28 @@ fb() {
 
 # source ranger when running it so the underlying shell follows in-app navigation
 alias ranger=". ranger"
+
+# svn stash
+# todo: make this directory specific, with automatic auto-incremented filenames.
+# note to self: these are hella dangerous, PAY ATTENTION TO WHAT YOU ARE DOING.
+svnstash() {
+    svn diff --diff-cmd /usr/bin/diff > ~/.svnstash/$1
+    svn revert -R .
+}
+
+svnstashlist() {
+    ls ~/.svnstash
+}
+
+svnstashshow() {
+    cat ~/.svnstash/$1
+}
+
+svnstashrestore() {
+    patch -p0 < ~/.svnstash/$1
+    rm ~/.svnstash/$1
+}
+
 
 # if we've dropped into a shell from ranger and run it again,
 # fall back to already running ranger
