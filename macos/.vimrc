@@ -21,6 +21,7 @@ Plug 'kopischke/vim-stay' " keep folds, cursor position etc
 
 " syntax
 Plug 'othree/html5.vim'
+
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
@@ -32,8 +33,7 @@ Plug 'tpope/vim-markdown'
 Plug 'statianzo/vim-jade'
 
 " linting
-Plug 'w0rp/ale'
-" Plug 'Shutnik/jshint2.vim'
+Plug 'dense-analysis/ale'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -67,7 +67,10 @@ highlight ColorColumn ctermbg=8
 
 " linter settings
 let g:ale_sign_column_always = 1
+let g:ale_linters = { 'javascript': ['standard'] }
+let g:ale_fixers = {'javascript': ['standard']}
 map <leader>L :ALEToggle<cr>
+map <leader>F :ALEFix<cr>
 
 " no pipes in the split divider and kill the border
 set fillchars+=vert:\
