@@ -37,6 +37,7 @@ ab() {
     --ignore entry-adminLiveApproval.js.map \
     --ignore jslib \
     --ignore public-endpoint-haproxy-config-generator \
+    --ignore all.min.css \
     -C${2:-0} \
     $1 \
     `# search the following directories` \
