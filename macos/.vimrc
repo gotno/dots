@@ -90,6 +90,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 autocmd FileType ruby setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " tab completion
 " imap <Tab> <C-P>
