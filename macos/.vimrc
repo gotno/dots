@@ -180,6 +180,9 @@ vnoremap <tab> %
 nnoremap <leader><tab> %
 runtime macros/matchit.vim
 
+nmap ( <Nop>
+nmap ) <Nop>
+
 " jshint2
 " let jshint2_read = 1
 " let jshint2_save = 1
