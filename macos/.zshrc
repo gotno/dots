@@ -43,6 +43,28 @@ ab() {
     --ignore chunk-logo.js.map \
     --ignore entry-aboutLive.js.map \
     --ignore node_modules \
+    --ignore plyr.polyfilled.js \
+    --ignore emojidata.js \
+    --ignore entry-index.js \
+    --ignore chunk-vendor.js \
+    --ignore chunk-vendor.js.map \
+    --ignore GeoIP2-City-Locations-en.csv \
+    --ignore spotify_album_data_export.json \
+    --ignore package-lock.json \
+    --ignore HappyBuildings.vue \
+    --ignore EthernetCable.vue \
+    --ignore LaptopStars.vue \
+    --ignore chunk-UnmuteButton.js \
+    --ignore chunk-UnmuteButton.js.map \
+    --ignore storedata \
+    --ignore store1.data \
+    --ignore ic_computer.svg \
+    --ignore ic_homes.svg \
+    --ignore ic_cable.svg \
+    --ignore fonts.css \
+    --ignore signing-key.asc \
+    --ignore chunk-application_entrypoint.js.map \
+    --ignore entry-editLiveShow.js.map \
     -C${2:-0} \
     $1 \
     `# search the following directories` \
