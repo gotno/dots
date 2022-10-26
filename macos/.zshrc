@@ -1,5 +1,5 @@
-HISTSIZE=5000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=10000
 
 # git aliases
 alias gs="git status -sb"
@@ -76,6 +76,9 @@ ab() {
     --ignore string-loader \
     --ignore vendor.js \
     --ignore vendor.js.map \
+    --ignore chunk-style.js \
+    --ignore chunk-style.js.map \
+    --ignore chunk-plugin-vue_export-helper.js \
     -C${2:-0} \
     $1 \
     `# search the following directories` \
@@ -153,7 +156,7 @@ ru() {
 }
 
 # prompt
-PROMPT="$(echo $PROMPT | sed s/\%c/\%5~\ \%D\{\%T\}/)"
+PROMPT="$(echo $PROMPT | sed s/\%c/\%5~\ \%\*/)"
 PROMPT+=$'\n'
 PROMPT+="%F{038}☠"
 PROMPT+='%{$reset_color%}  '
