@@ -116,9 +116,22 @@ fb() {
 # source ranger when running it so the underlying shell follows in-app navigation
 alias ranger=". ranger"
 
+# svn diff -r r263601:r263627 --diff-cmd /usr/bin/diff | pbcopy
+svncopydiff() {
+    svn diff --diff-cmd /usr/bin/diff | pbcopy
+}
+
+svncopydiff_between() {
+    svn diff -r r${1}:r${2} --diff-cmd /usr/bin/diff | pbcopy
+}
+
 # svn stash
-# todo: make this directory specific, with automatic auto-incremented filenames.
+# todo: make this directory specific, with auto-incremented or timestamped filenames.
 # note to self: these are hella dangerous, PAY ATTENTION TO WHAT YOU ARE DOING.
+svnbackup_diff() {
+    svn diff --diff-cmd /usr/bin/diff > ~/.svnstash/$1
+}
+
 svnstash() {
     svn diff --diff-cmd /usr/bin/diff > ~/.svnstash/$1
     svn revert -R .
