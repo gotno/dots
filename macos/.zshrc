@@ -170,6 +170,7 @@ cy_int() {
 
 # if we've dropped into a shell from ranger and run it again,
 # fall back to already running ranger
+RANGER_LEVEL=''
 ru() {
   if [ -z "$RANGER_LEVEL" ]
   then
