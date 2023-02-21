@@ -150,6 +150,23 @@ svnstashrestore() {
     rm ~/.svnstash/$1
 }
 
+# cypress stuff
+cy() {
+    if [ "$1" ]; then
+        dev service exec --cypress --includedKeys $1
+    else
+        dev service exec --cypress
+    fi
+}
+
+cy_int() {
+    if [ "$1" ]; then
+        dev service exec --cypress --interactive --includedKeys $1
+    else
+        dev service exec --cypress --interactive
+    fi
+}
+
 
 # if we've dropped into a shell from ranger and run it again,
 # fall back to already running ranger
