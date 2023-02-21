@@ -35,47 +35,18 @@ ab() {
     `# exlude the following file/directory names from the search` \
     --ignore log \
     --ignore common \
-    --ignore all.min.css \
-    --ignore bcoak_bundle.js \
-    --ignore chunk-application_entrypoint.js \
-    --ignore chunk-application_entrypoint.js.map \
-    --ignore chunk-logo.js.map \
-    --ignore chunk-Table.vue_vue_type_style_index_0_scoped_true_lang.js \
-    --ignore chunk-Table.vue_vue_type_style_index_0_scoped_true_lang.js.map \
-    --ignore chunk-UnmuteButton.js \
-    --ignore chunk-UnmuteButton.js.map \
-    --ignore chunk-vendor.js \
-    --ignore chunk-vendor.js.map \
     --ignore client-bundler \
     --ignore core.js \
     --ignore emojidata.js \
-    --ignore entry-a.js.map \
-    --ignore entry-aboutLive.fr.js \
-    --ignore entry-aboutLive.ja.js \
-    --ignore entry-aboutLive.js.map \
-    --ignore entry-adminLiveApproval.js.map \
-    --ignore entry-editLiveShow.fr.js \
-    --ignore entry-editLiveShow.ja.js \
     --ignore entry-editLiveShow.js \
-    --ignore entry-editLiveShow.js.map \
-    --ignore entry-index.fr.js \
-    --ignore entry-index.ja.js \
     --ignore entry-index.js \
-    --ignore entry-index.js.map \
     --ignore EthernetCable.vue \
     --ignore fonts.css \
     --ignore GeoIP2-City-Locations-en.csv \
-    --ignore global_admin_bundle.js \
-    --ignore global_foot1_bundle.js \
-    --ignore global_foot2_bundle.js \
-    --ignore global_head_bundle.js \
     --ignore HappyBuildings.vue \
     --ignore ic_cable.svg \
     --ignore ic_computer.svg \
     --ignore ic_homes.svg \
-    --ignore index.js.map \
-    --ignore jquery-1.7.1.min.js \
-    --ignore jquery-3.4.1.min.js \
     --ignore jslib \
     --ignore LaptopStars.vue \
     --ignore node_modules \
@@ -89,10 +60,19 @@ ab() {
     --ignore string-extractor \
     --ignore string-loader \
     --ignore vendor.js \
-    --ignore vendor.js.map \
-    --ignore chunk-style.js \
-    --ignore chunk-style.js.map \
-    --ignore chunk-plugin-vue_export-helper.js \
+    --ignore charts.js \
+    --ignore intopia_report.liquid \
+    --ignore aboutLive.css \
+    --ignore entry-aboutLive.js \
+    --ignore 'vite-prod/*' \
+    --ignore 'chunk*.js' \
+    --ignore '*.js.map' \
+    --ignore '*.min.js' \
+    --ignore '*.min.css' \
+    --ignore '*.fr.js' \
+    --ignore '*.ja.js' \
+    --ignore '*bundle.js' \
+    --ignore '*bundle.css' \
     -C${2:-0} \
     $1 \
     `# search the following directories` \
