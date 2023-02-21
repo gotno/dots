@@ -13,6 +13,20 @@ alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
 
+# bc logging aliases
+staging_log() {
+ dev log zappweb$1-staging-webapp$2
+}
+staging_log1() {
+ dev log zappweb1-staging-webapp$1
+}
+staging_log3() {
+ dev log zappweb3-staging-webapp$1
+}
+staging_log_svc() {
+  dev log staging-${1}1
+}
+
 # using ag, search file contents of files in relevant bc directories,
 # skipping duplicates, logs, and bundled code
 # usage: `ab [pattern] [number of preceding/following lines]`
