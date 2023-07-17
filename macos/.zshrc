@@ -1,6 +1,8 @@
 HISTSIZE=10000
 SAVEHIST=10000
 
+alias usql="usql mysql://root:@localhost"
+
 # git aliases
 alias gs="git status -sb"
 alias gc="git commit"
@@ -26,6 +28,12 @@ staging_log3() {
 staging_log_svc() {
   dev log staging-${1}1
 }
+
+# DANGER
+# this will delete an important zstore record, after which running bcdevs/setup will completely reset the database
+alias destroy_dev_zstore="echo \"delete from z_stores where name = 'dev'\" | mysql zstore < /dev/stdin && rm -rf ~/bc/zstore/*"
+alias flush_memcached="echo 'flush_all' | nc localhost 11211"
+alias reset_bc_db="destroy_dev_zstore && flush_memcached && ~/bc/bandcamp/services/bcdevs/setup"
 
 # using ag, search file contents of files in relevant bc directories,
 # skipping duplicates, logs, and bundled code
@@ -64,6 +72,7 @@ ab() {
     --ignore intopia_report.liquid \
     --ignore aboutLive.css \
     --ignore entry-aboutLive.js \
+    --ignore 'jquery*.min.js' \
     --ignore 'vite-prod/*' \
     --ignore 'chunk*.js' \
     --ignore '*.js.map' \
@@ -104,6 +113,7 @@ fb() {
     `# exlude the following file/directory names from the search` \
     --exclude 'common' \
     --exclude 'client-bundler' \
+    -H \
     $1 \
     `# search the following directories` \
     ~/bc/bandcamp/trunk/common \
@@ -112,6 +122,8 @@ fb() {
     ~/bc/bandcamp/trunk/util \
     ~/bc/bandcamp/services
 }
+# cat a list of files from fd
+# cat $(fb .ruby-version | grep -v '^#')
 
 # source ranger when running it so the underlying shell follows in-app navigation
 alias ranger=". ranger"
@@ -170,7 +182,6 @@ cy_int() {
 
 # if we've dropped into a shell from ranger and run it again,
 # fall back to already running ranger
-RANGER_LEVEL=''
 ru() {
   if [ -z "$RANGER_LEVEL" ]
   then
