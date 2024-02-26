@@ -40,7 +40,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " tags and autocomplete
-Plug 'ackyshake/VimCompletesMe'
+" Plug 'ackyshake/VimCompletesMe'
+" Plug 'girishji/vimcomplete'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " common
 Plug 'tpope/vim-commentary'
@@ -54,8 +56,7 @@ call plug#end()
 "   silent! python3 1
 " endif
 
-" force the old regex engine to avoid hella slow ruby syntax highlighting
-" set re=1
+set updatetime=300
 
 "80th column warning
 if exists('+colorcolumn')
@@ -215,21 +216,67 @@ let @c="jIconsole.log('ly$A:', \")"
 " vim-stay
 set viewoptions=cursor,folds,slash,unix
 
-" wrap/unwrap knockout component templates
-function! RemoveKOTemplating() range
-  silent! execute a:firstline . "," . a:lastline . 's/\s''/ /'
-  silent! execute a:firstline . "," . a:lastline .'s/''\s\=+\=$//g'
-endfunction
-xnoremap <leader>K :call RemoveKOTemplating()<cr>
+" Prevent accidental closing of all buffers when doing :wq or :q
+cnoreabbrev wq w<bar>Sayonara
+cnoreabbrev  q       Sayonara
 
-function! AddKOTemplating() range
-  let columncount=len(matchlist(getline(a:firstline), '\(\s*\)')[1])
+""" coc settings
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-  " add the beginning `'` at the appropriate column
-  silent! execute a:firstline . "," . a:lastline . 's/^\s\{' . columncount . '}/' . repeat(' ', columncount) . '''/'
-  " add the ending `' +`
-  silent! execute a:firstline . "," . a:lastline . 's/\(.\)$/\1'' +/'
-  " remove the ` +` on the last line
-  silent! execute a:lastline . "," . a:lastline .  's/\s+$//'
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-xnoremap <leader>k :call AddKOTemplating()<cr>
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Remap <C-f> and <C-b> to scroll float windows/popups
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
