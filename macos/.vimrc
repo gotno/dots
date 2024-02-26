@@ -47,14 +47,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " common
 Plug 'tpope/vim-commentary'
 
+" handle buffer/regular close 
+Plug 'mhinz/vim-sayonara'
+
 call plug#end()
-
-" let g:ycm_server_keep_logfiles = 0
-" let g:ycm_server_log_level = 'debug'
-
-" if has('python3')
-"   silent! python3 1
-" endif
 
 set updatetime=300
 
