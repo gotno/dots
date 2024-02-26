@@ -28,8 +28,7 @@ ru() {
 }
 
 # prompt
-SKULL=$'\xE2\x98\xA0'
-PROMPT=$'[%4d]\n💀 '
+PROMPT=$'[%4~]\n💀 '
 
 alias ls='ls -GFh'
 alias ll="ls -al"
