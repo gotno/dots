@@ -21,6 +21,8 @@ Plug 'kopischke/vim-stay' " keep folds, cursor position etc
 
 " syntax
 Plug 'othree/html5.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'bfrg/vim-cpp-modern'
 
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
@@ -86,6 +88,7 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 " tab completion
 " imap <Tab> <C-P>

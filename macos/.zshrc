@@ -34,8 +34,19 @@ alias ls='ls -GFh'
 alias ll="ls -al"
 alias cls="printf '\e]50;ClearScrollback\a'"
 
+alias tsnode="npx ts-node"
+
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 
 export PATH="/Users/willfloyd/.script:$PATH"
+
+# asdf-vm (https://asdf-vm.com/guide/getting-started.html)
+# these should remain after any $PATH settings and after any
+# framework sourcing (like oh-my-zsh)
+. "$HOME/.asdf/asdf.sh"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
