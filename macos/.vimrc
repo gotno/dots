@@ -49,9 +49,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " common
 Plug 'tpope/vim-commentary'
 
-" handle buffer/regular close 
-Plug 'mhinz/vim-sayonara'
-
 call plug#end()
 
 set updatetime=300
@@ -214,10 +211,6 @@ let @c="jIconsole.log('ly$A:', \")"
 
 " vim-stay
 set viewoptions=cursor,folds,slash,unix
-
-" Prevent accidental closing of all buffers when doing :wq or :q
-cnoreabbrev wq w<bar>Sayonara
-cnoreabbrev  q       Sayonara
 
 """ coc settings
 " Use tab for trigger completion with characters ahead and navigate
