@@ -14,7 +14,7 @@ alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
 
 # source ranger when running it so the underlying shell follows in-app navigation
-alias ranger=". ranger"
+# alias ranger=". ranger"
 
 # if we've dropped into a shell from ranger and run it again,
 # fall back to already running ranger
