@@ -42,9 +42,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " tags and autocomplete
-" Plug 'ackyshake/VimCompletesMe'
-" Plug 'girishji/vimcomplete'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" for js, :CocInstall coc-tsserver and coc-json
+" for ruby, https://github.com/neoclide/coc-solargraph
+" for cpp, https://codevion.github.io/#!vim/coc.md
 
 " common
 Plug 'tpope/vim-commentary'
