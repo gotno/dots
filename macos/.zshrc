@@ -50,7 +50,6 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 
-
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # asdf-vm (https://asdf-vm.com/guide/getting-started.html)
