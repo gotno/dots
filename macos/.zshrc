@@ -13,6 +13,8 @@ alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
 
+alias lc="ssh localcloud"
+
 # source ranger when running it so the underlying shell follows in-app navigation
 # alias ranger=". ranger"
 
@@ -48,6 +50,8 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 
+
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # asdf-vm (https://asdf-vm.com/guide/getting-started.html)
 # these should remain after any $PATH settings and after any
