@@ -13,6 +13,8 @@ alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
 
+alias lc="ssh localcloud"
+
 # source ranger when running it so the underlying shell follows in-app navigation
 # alias ranger=". ranger"
 
