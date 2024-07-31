@@ -50,6 +50,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " common
 Plug 'tpope/vim-commentary'
 
+" enable OSC52 yankin' (for copying to the clipboard from ssh)
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
+" copilot
+Plug 'github/copilot.vim'
+
+
 call plug#end()
 
 set updatetime=300
@@ -68,6 +75,15 @@ let g:ale_linters = { 'javascript': ['standard'] }
 let g:ale_fixers = {'javascript': ['standard']}
 map <leader>L :ALEToggle<cr>
 map <leader>F :ALEFix<cr>
+" disable horrible inline comment-style linting messages
+let g:ale_virtualtext_cursor = 'disabled'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:airline#extensions#ale#enabled = 1
+" only lint on file save
+let g:ale_lint_on_text_changed = 'never'
+" don't lint on file open
+let g:ale_lint_on_enter = 0
 
 " no pipes in the split divider and kill the border
 set fillchars+=vert:\
@@ -132,6 +148,13 @@ nnoremap ; :
 " copy full file path of current buffer
 map <leader>yp :let @* = expand("%:p")<CR>
 map <leader>cd :let @* = expand("%:p:h")<CR>
+
+" copilot
+map <leader>cp :Copilot panel<CR>
+
+" pasting
+map <leader>p :set paste<CR>
+map <leader>np :set nopaste<CR>
 
 " kill all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -273,3 +296,11 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" better colors for the Pmenu (for Coc completion etc)
+hi Pmenu ctermbg=0 ctermfg=15
+
+" oscyank
+nmap <leader>c <Plug>OSCYankOperator
+nmap <leader>cc <leader>c_
+vmap <leader>c <Plug>OSCYankVisual
