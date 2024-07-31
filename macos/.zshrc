@@ -44,6 +44,8 @@ export EDITOR=vim
 
 export PATH="/Users/willfloyd/.script:$PATH"
 
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 # asdf-vm (https://asdf-vm.com/guide/getting-started.html)
 # these should remain after any $PATH settings and after any
 # framework sourcing (like oh-my-zsh)
