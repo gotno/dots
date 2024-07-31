@@ -27,8 +27,16 @@ ru() {
   fi
 }
 
-# prompt
-PROMPT=$'[%4~]\n💀 '
+if [ -f /etc/os-release ]; then
+  # this is amazon linux, ie hustle localcloud
+  PROMPT=$'[%4~]\n☁️  '
+  export PATH="/home/will.floyd/.script:$PATH"
+else
+  # this is local hustle
+  PROMPT=$'[%4~]\n💀 '
+  export PATH="/Users/will.floyd/.script:$PATH"
+fi
+
 
 alias ls='ls -GFh'
 alias ll="ls -al"
@@ -40,7 +48,6 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 
-export PATH="/Users/willfloyd/.script:$PATH"
 
 # asdf-vm (https://asdf-vm.com/guide/getting-started.html)
 # these should remain after any $PATH settings and after any
