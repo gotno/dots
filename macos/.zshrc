@@ -49,6 +49,7 @@ alias tsnode="npx ts-node"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
+export TERM=xterm-256color
 
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
