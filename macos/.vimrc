@@ -1,5 +1,3 @@
-let mapleader = "\<Space>"
-
 " vim-plug stuff. this will run one time, if vim-plug isn't already installed.
 " add the repository for any plugin you need here.
 " if you add others or want to update, reload .vimrc and run `:PlugInstall`
@@ -40,7 +38,7 @@ Plug 'airblade/vim-gitgutter'
 
 " tags and autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" for js, :CocInstall coc-tsserver and coc-json
+" for js, :CocInstall coc-tsserver and coc-json and coc-eslint
 " for ruby, https://github.com/neoclide/coc-solargraph
 " for cpp, https://codevion.github.io/#!vim/coc.md
 
