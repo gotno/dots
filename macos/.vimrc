@@ -303,6 +303,7 @@ let &t_SR = WrapForTmux("\e[4 q") " replace mode
 let &t_EI = WrapForTmux("\e[2 q") " normal mode
 
 " auto paste/nopaste
+" https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
