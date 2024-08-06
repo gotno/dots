@@ -298,8 +298,9 @@ nmap <leader>cc <leader>c_
 vmap <leader>c <Plug>OSCYankVisual
 
 " cursors
-let &t_SI = WrapForTmux("\e[5 q")
-let &t_EI = WrapForTmux("\e[2 q")
+let &t_SI = WrapForTmux("\e[5 q") " insert mode
+let &t_SR = WrapForTmux("\e[4 q") " replace mode
+let &t_EI = WrapForTmux("\e[2 q") " normal mode
 
 " auto paste/nopaste
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
