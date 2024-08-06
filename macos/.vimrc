@@ -34,9 +34,6 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-markdown'
 Plug 'statianzo/vim-jade'
 
-" linting
-Plug 'dense-analysis/ale'
-
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -68,22 +65,6 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>81v.\+', -1)
   endif
 highlight ColorColumn ctermbg=8
-
-" linter settings
-let g:ale_sign_column_always = 1
-let g:ale_linters = { 'javascript': ['standard'] }
-let g:ale_fixers = {'javascript': ['standard']}
-map <leader>L :ALEToggle<cr>
-map <leader>F :ALEFix<cr>
-" disable horrible inline comment-style linting messages
-let g:ale_virtualtext_cursor = 'disabled'
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-let g:airline#extensions#ale#enabled = 1
-" only lint on file save
-let g:ale_lint_on_text_changed = 'never'
-" don't lint on file open
-let g:ale_lint_on_enter = 0
 
 " no pipes in the split divider and kill the border
 set fillchars+=vert:\
