@@ -231,7 +231,7 @@ au BufNewFile,BufRead *.jbuilder set filetype=ruby
 "" to `puts "whatever #{whatever}"`
 "" or `console.log("whatever:", whatever);`
 let @p='jIputs "ly$A #{"}"'
-let @c="jIconsole.log('ly$A:', \")"
+let @c="jIconsole.log('ly$A:', \");"
 
 " vim-stay
 set viewoptions=cursor,folds,slash,unix
