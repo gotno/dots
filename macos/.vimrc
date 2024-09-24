@@ -38,6 +38,7 @@ Plug 'airblade/vim-gitgutter'
 
 " tags and autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-json', 'coc-eslint', 'coc-prettier' ]
 " for js, :CocInstall coc-tsserver and coc-json and coc-eslint
 " for ruby, https://github.com/neoclide/coc-solargraph
 " for cpp, https://codevion.github.io/#!vim/coc.md
@@ -137,10 +138,6 @@ nnoremap ; :
 
 
 " custom functions
-" copy full file path of current buffer
-map <leader>yp :let @* = expand("%:p")<CR>
-map <leader>cd :let @* = expand("%:p:h")<CR>
-
 " copilot
 map <leader>cp :Copilot panel<CR>
 
@@ -201,7 +198,7 @@ nmap ) <Nop>
 " let jshint2_height = 4
 
 " vim-markdown fenced code highlighting (requires explicitly specified languages)
-let g:markdown_fenced_languages = ['json', 'javascript', 'ruby', 'xml']
+let g:markdown_fenced_languages = ['json', 'javascript', 'typescript', 'ruby', 'xml']
 
 " airline
 set noshowmode
@@ -288,6 +285,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" open actions menu, useful for fixing eslint/prettier complaints
+nmap <leader>do <Plug>(coc-codeaction)
 
 " better colors for the Pmenu (for Coc completion etc)
 hi Pmenu ctermbg=0 ctermfg=15
