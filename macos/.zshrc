@@ -30,13 +30,14 @@ ru() {
   fi
 }
 
+source ~/.zsh/zsh-git-prompt/zshrc.sh
 if [ -f /etc/os-release ]; then
   # this is amazon linux, ie hustle localcloud
-  PROMPT=$'[%4~]\n☁️  '
+  PROMPT=$'[%4~] $(git_super_status)\n☁️  '
   export PATH="/home/will.floyd/.script:$PATH"
 else
   # this is local hustle
-  PROMPT=$'[%4~]\n💀 '
+  PROMPT=$'[%4~] $(git_super_status)\n💀 '
   export PATH="/Users/will.floyd/.script:$PATH"
 fi
 

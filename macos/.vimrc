@@ -23,7 +23,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'bfrg/vim-cpp-modern'
 
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'kchmck/vim-coffee-script'
@@ -289,8 +289,13 @@ endif
 " open actions menu, useful for fixing eslint/prettier complaints
 nmap <leader>do <Plug>(coc-codeaction)
 
+" format with prettier
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " better colors for the Pmenu (for Coc completion etc)
 hi Pmenu ctermbg=0 ctermfg=15
+hi PmenuSel ctermbg=15 ctermfg=0
 
 " oscyank
 nmap <leader>c <Plug>OSCYankOperator
@@ -314,3 +319,5 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+let g:copilot_workspace_folders = ["~/dev/hello-world"]
