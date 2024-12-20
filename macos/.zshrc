@@ -30,16 +30,14 @@ ru() {
   fi
 }
 
-source ~/.zsh/zsh-git-prompt/zshrc.sh
 if [ -f /etc/os-release ]; then
   # this is amazon linux, ie hustle localcloud
-  PROMPT=$'[%4~] $(git_super_status)\n☁️  '
-  export PATH="/home/will.floyd/.script:$PATH"
+  PROMPT=$'[%4~] $(git_prompt_info)\n☁️ '
 else
   # this is local hustle
-  PROMPT=$'[%4~] $(git_super_status)\n💀 '
-  export PATH="/Users/will.floyd/.script:$PATH"
+  PROMPT=$'[%4~] $(git_prompt_info)\n💀 '
 fi
+export PATH="$HOME/.script:$PATH"
 
 
 alias ls='ls -GFh'
@@ -53,13 +51,14 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 export TERM=xterm-256color
 
+# git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # asdf-vm (https://asdf-vm.com/guide/getting-started.html)
 # these should remain after any $PATH settings and after any
 # framework sourcing (like oh-my-zsh)
-. "$HOME/.asdf/asdf.sh"
+# . "$HOME/.asdf/asdf.sh"
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+# fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+# autoload -Uz compinit && compinit

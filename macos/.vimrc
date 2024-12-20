@@ -19,18 +19,17 @@ Plug 'kopischke/vim-stay' " keep folds, cursor position etc
 
 " syntax
 Plug 'othree/html5.vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'bfrg/vim-cpp-modern'
 
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+Plug 'suy/vim-context-commentstring'
+
 Plug 'sirtaj/vim-openscad'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-markdown'
-Plug 'statianzo/vim-jade'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -321,3 +320,6 @@ endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 let g:copilot_workspace_folders = ["~/dev/hello-world"]
+
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
