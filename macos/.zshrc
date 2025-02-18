@@ -56,12 +56,7 @@ export TERM=xterm-256color
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 export PATH="/home/will.floyd/.local/bin:$PATH"
-
-# asdf-vm (https://asdf-vm.com/guide/getting-started.html)
-# these should remain after any $PATH settings and after any
-# framework sourcing (like oh-my-zsh)
-# . "$HOME/.asdf/asdf.sh"
-# append completions to fpath
-# fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-# autoload -Uz compinit && compinit
+export ASDF_DATA_DIR="/home/will.floyd/.asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+autoload -Uz compinit && compinit
