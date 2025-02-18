@@ -13,6 +13,7 @@ alias gU="git push -u origin HEAD"
 alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
+alias gcommits='git log --pretty=format:"%h %s" -n '
 
 alias lc="ssh localcloud"
 
