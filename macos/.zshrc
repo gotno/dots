@@ -63,3 +63,5 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 # autoload -Uz compinit && compinit
+
+export PATH="/home/will.floyd/.local/bin:$PATH"
