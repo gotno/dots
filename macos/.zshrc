@@ -55,6 +55,8 @@ export TERM=xterm-256color
 # git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+export PATH="/home/will.floyd/.local/bin:$PATH"
+
 # asdf-vm (https://asdf-vm.com/guide/getting-started.html)
 # these should remain after any $PATH settings and after any
 # framework sourcing (like oh-my-zsh)
@@ -63,5 +65,3 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 # autoload -Uz compinit && compinit
-
-export PATH="/home/will.floyd/.local/bin:$PATH"
