@@ -1,0 +1,8 @@
+title: featuring
+script_language_version: '1.1'
+script: |
+  $set(_feat,$rsearch(%artist%,^.*featuring\\ \(.*\$\)))
+
+  $if(%_feat%,$set(artist,%albumartist%))
+  $if(%_feat%,$set(title,%title% feat. %_feat%))
+id: d46e8fe4-7afe-4af6-bb0a-4e5b74954beb

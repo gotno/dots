@@ -1,0 +1,8 @@
+title: ft.
+script_language_version: '1.1'
+script: |
+  $set(_feat,$rsearch(%artist%,^.*ft\\.\\ \(.*\$\)))
+
+  $if(%_feat%,$set(artist,%albumartist%))
+  $if(%_feat%,$set(title,%title% feat. %_feat%))
+id: 87ee2aad-2be2-4d01-a90f-0e010c4fdc37

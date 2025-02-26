@@ -1,0 +1,32 @@
+title: base
+script_language_version: '1.1'
+script: |
+  $unset(musicbrainz_artistid)
+  $unset(musicbrainz_recordingid)
+  $unset(musicbrainz_originalartistid)
+  $unset(musicbrainz_albumartistid)
+  $unset(musicbrainz_discid)
+  $unset(musicbrainz_albumid)
+  $unset(musicbrainz_originalartistid)
+  $unset(musicbrainz_releasegroupid)
+  $unset(musicbrainz_trackid)
+  $unset(musicbrainz_workid)
+  $unset(acoustid_id)
+  $delete(musicbrainz_artistid)
+  $delete(musicbrainz_recordingid)
+  $delete(musicbrainz_originalartistid)
+  $delete(musicbrainz_albumartistid)
+  $delete(musicbrainz_discid)
+  $delete(musicbrainz_albumid)
+  $delete(musicbrainz_originalartistid)
+  $delete(musicbrainz_releasegroupid)
+  $delete(musicbrainz_trackid)
+  $delete(musicbrainz_workid)
+  $delete(acoustid_id)
+
+  $set(_feat,$rsearch(%artist%,^.*\(feat\\..*\$\)))
+  $if(%_feat%,$set(artist,%albumartist%))
+  $if(%_feat%,$set(title,%title% %_feat%))
+
+  $set(albumartist,$if2(%albumartist%,%artist%))
+id: 2e5d9515-1631-46a1-8d92-b51fb31935a8

@@ -1,0 +1,12 @@
+title: base
+description: ""
+author: ''
+license: ''
+version: ''
+last_updated: 2022-06-12 06:00:25 UTC
+script_language_version: '1.1'
+script: |
+  %albumartist%/
+  $left($if2(%originalyear%,%date%),4) %album%/
+  $if($gt(%totaldiscs%,1),%discnumber%-)$num(%tracknumber%,2) $left(%title%,64)
+id: c17e4721-3d25-4735-8022-e608c435b27f

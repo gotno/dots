@@ -1,0 +1,5 @@
+title: discnum
+script_language_version: '1.1'
+script: |
+  $set(discnumber,$if($gt(%totaldiscs%,1),%discnumber%,0))
+id: 321373de-91e9-4f34-b1b7-b9f229bd7d11
