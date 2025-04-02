@@ -1,5 +1,5 @@
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 # git aliases
 alias gs="git status -sb"
@@ -17,8 +17,11 @@ alias gcommits='git log --pretty=format:"%h %s" -n '
 
 alias lc="ssh localcloud"
 
+# chrome log to stderr
+alias cdb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-logging=stderr --v=1"
+
 # source ranger when running it so the underlying shell follows in-app navigation
-# alias ranger=". ranger"
+alias ranger=". ranger"
 
 # if we've dropped into a shell from ranger and run it again,
 # fall back to already running ranger
@@ -31,6 +34,8 @@ ru() {
   fi
 }
 
+PROMPT=$(date +%H:%M:%S)
+PROMPT+=$' [%5~]\n'
 if [ -f /etc/os-release ]; then
   # this is amazon linux, ie hustle localcloud
   PROMPT=$'[%4~] $(git_prompt_info)\n☁️ '
