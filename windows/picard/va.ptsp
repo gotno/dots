@@ -1,0 +1,6 @@
+title: va
+script_language_version: '1.1'
+script: |
+  $set(title,%artist% - %title%)
+  $set(artist,%albumartist%)
+id: da8025f8-9d60-4fe5-b69a-571064680d05

@@ -1,0 +1,8 @@
+title: trim
+script_language_version: '1.1'
+script: |
+  $set(artist,$trim(%artist%))
+  $set(albumartist,$trim(%albumartist%))
+  $set(title,$trim(%title%))
+  $set(album,$trim(%album%))
+id: 3bf1b662-09c5-45fd-bead-b69a2e10fe14
