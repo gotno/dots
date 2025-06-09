@@ -140,9 +140,9 @@ nnoremap ; :
 " copilot
 map <leader>cp :Copilot panel<CR>
 
-" pasting
-map <leader>p :set paste<CR>
-map <leader>np :set nopaste<CR>
+" buffers
+map [b :bp<CR>
+map ]b :bn<CR>
 
 " kill all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -184,7 +184,6 @@ nmap Y y$
 " bracket matching
 nnoremap <tab> %
 vnoremap <tab> %
-nnoremap <leader><tab> %
 runtime macros/matchit.vim
 
 nmap ( <Nop>
@@ -201,9 +200,7 @@ let g:markdown_fenced_languages = ['json', 'javascript', 'typescript', 'ruby', '
 
 " airline
 set noshowmode
-
-" tagbar
-nnoremap <silent> <Leader>t :TagbarToggle<CR>
+let g:airline#extensions#tabline#enabled = 1
 
 " filetypes
 au BufNewFile,BufRead *.js.snap set filetype=javascript
@@ -290,7 +287,9 @@ nmap <leader>do <Plug>(coc-codeaction)
 
 " format with prettier
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+
+" sort inline
+vmap <leader>s :sort i<CR>
 
 " better colors for the Pmenu (for Coc completion etc)
 hi Pmenu ctermbg=0 ctermfg=15

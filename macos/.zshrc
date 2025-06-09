@@ -14,11 +14,14 @@ alias gYOLO="git push --force-with-lease"
 alias glf="git log --find-renames --follow --stat -- "
 alias gundo="git reset --soft HEAD~1"
 alias gcommits='git log --pretty=format:"%h %s" -n '
+alias hup='git pull && yarn install && cd backend && yarn update-schemas && yarn create-new-indexes && cd ..'
 
 alias lc="ssh localcloud"
 
 # chrome log to stderr
 alias cdb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-logging=stderr --v=1"
+
+alias tma="tmux attach || tmux"
 
 # source ranger when running it so the underlying shell follows in-app navigation
 alias ranger=". ranger"
@@ -52,6 +55,14 @@ alias cls="printf '\e]50;ClearScrollback\a'"
 
 alias tsnode="npx ts-node"
 
+alias hgs="cd ~/dev/hello-world && gs"
+alias htig="cd ~/dev/hello-world && tig"
+alias hservices="cd ~/dev/hello-world && yarn backend:services"
+alias hdev="cd ~/dev/hello-world && yarn backend:dev"
+alias hinternal-api="cd ~/dev/hello-world/services/internal-api && yarn dev"
+alias hadmin="cd ~/dev/hello-world/webapps/admin && yarn dev"
+alias hstorybook="cd ~/dev/hello-world/libs/component-library && yarn dev"
+
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
@@ -65,3 +76,16 @@ export ASDF_DATA_DIR="/home/will.floyd/.asdf"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
+
+# $1 = PATH
+# ex: oslocal "_cat/aliases?pretty"
+oslocal() {
+  curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1 --insecure
+}
+
+# $1 = ALIAS
+# $2 = PATH
+# ex: oslocal h2_thread_alias "_stats?pretty"
+oslocal_alias() {
+  curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1/$2 --insecure
+}
