@@ -95,6 +95,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType cpp setlocal commentstring=//\ %s
 
 " tab completion
 " imap <Tab> <C-P>

@@ -6,10 +6,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 +^l::
 Send, #^{Right}
-Send, !{Tab}
+; Send, !{Tab}
 return
 
 ^+h::
 Send, #^{Left}
-Send, !{Tab}
+; Send, !{Tab}
 return
