@@ -202,6 +202,7 @@ let g:markdown_fenced_languages = ['json', 'javascript', 'typescript', 'ruby', '
 " airline
 set noshowmode
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
 
 " filetypes
 au BufNewFile,BufRead *.js.snap set filetype=javascript
