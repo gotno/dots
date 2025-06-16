@@ -17,6 +17,8 @@ alias gcommits='git log --pretty=format:"%h %s" -n '
 alias hup='git pull && yarn install && cd backend && yarn update-schemas && yarn create-new-indexes && cd ..'
 
 alias lc="ssh localcloud"
+alias lcreauth="rm $HOME/.aws/sso/cache/* && aws_profile localcloud"
+alias lcreboot="lcreauth && localcloud_ide -f -p reboot"
 
 # chrome log to stderr
 alias cdb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-logging=stderr --v=1"
