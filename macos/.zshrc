@@ -91,3 +91,8 @@ oslocal() {
 oslocal_alias() {
   curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1/$2 --insecure
 }
+
+# if .zshrc.local exists, source it
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
