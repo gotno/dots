@@ -79,19 +79,6 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
-# $1 = PATH
-# ex: oslocal "_cat/aliases?pretty"
-oslocal() {
-  curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1 --insecure
-}
-
-# $1 = ALIAS
-# $2 = PATH
-# ex: oslocal h2_thread_alias "_stats?pretty"
-oslocal_alias() {
-  curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1/$2 --insecure
-}
-
 # if .zshrc.local exists, source it
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
