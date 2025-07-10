@@ -43,10 +43,10 @@ PROMPT=$(date +%H:%M:%S)
 PROMPT+=$' [%5~]\n'
 if [ -f /etc/os-release ]; then
   # this is amazon linux, ie hustle localcloud
-  PROMPT=$'[%4~] $(git_prompt_info)\n☁️ '
+  PROMPT=$'[%4~] $(git_prompt_info)\n  '
 else
   # this is local hustle
-  PROMPT=$'[%4~] $(git_prompt_info)\n💀 '
+  PROMPT=$'[%4~] $(git_prompt_info)\n '
 fi
 export PATH="$HOME/.script:$PATH"
 
