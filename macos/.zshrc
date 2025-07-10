@@ -70,9 +70,6 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 export TERM=xterm-256color
 
-# git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
-source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 export PATH="/home/will.floyd/.local/bin:$PATH"
 export ASDF_DATA_DIR="/home/will.floyd/.asdf"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
