@@ -17,6 +17,8 @@ alias gcommits='git log --pretty=format:"%h %s" -n '
 alias hup='git pull && yarn install && cd backend && yarn update-schemas && yarn create-new-indexes && cd ..'
 
 alias lc="ssh localcloud"
+alias lcreauth="rm $HOME/.aws/sso/cache/* && aws_profile localcloud"
+alias lcreboot="lcreauth && localcloud_ide -f -p reboot"
 
 # chrome log to stderr
 alias cdb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-logging=stderr --v=1"
@@ -41,10 +43,10 @@ PROMPT=$(date +%H:%M:%S)
 PROMPT+=$' [%5~]\n'
 if [ -f /etc/os-release ]; then
   # this is amazon linux, ie hustle localcloud
-  PROMPT=$'[%4~] $(git_prompt_info)\n☁️ '
+  PROMPT=$'[%4~] $(git_prompt_info)\n  '
 else
   # this is local hustle
-  PROMPT=$'[%4~] $(git_prompt_info)\n💀 '
+  PROMPT=$'[%4~] $(git_prompt_info)\n '
 fi
 export PATH="$HOME/.script:$PATH"
 
@@ -68,24 +70,13 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=vim
 export TERM=xterm-256color
 
-# git clone https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.zsh-vi-mode
-source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 export PATH="/home/will.floyd/.local/bin:$PATH"
 export ASDF_DATA_DIR="/home/will.floyd/.asdf"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
-# $1 = PATH
-# ex: oslocal "_cat/aliases?pretty"
-oslocal() {
-  curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1 --insecure
-}
-
-# $1 = ALIAS
-# $2 = PATH
-# ex: oslocal h2_thread_alias "_stats?pretty"
-oslocal_alias() {
-  curl -u 'admin:6^P7]0k{V=' https://localhost:9203/$1/$2 --insecure
-}
+# if .zshrc.local exists, source it
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi

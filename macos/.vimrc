@@ -312,6 +312,8 @@ let &t_EI = WrapForTmux("\e[2 q") " normal mode
 let &t_SI .= WrapForTmux("\<Esc>[?2004h")
 let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
