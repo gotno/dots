@@ -6,6 +6,7 @@ require('lazy').setup({
 
     require 'plugins.treesitter',
     require 'plugins.mini',
+    require 'plugins.snipe',
   },
   checker = { enabled = true },
 })
