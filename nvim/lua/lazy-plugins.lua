@@ -5,6 +5,7 @@ require('lazy').setup({
     require 'plugins.colors.rose-pine',
 
     require 'plugins.treesitter',
+    require 'plugins.mini',
   },
   checker = { enabled = true },
 })
