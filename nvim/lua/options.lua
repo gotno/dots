@@ -27,7 +27,7 @@ vim.o.splitbelow = true
 vim.o.cursorline = true
 
 -- line count buffer when scrolling
-vim.o.scrolloff = 10
+vim.o.scrolloff = 4
 
 -- confirm unsaved with option to save
 vim.o.confirm = true
