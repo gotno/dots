@@ -3,7 +3,8 @@ require('lazy').setup({
     'NMAC427/guess-indent.nvim', -- detect tabstop and shiftwidth automatically
 
     -- require 'plugins.colors.darkmatter',
-    require 'plugins.colors.rose-pine',
+    -- require 'plugins.colors.rose-pine',
+    require 'plugins.colors.everforest',
 
     require 'plugins.blink-cmp',
     require 'plugins.git-signs',
