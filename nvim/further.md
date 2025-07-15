@@ -19,3 +19,6 @@
 
 - [ ] swap closed buffer with new file to preserve splits
   * https://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application
+
+- [ ] color column
+  * https://stackoverflow.com/questions/78684042/setting-highlight-for-colorcolumn-in-neovim-using-lua
