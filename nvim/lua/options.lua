@@ -1,11 +1,18 @@
+-- some themes need this?
+vim.opt.termguicolors = true
+
 -- line numbers
 vim.o.number = true
 vim.o.relativenumber = true
+
+vim.o.undofile = true
 
 -- wrapping
 vim.o.wrap = false
 -- wrapped line repeats indent
 vim.o.breakindent = true
+
+vim.o.showmode = false
 
 -- case-insensitive search if lowercase unless \C
 vim.o.ignorecase = true
@@ -36,3 +43,13 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
+
+-- briefly highlight on yank
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = "*",
+})
