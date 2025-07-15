@@ -25,8 +25,6 @@ return {
 
       providers = {
         lsp = {
-          name = 'lsp',
-          kind = 'LSP',
           enabled = true,
           module = 'blink.cmp.sources.lsp',
           score_offset = 999,
