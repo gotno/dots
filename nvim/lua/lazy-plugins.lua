@@ -11,6 +11,7 @@ require('lazy').setup({
     require 'plugins.lspconfig',
     require 'plugins.mini',
     require 'plugins.snipe',
+    require 'plugins.tmux-nav',
     require 'plugins.treesitter',
   },
   checker = { enabled = true },
