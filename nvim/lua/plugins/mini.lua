@@ -7,6 +7,7 @@ return {
         mappings = {
           close = '<Esc>',
           synchronize = 'R', -- "resolve"
+          go_in_plus = 'E',
         },
         windows = {
           preview = false,
