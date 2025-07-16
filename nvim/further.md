@@ -22,3 +22,5 @@
 
 - [ ] color column
   * https://stackoverflow.com/questions/78684042/setting-highlight-for-colorcolumn-in-neovim-using-lua
+
+- [x] tmux nav
