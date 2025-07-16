@@ -15,5 +15,10 @@ return {
     { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
     -- doesn't work?
     { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+
+    { '<M-h>', '<C-w>H' },
+    { '<M-j>', '<C-w>J' },
+    { '<M-k>', '<C-w>K' },
+    { '<M-l>', '<C-w>L' },
   },
 }

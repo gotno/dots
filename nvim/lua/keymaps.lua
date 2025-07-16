@@ -11,11 +11,6 @@ vim.g.mapleader = ' '
 -- clear search highlights
 map('n', '<leader><Esc>', '<cmd>nohlsearch<CR>')
 
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
-
 -- splits
 map('n', '<leader>i', ':vsp<CR>')
 map('n', '<leader>o', ':sp<CR>')
