@@ -14,6 +14,7 @@ return {
           add          = { text = '┃' },
           change       = { text = '┃' },
           delete       = { text = '_' },
+          -- delete       = { text = '_', show_count = true },
           topdelete    = { text = '‾' },
           changedelete = { text = '~' },
           untracked    = { text = '┆' },
@@ -26,6 +27,20 @@ return {
           changedelete = { text = '~' },
           untracked    = { text = '┆' },
         },
+        -- hl groups
+        -- GitSignsAdd
+        -- GitSignsChange
+        -- GitSignsDelete
+        -- GitSignsChangedelete
+        -- GitSignsTopdelete
+        -- GitSignsUntracked
+        -- GitSignsStagedAdd
+        -- GitSignsStagedChange
+        -- GitSignsStagedDelete
+        -- GitSignsStagedChangedelete
+        -- GitSignsStagedTopdelete
+        -- GitSignsStagedUntracked
+
         signs_staged_enable = true,
         signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
         numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
