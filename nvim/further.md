@@ -1,7 +1,9 @@
 - [ ] saved stacks of buffers
   * https://github.com/EvWilson/spelunk.nvim
 
-- [ ] snacks.picker
+- [/] snacks.picker
+  - [x] installed
+  - [ ] configured
 
 - [ ] black metal inspired themes
   * https://github.com/metalelf0/black-metal-theme-neovim
@@ -14,6 +16,7 @@
 
 - [ ] mini.files persistent bookmarks
   * https://trplan.si/blog/mini-files-bookmarks/
+  * + autosession! https://github.com/rmagatti/auto-session
 - [x] mini.files toggle + expand to root
   * https://www.reddit.com/r/neovim/comments/1fzfiex/comment/lr1sg2l/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
@@ -24,3 +27,13 @@
   * https://stackoverflow.com/questions/78684042/setting-highlight-for-colorcolumn-in-neovim-using-lua
 
 - [x] tmux nav
+
+- [ ] better <c-a>
+  * https://www.reddit.com/r/neovim/comments/m8o8k4/nvim_plugin_to_diversify_the_use_of_ca/
+
+- [ ] smear cursor
+  * https://github.com/sphamba/smear-cursor.nvim
+
+- [ ] copilot/ai
+  * https://github.com/zbirenbaum/copilot.lua
+  * https://opencode.ai/
