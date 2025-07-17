@@ -14,3 +14,12 @@ map('n', '<leader><Esc>', '<cmd>nohlsearch<CR>')
 -- splits
 map('n', '<leader>i', ':vsp<CR>')
 map('n', '<leader>o', ':sp<CR>')
+
+map('n', ')', '<Nop>')
+map('n', '(', '<Nop>')
+map('n', ';', ':')
+
+-- buffers
+map('n', '<leader>q', ':bd<CR>')
+map('n', '<c-n>', ':bn<CR>')
+map('n', '<c-p>', ':bp<CR>')
