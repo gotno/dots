@@ -11,7 +11,24 @@ return {
     -- C-e: Hide menu
     -- C-k: Toggle signature help (if signature.enabled = true)
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'default' },
+    keymap = {
+      preset = 'default',
+      -- these don't work?
+      -- ['<C-b>'] = {
+      --   'scroll_documentation_up',
+      --   -- function(cmp)
+      --   --   cmp.scroll_documentation_up(2)
+      --   -- end,
+      --   'fallback',
+      -- },
+      -- ['<C-f>'] = {
+      --   'scroll_documentation_down',
+      --   -- function(cmp)
+      --   --   cmp.scroll_documentation_down(2)
+      --   -- end,
+      --   'fallback',
+      -- },
+    },
 
     appearance = { nerd_font_variant = 'mono' },
     completion = { documentation = { auto_show = false } },
