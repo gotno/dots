@@ -1,5 +1,5 @@
 return {
-  "folke/snacks.nvim",
+  'folke/snacks.nvim',
   ---@type snacks.Config
   opts = {
     picker = {
@@ -9,7 +9,12 @@ return {
     }
   },
   keys = {
-    { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    { "<leader>/", function() Snacks.picker.grep() end, desc = "Smart Find Files" },
+    -- picker
+    { '<leader><space>', function() require('snacks.picker').smart() end, desc = 'smart find files' },
+    { '<leader>/', function() require('snacks.picker').grep() end, desc = 'live grep files' },
+
+    -- buffers (bufdelete)
+    { '<leader>q', function() require('snacks.bufdelete').delete() end, desc = 'close buffer' },
+    { '<leader>Q', function() require('snacks.bufdelete').other() end, desc = 'close buffer' },
   },
 }
