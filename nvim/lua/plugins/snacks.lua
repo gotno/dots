@@ -16,5 +16,7 @@ return {
     -- buffers (bufdelete)
     { '<leader>q', function() require('snacks.bufdelete').delete() end, desc = 'close buffer' },
     { '<leader>Q', function() require('snacks.bufdelete').other() end, desc = 'close buffer' },
+
+    { '<leader>z', function() require('snacks.lazygit').open() end, desc = 'close buffer' },
   },
 }
