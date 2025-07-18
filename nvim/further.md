@@ -18,7 +18,7 @@
   * https://trplan.si/blog/mini-files-bookmarks/
   * + autosession! https://github.com/rmagatti/auto-session
 - [x] mini.files toggle + expand to root
-  * https://www.reddit.com/r/neovim/comments/1fzfiex/comment/lr1sg2l/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+  * https://www.reddit.com/r/neovim/comments/1fzfiex/comment/lr1sg2l/
 
 - [ ] swap closed buffer with new file to preserve splits
   * https://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application

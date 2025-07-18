@@ -22,11 +22,24 @@ return {
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Allows extra capabilities provided by blink.cmp
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          progress = {
+            display = {
+              done_icon = ' '
+            },
+          },
+          notification = {
+            window = {
+              border = 'single',
+              x_padding = 2,
+              y_padding = 2,
+              align = 'top',
+            },
+          },
+        },
+      },
       'saghen/blink.cmp',
     },
     config = function()
