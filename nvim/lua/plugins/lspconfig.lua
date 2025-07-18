@@ -23,18 +23,43 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       {
         'j-hui/fidget.nvim',
+        lazy = false,
         opts = {
           progress = {
             display = {
-              done_icon = ' '
+              done_icon = ' ',
+              progress_icon = {
+                pattern = {
+                  "⠋ ",
+                  "⠙ ",
+                  "⠹ ",
+                  "⠸ ",
+                  "⠼ ",
+                  "⠴ ",
+                  "⠦ ",
+                  "⠧ ",
+                  "⠇ ",
+                  "⠏ ",
+                },
+              },
             },
           },
           notification = {
+            configs = {
+              default = {
+                name = nil,
+                icon = nil,
+              },
+            },
+            view = {
+              stack_upwards = false,
+            },
+            override_vim_notify = true,
             window = {
               border = 'single',
-              x_padding = 1,
-              y_padding = 1,
-              align = 'bottom',
+              x_padding = 2,
+              y_padding = 2,
+              align = 'top',
             },
           },
         },
