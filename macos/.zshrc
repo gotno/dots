@@ -36,6 +36,8 @@ alias cdb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enab
 
 alias tma="tmux attach || tmux"
 
+alias nvconf="cd $HOME/.config/nvim/ && nvim ."
+
 # source ranger when running it so the underlying shell follows in-app navigation
 alias ranger=". ranger"
 
