@@ -68,3 +68,14 @@ autoload -Uz compinit && compinit
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
+
+setopt IGNORE_EOF
+exit_or_fg() {
+  if jobs %%; then
+    fg
+  else
+    exit 0
+  fi
+}
+zle -N exit_or_fg
+bindkey '^D' exit_or_fg
