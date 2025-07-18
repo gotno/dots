@@ -16,6 +16,7 @@ require('lazy').setup({
     require 'plugins.snipe',
     require 'plugins.tmux-nav',
     require 'plugins.treesitter',
+    require 'plugins.true-zen',
   },
   checker = { enabled = true },
 })
