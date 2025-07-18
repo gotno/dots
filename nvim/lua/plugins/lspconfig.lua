@@ -92,7 +92,7 @@ return {
           map('gO', require('snacks.picker').lsp_symbols, 'goto document symbols')
           map('gW', require('snacks.picker').lsp_workspace_symbols, 'goto workspace symbols')
 
-          map('gH', ':LspClangdSwitchSourceHeader<CR>', 'goto workspace symbols')
+          map('gH', ':LspClangdSwitchSourceHeader<CR>', 'c/c++ switch between source/header')
 
           -- highlight/unhighlight hovered word
           local client = vim.lsp.get_client_by_id(event.data.client_id)
