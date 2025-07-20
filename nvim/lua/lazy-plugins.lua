@@ -11,6 +11,7 @@ require('lazy').setup({
     require 'plugins.copilot',
     require 'plugins.git-signs',
     require 'plugins.lspconfig',
+    require 'plugins.markdown',
     require 'plugins.mini',
     require 'plugins.slimline',
     require 'plugins.snacks',
