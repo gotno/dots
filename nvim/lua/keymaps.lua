@@ -20,6 +20,14 @@ map('n', '(', '<Nop>')
 map('n', ';', ':')
 
 -- buffers
-map('n', '<leader>q', ':bd<CR>')
+-- delete handled by snacks
 map('n', '<c-n>', ':bn<CR>')
 map('n', '<c-p>', ':bp<CR>')
+
+-- panes
+map('n', '<leader>w', ':q<CR>')
+map('n', '<leader>W', ':qa<CR>')
+map('n', '=', '<cmd>vertical resize +5<cr>')
+map('n', '-', '<cmd>vertical resize -5<cr>')
+map('n', '+', '<cmd>horizontal resize +2<cr>')
+map('n', '_', '<cmd>horizontal resize -2<cr>')
