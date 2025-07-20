@@ -5,7 +5,7 @@ return {
     require('mini.icons').setup()
     require('mini.files').setup({
       mappings = {
-        close = '<C-c>',
+        close = 'q',
         synchronize = 'R', -- "resolve"
         go_in_plus = 'E',
       },
