@@ -35,7 +35,7 @@
   * https://github.com/sphamba/smear-cursor.nvim
 
 - [ ] copilot/ai
-  - [x]* https://github.com/zbirenbaum/copilot.lua
+  - [x] https://github.com/zbirenbaum/copilot.lua
   * https://opencode.ai/
 
 - [ ] lspsaga (rename)
