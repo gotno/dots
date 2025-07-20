@@ -35,10 +35,15 @@ return {
 
     appearance = { nerd_font_variant = 'mono' },
     completion = {
+      -- ghost_text = {
+      --   enabled = true,
+      --   show_with_menu = false,
+      -- },
       documentation = {
         auto_show = false
       },
       menu = {
+        auto_show = false, -- set to prefer ghost_text
         draw = {
           columns = {
             { "label", "label_description", gap = 1 },
