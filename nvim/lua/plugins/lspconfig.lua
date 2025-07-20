@@ -82,8 +82,8 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('grn', vim.lsp.buf.rename, 'rename')
           map('gdo', vim.lsp.buf.code_action, 'goto code actions', { 'n', 'x' })
+          map('grn', vim.lsp.buf.rename, 'rename')
           map('grr', require('snacks.picker').lsp_references, 'goto references')
           map('gri', require('snacks.picker').lsp_implementations, 'goto implementation')
           map('grd', require('snacks.picker').lsp_definitions, 'goto definition')
