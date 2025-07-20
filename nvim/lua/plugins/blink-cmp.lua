@@ -1,6 +1,9 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    'fang2hou/blink-copilot',
+  },
   build = 'cargo build --release',
 
   ---@module 'blink.cmp'
@@ -34,7 +37,7 @@ return {
     completion = { documentation = { auto_show = false } },
 
     sources = {
-      default = { 'lsp', 'path' },
+      default = { 'lsp', 'path', 'copilot' },
 
       per_filetype = {
         lua = { inherit_defaults = true, 'lazydev' }
@@ -50,6 +53,12 @@ return {
           enabled = true,
           module = 'lazydev.integrations.blink',
           score_offset = 100,
+        },
+        copilot = {
+          name = 'copilot',
+          module = 'blink-copilot',
+          score_offset = 50,
+          async = true,
         },
       },
     },

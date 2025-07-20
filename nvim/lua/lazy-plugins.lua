@@ -8,6 +8,7 @@ require('lazy').setup({
     -- require 'plugins.colors.forest-night',
 
     require 'plugins.blink-cmp',
+    require 'plugins.copilot',
     require 'plugins.git-signs',
     require 'plugins.lspconfig',
     require 'plugins.mini',
