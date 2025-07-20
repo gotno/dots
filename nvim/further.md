@@ -35,5 +35,11 @@
   * https://github.com/sphamba/smear-cursor.nvim
 
 - [ ] copilot/ai
-  * https://github.com/zbirenbaum/copilot.lua
+  - [x]* https://github.com/zbirenbaum/copilot.lua
   * https://opencode.ai/
+
+- [ ] lspsaga (rename)
+  * https://nvimdev.github.io/lspsaga/
+
+- [ ] tighten true zen config
+  * how to un focus?
