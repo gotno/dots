@@ -43,7 +43,7 @@ return {
         auto_show = false
       },
       menu = {
-        auto_show = false, -- set to prefer ghost_text
+        auto_show = true, -- set to false to prefer ghost_text settings above
         draw = {
           columns = {
             { "label", "label_description", gap = 1 },
