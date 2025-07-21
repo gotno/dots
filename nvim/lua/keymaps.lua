@@ -8,8 +8,12 @@ end
 
 vim.g.mapleader = ' '
 
+-- linewise nav works the same for wrapped lines
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+
 -- clear search highlights
-map('n', '<leader><Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<leader><Esc>', ':nohlsearch<CR>')
 
 -- splits
 map('n', '<leader>i', ':vsp<CR>')
