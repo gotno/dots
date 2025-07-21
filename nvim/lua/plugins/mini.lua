@@ -6,7 +6,7 @@ return {
     require('mini.files').setup({
       mappings = {
         close = 'q',
-        synchronize = 'R', -- "resolve"
+        synchronize = 'w', -- "write"
         go_in_plus = 'E',
       },
       windows = {
