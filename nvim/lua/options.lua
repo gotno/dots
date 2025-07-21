@@ -7,6 +7,8 @@ vim.o.relativenumber = true
 
 vim.o.colorcolumn = '80'
 
+vim.o.laststatus = 3
+
 vim.o.undofile = true
 
 -- wrapping
