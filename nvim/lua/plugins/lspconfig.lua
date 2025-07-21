@@ -91,7 +91,6 @@ return {
           map('grt', require('snacks.picker').lsp_type_definitions, 'goto type definition')
           map('gO', require('snacks.picker').lsp_symbols, 'goto document symbols')
           map('gW', require('snacks.picker').lsp_workspace_symbols, 'goto workspace symbols')
-
           map('gH', ':LspClangdSwitchSourceHeader<CR>', 'c/c++ switch between source/header')
 
           -- highlight/unhighlight hovered word
@@ -212,6 +211,8 @@ return {
         'clangd',
         'eslint-lsp',
         'prettierd',
+        'stylelint-lsp',
+        'css-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
