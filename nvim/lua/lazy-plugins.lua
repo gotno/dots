@@ -9,6 +9,7 @@ require('lazy').setup({
 
     require 'plugins.blink-cmp',
     require 'plugins.copilot',
+    require 'plugins.deadcolumn',
     require 'plugins.git-signs',
     require 'plugins.lspconfig',
     require 'plugins.markdown',
