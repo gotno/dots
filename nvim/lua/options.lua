@@ -28,7 +28,7 @@ vim.o.signcolumn = 'yes'
 -- ms idle timeout before swap is written
 vim.o.updatetime = 250
 -- ms wait for mapped sequence completion
-vim.o.timeoutlen = 500
+vim.o.timeoutlen = 1000
 
 -- splits
 vim.o.splitright = true
