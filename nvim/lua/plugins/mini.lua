@@ -40,7 +40,11 @@ return {
         vim.keymap.set('n', 'zh', toggle_dotfiles, { buffer = buf_id })
         vim.keymap.set('n', '<Esc>', require("mini.files").close, { buffer = buf_id })
         vim.defer_fn(function()
-          require('mini.files').refresh { content = { filter = filter_hide } }
+          if show_dotfiles then
+            require('mini.files').refresh { content = { filter = filter_show } }
+          else
+            require('mini.files').refresh { content = { filter = filter_hide } }
+          end
         end, 30)
       end,
     })
