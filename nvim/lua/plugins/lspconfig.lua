@@ -92,6 +92,14 @@ return {
           map('gO', require('snacks.picker').lsp_symbols, 'goto document symbols')
           map('gW', require('snacks.picker').lsp_workspace_symbols, 'goto workspace symbols')
           map('gH', ':LspClangdSwitchSourceHeader<CR>', 'c/c++ switch between source/header')
+          map(
+            'gll',
+            function()
+              vim.diagnostic.setloclist()
+              vim.opt_local.wrap = true
+            end,
+            'open diagnostics location list'
+          )
 
           -- highlight/unhighlight hovered word
           local client = vim.lsp.get_client_by_id(event.data.client_id)
