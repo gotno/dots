@@ -7,6 +7,7 @@ require('lazy').setup({
     -- require 'plugins.colors.everforest',
     -- require 'plugins.colors.forest-night',
 
+    require 'plugins.auto-session',
     require 'plugins.blink-cmp',
     require 'plugins.conform',
     require 'plugins.copilot',
