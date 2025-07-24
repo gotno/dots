@@ -35,6 +35,7 @@ alias gcommits='git log --pretty=format:"%h %s" -n '
 alias cdb="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-logging=stderr --v=1"
 
 alias tma="tmux attach || tmux"
+alias vim="nvim"
 
 alias nvconf="cd $HOME/.config/nvim/ && nvim ."
 
@@ -69,13 +70,9 @@ if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
 
-setopt IGNORE_EOF
-exit_or_fg() {
-  if jobs %%; then
-    fg
-  else
-    exit 0
-  fi
-}
-zle -N exit_or_fg
-bindkey '^D' exit_or_fg
+# <c-x><c-e> to edit command-line in EDITOR (like bash)
+autoload -Uz edit-command-line && zle -N edit-command-line && \
+  bindkey "${key_info[Control]}x${key_info[Control]}e" edit-command-line
+
+# <c-z> to toggle bg/fg
+bindkey -s "^z" "fg^M"
