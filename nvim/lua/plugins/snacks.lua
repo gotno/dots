@@ -18,5 +18,6 @@ return {
     { '<leader>Q', function() require('snacks.bufdelete').other() end, desc = 'close buffer' },
 
     { '<leader>z', function() require('snacks.lazygit').open() end, desc = 'close buffer' },
+    { 'grs', function() require('snacks.picker').git_status() end, desc = 'close buffer' },
   },
 }
