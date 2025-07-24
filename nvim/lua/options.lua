@@ -5,7 +5,7 @@ vim.opt.termguicolors = true
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.o.colorcolumn = '80'
+vim.o.colorcolumn = '81'
 
 vim.o.laststatus = 3
 
