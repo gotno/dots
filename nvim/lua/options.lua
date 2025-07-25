@@ -7,6 +7,7 @@ vim.o.relativenumber = true
 
 vim.o.colorcolumn = '81'
 
+-- show one status line for all buffers
 vim.o.laststatus = 3
 
 vim.o.undofile = true
@@ -42,6 +43,8 @@ vim.o.scrolloff = 4
 
 -- confirm unsaved with option to save
 vim.o.confirm = true
+
+vim.o.sessionoptions='blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
