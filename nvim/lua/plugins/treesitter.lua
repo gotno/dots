@@ -53,6 +53,10 @@ return {
     },
   },
   {
-    'nvim-treesitter/nvim-treesitter-context', opts = {}
+    'nvim-treesitter/nvim-treesitter-context',
+    keys = {
+      { '<leader>gct', '<cmd>TSContext toggle<cr>' },
+    },
+    opts = { separator = '┈' },
   },
 }
