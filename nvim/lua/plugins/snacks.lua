@@ -3,10 +3,13 @@ return {
   ---@type snacks.Config
   opts = {
     picker = {
-      -- your picker configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
+      formatters = {
+        file = {
+          filename_first = false, -- display filename before the file path
+          truncate = 100, -- truncate the file path to (roughly) this length
+        },
+      },
+    },
   },
   keys = {
     -- picker
