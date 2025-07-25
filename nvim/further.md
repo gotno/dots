@@ -3,7 +3,9 @@
 
 - [/] snacks.picker
   - [x] installed
-  - [ ] configured
+  - [x] configured
+  - [ ] grep in directory: https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/
+  - [ ] smarter truncate? https://github.com/folke/snacks.nvim/issues/708
 
 - [ ] black metal inspired themes
   * https://github.com/metalelf0/black-metal-theme-neovim
