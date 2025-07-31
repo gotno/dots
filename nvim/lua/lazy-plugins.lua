@@ -22,6 +22,7 @@ require('lazy').setup({
     require 'plugins.tmux-nav',
     require 'plugins.treesitter',
     require 'plugins.true-zen',
+    require 'plugins.which-key',
   },
   checker = { enabled = true },
 })
