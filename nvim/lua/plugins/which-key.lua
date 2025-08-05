@@ -4,6 +4,7 @@ return {
   opts = {
     ---@type false | 'classic' | 'modern' | 'helix'
     preset = 'classic',
+    triggers = {},
   },
   keys = {
     {
