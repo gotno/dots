@@ -17,18 +17,20 @@
   * https://medium.com/@vishakhpro2002/neovim-v10-setup-with-inlayhints-838a503b17dc#8f38
 
 - [ ] mini.files persistent bookmarks
+  - [x] autosession! https://github.com/rmagatti/auto-session
   * https://trplan.si/blog/mini-files-bookmarks/
-  * + autosession! https://github.com/rmagatti/auto-session
 - [x] mini.files toggle + expand to root
   * https://www.reddit.com/r/neovim/comments/1fzfiex/comment/lr1sg2l/
 
-- [ ] swap closed buffer with new file to preserve splits
+- [x] swap closed buffer with new file to preserve splits
   * https://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application
 
-- [ ] color column
+- [x] color column
   * https://stackoverflow.com/questions/78684042/setting-highlight-for-colorcolumn-in-neovim-using-lua
 
 - [x] tmux nav
+  - [ ] disable in floating windows (lazy-git buffer, snacks.picker, etc)
+
 
 - [ ] better <c-a>
   * https://www.reddit.com/r/neovim/comments/m8o8k4/nvim_plugin_to_diversify_the_use_of_ca/
