@@ -35,3 +35,6 @@ map('n', '=', '<cmd>vertical resize +5<cr>')
 map('n', '-', '<cmd>vertical resize -5<cr>')
 map('n', '+', '<cmd>horizontal resize +2<cr>')
 map('n', '_', '<cmd>horizontal resize -2<cr>')
+
+-- refresh
+map('n', '<leader>r', ':e<CR>')
