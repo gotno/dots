@@ -7,6 +7,10 @@
   - [ ] grep in directory: https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/
   - [ ] smarter truncate? https://github.com/folke/snacks.nvim/issues/708
 
+themes
+- [ ] https://github.com/Koalhack/koalight.nvim
+- [ ] https://github.com/shaunsingh/moonlight.nvim
+- [ ] https://github.com/hyperb1iss/silkcircuit-nvim
 - [ ] black metal inspired themes
   * https://github.com/metalelf0/black-metal-theme-neovim
 
@@ -47,3 +51,6 @@
 
 - [ ] tighten true zen config
   * how to un focus?
+
+- [ ] noice.nvim for fancy cmd line/popups etc https://github.com/folke/noice.nvim
+
