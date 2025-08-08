@@ -19,6 +19,7 @@ return {
       -- },
     },
   },
+  { 'dmmulroy/ts-error-translator.nvim' },
   {
     'neovim/nvim-lspconfig',
     dependencies = {

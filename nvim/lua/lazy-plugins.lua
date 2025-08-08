@@ -13,6 +13,7 @@ require('lazy').setup({
     require 'plugins.copilot',
     require 'plugins.deadcolumn',
     require 'plugins.git-signs',
+    require 'plugins.incline',
     require 'plugins.lspconfig',
     require 'plugins.markdown',
     require 'plugins.mini',
