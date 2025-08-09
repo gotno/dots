@@ -5,6 +5,10 @@ return {
     ---@type false | 'classic' | 'modern' | 'helix'
     preset = 'classic',
     triggers = {},
+    plugins = {
+      marks = false,
+      registers = false,
+    },
   },
   keys = {
     {
