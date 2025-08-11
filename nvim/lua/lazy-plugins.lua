@@ -24,6 +24,7 @@ require('lazy').setup({
     require 'plugins.treesitter',
     require 'plugins.true-zen',
     require 'plugins.which-key',
+    require 'plugins.winshift',
   },
   checker = { enabled = true },
 })
