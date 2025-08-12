@@ -31,7 +31,7 @@ return {
     require('incline').setup({
       render = function(props)
         local path = vim.fs.normalize(vim.fn.expand('#' .. props.buf .. ':.:h'))
-        local truncated_path = truncate(path, 1, 3);
+        local truncated_path = truncate(path, 3, 3);
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
         local modified = vim.bo[props.buf].modified
         return {
