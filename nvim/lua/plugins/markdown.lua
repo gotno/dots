@@ -23,9 +23,6 @@ return {
         map('n', '<M-c>', '<Cmd>MDTaskToggle<CR>', opts)
         map('x', '<M-c>', ':MDTaskToggle<CR>', opts)
       end,
-      keys = {
-        { 'n', 'gkk', '<Cmd>MDTaskToggle<CR>' },
-      },
       --  mappings = { -- false to disable
       --   inline_surround_toggle = "gs", -- (string|boolean) toggle inline style
       --   inline_surround_toggle_line = "gss", -- (string|boolean) line-wise toggle inline style
