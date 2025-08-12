@@ -20,7 +20,9 @@ return {
     { '<leader>q', function() require('snacks.bufdelete').delete() end, desc = 'close buffer' },
     { '<leader>Q', function() require('snacks.bufdelete').other() end, desc = 'close buffer' },
 
-    { '<leader>z', function() require('snacks.lazygit').open() end, desc = 'close buffer' },
+    { '<leader>zz', function() require('snacks.lazygit').open() end, desc = 'close buffer' },
+    { '<leader>zl', function() require('snacks.lazygit').log() end, desc = 'close buffer' },
+    { '<leader>zf', function() require('snacks.lazygit').log_file() end, desc = 'close buffer' },
     { 'grs', function() require('snacks.picker').git_status() end, desc = 'close buffer' },
   },
 }
