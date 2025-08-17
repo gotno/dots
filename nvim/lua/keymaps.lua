@@ -24,9 +24,16 @@ map('n', '(', '<Nop>')
 map('n', ';', ':')
 
 -- buffers
--- delete handled by snacks
+-- (delete handled by snacks)
+-- next/prev
 map('n', '<c-n>', ':bn<CR>')
 map('n', '<c-p>', ':bp<CR>')
+-- maximize buffer (split to new tab)
+map('n', '<leader><enter>', ':tab split<cr>', { desc = 'maximize window' })
+
+-- toggle 'narrow selection' (fold all but visual line selection, unfold all)
+map('v', '<leader>zn', '<esc>`<kzfgg`>jzfG`<', { desc = 'fold all but selection' })
+map('n', '<leader>zn', 'zR', { desc = 'open all folds' })
 
 -- panes
 map('n', '<leader>w', ':q<CR>')

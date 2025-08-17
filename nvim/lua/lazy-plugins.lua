@@ -22,8 +22,8 @@ require('lazy').setup({
     require 'plugins.snipe',
     require 'plugins.tmux-nav',
     require 'plugins.treesitter',
-    require 'plugins.true-zen',
     require 'plugins.which-key',
+    require 'plugins.winshift',
   },
   checker = { enabled = true },
 })

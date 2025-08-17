@@ -4,7 +4,7 @@
 - [/] snacks.picker
   - [x] installed
   - [x] configured
-  - [ ] grep in directory: https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/
+  - [ ] grep in directory: [https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/](https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/)
   - [ ] smarter truncate? https://github.com/folke/snacks.nvim/issues/708
 
 themes
@@ -13,6 +13,9 @@ themes
 - [ ] https://github.com/hyperb1iss/silkcircuit-nvim
 - [ ] black metal inspired themes
   * https://github.com/metalelf0/black-metal-theme-neovim
+
+- [ ] replace fidget with mini.notify
+  * [https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md)
 
 - [ ] code actions with previews
   * https://github.com/rachartier/tiny-code-action.nvim
@@ -25,6 +28,8 @@ themes
   * https://trplan.si/blog/mini-files-bookmarks/
 - [x] mini.files toggle + expand to root
   * https://www.reddit.com/r/neovim/comments/1fzfiex/comment/lr1sg2l/
+- [ ] grep in directory from mini.files?
+  * https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/
 
 - [x] swap closed buffer with new file to preserve splits
   * https://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application
