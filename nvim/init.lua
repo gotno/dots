@@ -9,3 +9,5 @@ require 'keymaps'
 require 'autocmds'
 require 'lazy-bootstrap'
 require 'lazy-plugins'
+
+vim.cmd 'colorscheme rose-pine'

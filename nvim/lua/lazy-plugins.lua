@@ -2,10 +2,10 @@ require('lazy').setup({
   spec = {
     'NMAC427/guess-indent.nvim', -- detect tabstop and shiftwidth automatically
 
-    -- require 'plugins.colors.darkmatter',
+    require 'plugins.colors.darkmatter',
     require 'plugins.colors.rose-pine',
-    -- require 'plugins.colors.everforest',
-    -- require 'plugins.colors.forest-night',
+    require 'plugins.colors.everforest',
+    require 'plugins.colors.forest-night',
 
     require 'plugins.auto-session',
     require 'plugins.blink-cmp',
