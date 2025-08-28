@@ -26,12 +26,30 @@ map('n', '(', '<Nop>')
 map('n', ';', ':')
 
 -- buffers
--- (delete handled by snacks)
--- next/prev
+-- - next/prev (delete handled by snacks)
 map('n', '<c-n>', ':bn<CR>')
 map('n', '<c-p>', ':bp<CR>')
--- maximize buffer (split to new tab)
-map('n', '<leader><enter>', ':tab split<cr>', { desc = 'maximize window' })
+-- - toggle maximize (split to new tab)
+map(
+  'n',
+  '<leader><enter>',
+  function ()
+    local bufnums = vim.fn.tabpagebuflist()
+    local num_relevant_bufs = 0
+    for _, v in ipairs(bufnums) do
+      if vim.bo[v].buftype == '' or vim.bo[v].buftype == 'help' then
+        num_relevant_bufs = num_relevant_bufs + 1
+      end
+    end
+
+    if num_relevant_bufs == 1 then
+      vim.cmd.quit()
+    else
+      vim.cmd('tab split')
+    end
+  end,
+  { desc = 'maximize window' }
+)
 
 -- toggle 'narrow selection' (fold all but visual line selection, unfold all)
 map('v', '<leader>zn', '<esc>`<kzfgg`>jzfG`<', { desc = 'fold all but selection' })
