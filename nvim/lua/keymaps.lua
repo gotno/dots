@@ -14,6 +14,17 @@ map('n', '<leader>Z', ':Lazy<cr>', { desc = 'LazyVim' })
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
 
+-- beginning/end of line on H/L
+map('n', 'H', '^')
+map('n', 'dH', 'd^')
+map('n', 'cH', 'c^')
+map('n', 'yH', 'y^')
+map('n', 'L', '$')
+-- (for completeness, but same as D/C/L)
+map('n', 'dL', 'd$')
+map('n', 'cL', 'c$')
+map('n', 'yL', 'y$')
+
 -- clear search highlights
 map('n', '<leader><Esc>', ':nohlsearch<CR>')
 
