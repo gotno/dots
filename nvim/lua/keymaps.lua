@@ -9,6 +9,7 @@ end
 vim.g.mapleader = ' '
 
 map('n', '<leader>Z', ':Lazy<cr>', { desc = 'LazyVim' })
+map('n', '<leader>M', ':Mason<cr>', { desc = 'Mason' })
 
 -- linewise nav works the same for wrapped lines
 map('n', 'j', 'gj')
