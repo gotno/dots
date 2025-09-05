@@ -2,9 +2,9 @@ return {
   'rmagatti/auto-session',
   lazy = false,
   keys = {
-    { '<leader>rr', '<cmd>SessionSearch<CR>', desc = 'Session search' },
-    { '<leader>rs', '<cmd>SessionSave<CR>', desc = 'Save session' },
-    { '<leader>ra', '<cmd>SessionToggleAutoSave<CR>', desc = 'Toggle autosave' },
+    { '<leader>rr', '<cmd>AutoSession search<CR>', desc = 'Session search' },
+    { '<leader>rs', '<cmd>AutoSession save<CR>', desc = 'Save session' },
+    { '<leader>ra', '<cmd>AutoSession toggle<CR>', desc = 'Toggle autosave' },
   },
 
   ---enables autocomplete for opts
