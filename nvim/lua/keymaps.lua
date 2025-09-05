@@ -51,13 +51,13 @@ map(
       if vim.bo[v].buftype == '' or vim.bo[v].buftype == 'help' then
         num_relevant_bufs = num_relevant_bufs + 1
       end
+      if num_relevant_bufs > 1 then
+        vim.cmd('tab split')
+        return
+      end
     end
 
-    if num_relevant_bufs == 1 then
-      vim.cmd.quit()
-    else
-      vim.cmd('tab split')
-    end
+    vim.cmd.quit()
   end,
   { desc = 'maximize window' }
 )
