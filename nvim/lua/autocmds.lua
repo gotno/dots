@@ -11,3 +11,16 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+-- auto-open diagnostic float on lines with diagnostics
+vim.api.nvim_create_autocmd(
+  { 'CursorHold', 'InsertLeave' },
+  {
+    callback = function ()
+      vim.diagnostic.open_float({
+        header = nil,
+        scope = 'line',
+        close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter' },
+      });
+    end,
+  }
+)
