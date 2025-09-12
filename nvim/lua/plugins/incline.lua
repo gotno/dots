@@ -43,13 +43,8 @@ return {
           guifg = '#eeeeee',
         }
       end,
-      window = {
-        overlap = {
-          borders = true,
-        },
-        margin = {
-          vertical = 0,
-        },
+      hide = {
+        cursorline = 'focused_win', -- hide when cursor is on same line in focused buffer
       },
     })
   end,
