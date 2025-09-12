@@ -59,3 +59,4 @@ themes
 
 - [ ] noice.nvim for fancy cmd line/popups etc https://github.com/folke/noice.nvim
 
+- [ ] https://github.com/Issafalcon/lsp-overloads.nvim for handling method overloads in signature help
