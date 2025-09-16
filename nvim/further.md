@@ -4,7 +4,7 @@
 - [/] snacks.picker
   - [x] installed
   - [x] configured
-  - [ ] grep in directory: [https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/](https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/)
+  - [x] grep in directory: [https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/](https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/)
   - [ ] smarter truncate? https://github.com/folke/snacks.nvim/issues/708
 
 themes
