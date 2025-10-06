@@ -20,7 +20,7 @@ return {
 
     local show_dotfiles = false
 
-    local filter_show = function(fs_entry)
+    local filter_show = function(_)
       return true
     end
 
@@ -38,7 +38,7 @@ return {
       local path = (MiniFiles.get_fs_entry() or {}).path
       if path == nil then return nil end
       require('mini.files').close()
-      require('snacks.picker').grep({ dirs = { path } })
+      require('snacks.picker').grep({ dirs = { vim.fs.dirname(path)} })
     end
 
     vim.api.nvim_create_autocmd('User', {
