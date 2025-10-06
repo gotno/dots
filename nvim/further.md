@@ -17,11 +17,16 @@ themes
 - [ ] replace fidget with mini.notify
   * [https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md)
 
+- [ ] fast nav with [leap](https://github.com/ggandor/leap.nvim)
+
 - [ ] code actions with previews
   * https://github.com/rachartier/tiny-code-action.nvim
 
 - [ ] inlay hints?
   * https://medium.com/@vishakhpro2002/neovim-v10-setup-with-inlayhints-838a503b17dc#8f38
+- [ ] [tiny-inline-diagnostic](https://github.com/rachartier/tiny-inline-diagnostic.nvim)
+
+- [ ] [buffer-sticks](https://github.com/ahkohd/buffer-sticks.nvim)
 
 - [ ] mini.files persistent bookmarks
   - [x] autosession! https://github.com/rmagatti/auto-session
@@ -40,7 +45,6 @@ themes
 - [x] tmux nav
   - [ ] disable in floating windows (lazy-git buffer, snacks.picker, etc)
 
-
 - [ ] better <c-a>
   * https://www.reddit.com/r/neovim/comments/m8o8k4/nvim_plugin_to_diversify_the_use_of_ca/
 
@@ -50,6 +54,7 @@ themes
 - [ ] copilot/ai
   - [x] https://github.com/zbirenbaum/copilot.lua
   * https://opencode.ai/
+  - [ ] [sidekick](https://github.com/folke/sidekick.nvim)
 
 - [ ] lspsaga (rename)
   * https://nvimdev.github.io/lspsaga/
