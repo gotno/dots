@@ -38,13 +38,17 @@ return {
           ' ',
           truncated_path .. '/' .. filename,
           modified and { ' *', guifg = '#888888', gui = 'bold' } or '',
-          ' ',
-          guibg = '#111111',
-          guifg = '#eeeeee',
+          ' '
         }
       end,
       hide = {
         cursorline = 'focused_win', -- hide when cursor is on same line in focused buffer
+      },
+      window = {
+        winhighlight = {
+          active = { Normal = 'CurSearch' },
+          inactive = { Normal = 'Search' },
+        },
       },
     })
   end,
