@@ -8,11 +8,14 @@
   - [ ] smarter truncate? https://github.com/folke/snacks.nvim/issues/708
 
 themes
-- [ ] https://github.com/Koalhack/koalight.nvim
-- [ ] https://github.com/shaunsingh/moonlight.nvim
-- [ ] https://github.com/hyperb1iss/silkcircuit-nvim
-- [ ] black metal inspired themes
-  * https://github.com/metalelf0/black-metal-theme-neovim
+- [ ] [themery picker](https://github.com/zaldih/themery.nvim)
+- [ ] [https://github.com/Koalhack/koalight.nvim](https://github.com/Koalhack/koalight.nvim)
+- [ ] [https://github.com/shaunsingh/moonlight.nvim](https://github.com/shaunsingh/moonlight.nvim)
+- [ ] [https://github.com/hyperb1iss/silkcircuit-nvim](https://github.com/hyperb1iss/silkcircuit-nvim)
+- [ ] [https://github.com/santhosh-tekuri/silence.nvim](https://github.com/santhosh-tekuri/silence.nvim)
+- [ ] [https://github.com/lucasadelino/conifer.nvim](https://github.com/lucasadelino/conifer.nvim)
+- [ ] [https://github.com/KijitoraFinch/nanode.nvim](https://github.com/KijitoraFinch/nanode.nvim)
+- [ ] [black metal inspired themes](https://github.com/metalelf0/black-metal-theme-neovim)
 
 - [ ] replace fidget with mini.notify
   * [https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-notify.md)
@@ -36,6 +39,8 @@ themes
 - [ ] grep in directory from mini.files?
   * https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/
 
+- [ ] replace gitsigns with [mini.diff](https://github.com/nvim-mini/mini.diff)?
+
 - [x] swap closed buffer with new file to preserve splits
   * https://stackoverflow.com/questions/256204/close-file-without-quitting-vim-application
 
@@ -54,7 +59,7 @@ themes
 - [ ] copilot/ai
   - [x] https://github.com/zbirenbaum/copilot.lua
   * https://opencode.ai/
-  - [ ] [sidekick](https://github.com/folke/sidekick.nvim)
+  - [ ] [folke sidekick](https://github.com/folke/sidekick.nvim)
 
 - [ ] lspsaga (rename)
   * https://nvimdev.github.io/lspsaga/
@@ -65,3 +70,6 @@ themes
 - [ ] noice.nvim for fancy cmd line/popups etc https://github.com/folke/noice.nvim
 
 - [ ] https://github.com/Issafalcon/lsp-overloads.nvim for handling method overloads in signature help
+
+- [ ] [toggleterm floating terminal](https://github.com/akinsho/toggleterm.nvim)
+- [ ] [doodle (like obsidian kinda)](https://github.com/apdot/doodle)
