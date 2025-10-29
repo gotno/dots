@@ -15,6 +15,8 @@ themes
 - [ ] [https://github.com/santhosh-tekuri/silence.nvim](https://github.com/santhosh-tekuri/silence.nvim)
 - [ ] [https://github.com/lucasadelino/conifer.nvim](https://github.com/lucasadelino/conifer.nvim)
 - [ ] [https://github.com/KijitoraFinch/nanode.nvim](https://github.com/KijitoraFinch/nanode.nvim)
+- [ ] [https://github.com/wnkz/monoglow.nvim](https://github.com/wnkz/monoglow.nvim)
+- [ ] [https://github.com/vertexE/synth.nvim/](https://github.com/vertexE/synth.nvim/)
 - [ ] [black metal inspired themes](https://github.com/metalelf0/black-metal-theme-neovim)
 
 - [ ] replace fidget with mini.notify
