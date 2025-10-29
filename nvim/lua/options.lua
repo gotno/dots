@@ -51,6 +51,9 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
+-- markdown wants 4 space tabs and that is gross
+vim.g.markdown_recommended_style = 0
+
 -- briefly highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
