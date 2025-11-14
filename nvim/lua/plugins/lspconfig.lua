@@ -14,9 +14,9 @@ return {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {
-      -- settings = {
-      --   tsserver_max_memory = 3072, -- megabytes, 3072 is vscode's default
-      -- },
+      settings = {
+        tsserver_max_memory = 8192, -- megabytes, 3072 is vscode's default
+      },
     },
   },
   { 'dmmulroy/ts-error-translator.nvim' },
@@ -155,20 +155,20 @@ return {
         -- virtual_lines = {
         --   current_line = true,
         -- },
-        virtual_text = false;
-        -- virtual_text = {
-        --   source = 'if_many',
-        --   spacing = 2,
-        --   format = function(diagnostic)
-        --     local diagnostic_message = {
-        --       [vim.diagnostic.severity.ERROR] = diagnostic.message,
-        --       [vim.diagnostic.severity.WARN] = diagnostic.message,
-        --       [vim.diagnostic.severity.INFO] = diagnostic.message,
-        --       [vim.diagnostic.severity.HINT] = diagnostic.message,
-        --     }
-        --     return diagnostic_message[diagnostic.severity]
-        --   end,
-        -- },
+        -- virtual_text = false;
+        virtual_text = {
+          source = 'if_many',
+          spacing = 2,
+          format = function(diagnostic)
+            local diagnostic_message = {
+              [vim.diagnostic.severity.ERROR] = diagnostic.message,
+              [vim.diagnostic.severity.WARN] = diagnostic.message,
+              [vim.diagnostic.severity.INFO] = diagnostic.message,
+              [vim.diagnostic.severity.HINT] = diagnostic.message,
+            }
+            return diagnostic_message[diagnostic.severity]
+          end,
+        },
       })
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -193,14 +193,22 @@ return {
             },
           },
         },
+        eslint_d = {
+          flags = {
+            allow_incremental_sync = false,
+            debounce_text_changes = 1000,
+            exit_timeout = 1500,
+          },
+        },
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
         'clangd',
-        'eslint_d',
+        'prettier',
         'prettierd',
+        'eslint_d',
         'eslint-lsp',
         'stylelint-lsp',
         'css-lsp',
@@ -210,7 +218,8 @@ return {
 
       require('mason-lspconfig').setup({
         ensure_installed = {}, -- handled above, by mason-tool-installer
-        automatic_installation = false,
+        automatic_installation = true,
+        -- automatic_enable = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}

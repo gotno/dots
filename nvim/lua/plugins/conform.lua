@@ -10,7 +10,11 @@ return {
           if not err then
             local mode = vim.api.nvim_get_mode().mode
             if vim.startswith(string.lower(mode), "v") then
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
+              vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes("<Esc>", true, false, true),
+                "n",
+                true
+              )
             end
           end
         end)
@@ -26,12 +30,12 @@ return {
     -- Define your formatters
     formatters_by_ft = {
       lua = { "stylua" },
-      css = { "prettierd", stop_after_first = true },
-      scss = { "prettierd", stop_after_first = true },
-      javascript = { "eslint_d", stop_after_first = true },
-      javascriptreact = { "eslint_d", stop_after_first = true },
-      typescript = { "eslint_d", stop_after_first = true },
-      typescriptreact = { "eslint_d", stop_after_first = true },
+      css = { "prettierd", "prettier", stop_after_first = true },
+      scss = { "prettierd", "prettier", stop_after_first = true },
+      javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+      javascriptreact = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+      typescript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+      typescriptreact = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
     },
     -- Set default options
     -- default_format_opts = {

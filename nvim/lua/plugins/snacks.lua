@@ -23,6 +23,6 @@ return {
     { '<leader>zz', function() require('snacks.lazygit').open() end, desc = 'close buffer' },
     { '<leader>zl', function() require('snacks.lazygit').log() end, desc = 'close buffer' },
     { '<leader>zf', function() require('snacks.lazygit').log_file() end, desc = 'close buffer' },
-    { 'grs', function() require('snacks.picker').git_status() end, desc = 'close buffer' },
+    { '<leader>zs', function() require('snacks.picker').git_status() end, desc = 'close buffer' },
   },
 }
