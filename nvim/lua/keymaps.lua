@@ -29,6 +29,9 @@ map('n', 'yL', 'y$')
 -- clear search highlights
 map('n', '<leader><Esc>', ':nohlsearch<CR>')
 
+-- terminal
+map('t', '<Esc>', "<C-\\><C-n>")
+
 -- splits
 map('n', '<leader>i', ':vsp<CR>')
 map('n', '<leader>o', ':sp<CR>')
