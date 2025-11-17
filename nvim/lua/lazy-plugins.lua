@@ -20,6 +20,7 @@ require('lazy').setup({
     require 'plugins.slimline',
     require 'plugins.snacks',
     require 'plugins.snipe',
+    require 'plugins.terminal',
     require 'plugins.tmux-nav',
     require 'plugins.treesitter',
     require 'plugins.which-key',
