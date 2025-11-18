@@ -23,7 +23,6 @@ require('lazy').setup({
     require 'plugins.terminal',
     require 'plugins.tmux-nav',
     require 'plugins.treesitter',
-    require 'plugins.which-key',
     require 'plugins.winshift',
   },
   checker = { enabled = true },
