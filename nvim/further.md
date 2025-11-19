@@ -31,7 +31,7 @@ themes
   * https://medium.com/@vishakhpro2002/neovim-v10-setup-with-inlayhints-838a503b17dc#8f38
 - [ ] [tiny-inline-diagnostic](https://github.com/rachartier/tiny-inline-diagnostic.nvim)
 
-- [ ] [buffer-sticks](https://github.com/ahkohd/buffer-sticks.nvim)
+- [x] [buffer-sticks](https://github.com/ahkohd/buffer-sticks.nvim)
 
 - [ ] mini.files persistent bookmarks
   - [x] autosession! https://github.com/rmagatti/auto-session

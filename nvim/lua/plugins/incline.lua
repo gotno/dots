@@ -55,6 +55,8 @@ return {
       },
       window = {
         padding = 1,
+        zindex = 9,
+        margin = { horizontal = 4 },
         padding_char = " ",
         winhighlight = {
           active = { Normal = 'CurSearch' },

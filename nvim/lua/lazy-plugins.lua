@@ -9,6 +9,7 @@ require('lazy').setup({
 
     require 'plugins.auto-session',
     require 'plugins.blink-cmp',
+    require 'plugins.buffer-sticks',
     require 'plugins.conform',
     require 'plugins.copilot',
     require 'plugins.deadcolumn',
@@ -19,7 +20,6 @@ require('lazy').setup({
     require 'plugins.mini',
     require 'plugins.slimline',
     require 'plugins.snacks',
-    require 'plugins.snipe',
     require 'plugins.terminal',
     require 'plugins.tmux-nav',
     require 'plugins.treesitter',
