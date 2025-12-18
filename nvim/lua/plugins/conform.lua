@@ -32,10 +32,10 @@ return {
       lua = { "stylua" },
       css = { "prettierd", "prettier", stop_after_first = true },
       scss = { "prettierd", "prettier", stop_after_first = true },
-      javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
-      javascriptreact = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
-      typescript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
-      typescriptreact = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
+      javascript = { "eslint_d", stop_after_first = true },
+      javascriptreact = { "eslint_d", stop_after_first = true },
+      typescript = { "eslint_d", stop_after_first = true },
+      typescriptreact = { "eslint_d", stop_after_first = true },
     },
     -- Set default options
     -- default_format_opts = {
