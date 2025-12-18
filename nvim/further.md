@@ -73,5 +73,5 @@ themes
 
 - [ ] https://github.com/Issafalcon/lsp-overloads.nvim for handling method overloads in signature help
 
-- [ ] [toggleterm floating terminal](https://github.com/akinsho/toggleterm.nvim)
+- [x] [toggleterm floating terminal](https://github.com/akinsho/toggleterm.nvim)
 - [ ] [doodle (like obsidian kinda)](https://github.com/apdot/doodle)
