@@ -30,6 +30,7 @@ map('n', 'yL', 'y$')
 map('n', '<leader><Esc>', ':nohlsearch<CR>')
 
 -- terminal
+-- map esc back to exit insert mode
 map('t', '<Esc>', "<C-\\><C-n>")
 
 -- splits

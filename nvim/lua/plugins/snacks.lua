@@ -10,6 +10,10 @@ return {
         },
       },
     },
+    -- terminal = {
+    --   keys = {
+    --   },
+    -- },
   },
   keys = {
     -- picker
@@ -20,6 +24,7 @@ return {
     { '<leader>q', function() require('snacks.bufdelete').delete() end, desc = 'close buffer' },
     { '<leader>Q', function() require('snacks.bufdelete').other() end, desc = 'close buffer' },
 
+    -- lazygit and associated pickers
     { '<leader>zz', function() require('snacks.lazygit').open() end, desc = 'close buffer' },
     { '<leader>zl', function() require('snacks.lazygit').log() end, desc = 'close buffer' },
     { '<leader>zf', function() require('snacks.lazygit').log_file() end, desc = 'close buffer' },
