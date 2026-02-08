@@ -1,3 +1,7 @@
+local butNotInBuffer = function(cmd)
+  return vim.api.nvim_buf_get_name(0) == 'snacks_terminal' and '' or cmd
+end
+
 return {
   'christoomey/vim-tmux-navigator',
   cmd = {
