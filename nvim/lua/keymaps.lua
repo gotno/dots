@@ -66,6 +66,7 @@ map(
   end,
   { desc = 'maximize window' }
 )
+map('n', '<leader>T', ':tabe<cr>')
 
 -- toggle 'narrow selection' (fold all but visual line selection, unfold all)
 map('v', '<leader>zn', '<esc>`<kzfgg`>jzfG`<', { desc = 'fold all but selection' })
