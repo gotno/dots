@@ -39,7 +39,7 @@ return {
       },
       indent = {
         enable = true,
-        disable = { 'ruby' }
+        disable = { 'ruby', 'cpp' }
       },
       -- incremental_selection = {
       --   enable = true,
