@@ -1,4 +1,4 @@
-function map(mode, lhs, rhs, opts)
+local map = function(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -6,10 +6,12 @@ function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
-vim.g.mapleader = ' '
-
--- map('n', '<leader>Z', ':Lazy<cr>', { desc = 'LazyVim' })
--- map('n', '<leader>M', ':Mason<cr>', { desc = 'Mason' })
+-- unset/override
+map('n', ')', '<nop>')
+map('n', '(', '<nop>')
+map('n', 'q:', '<nop>')
+map('n', 'q/', '<nop>')
+map('n', 'q?', '<nop>')
 
 -- linewise nav works the same for wrapped lines
 map('n', 'j', 'gj')
@@ -27,25 +29,13 @@ map('n', 'cL', 'c$')
 map('n', 'yL', 'y$')
 
 -- clear search highlights
-map('n', '<leader><Esc>', ':nohlsearch<CR>')
-
--- terminal
--- map esc back to exit insert mode
-map('t', '<Esc>', "<C-\\><C-n>")
+map('n', '<leader><esc>', '<cmd>nohlsearch<cr>')
 
 -- splits
-map('n', '<leader>i', ':vsp<CR>')
-map('n', '<leader>o', ':sp<CR>')
+map('n', '<leader>i', '<cmd>vsp<cr>')
+map('n', '<leader>o', '<cmd>sp<cr>')
 
-map('n', ')', '<Nop>')
-map('n', '(', '<Nop>')
-map('n', ';', ':')
-
--- buffers
--- - next/prev (delete handled by snacks)
-map('n', '<c-n>', ':bn<CR>')
-map('n', '<c-p>', ':bp<CR>')
--- - toggle maximize (split to new tab)
+-- toggle maximize (split to new tab/close if only window in tab)
 map(
   'n',
   '<leader><enter>',
@@ -63,22 +53,24 @@ map(
     end
 
     vim.cmd.quit()
-  end,
-  { desc = 'maximize window' }
+  end
 )
-map('n', '<leader>T', ':tabe<cr>')
+map('n', '<leader>T', '<cmd>$tabnew<cr>')
 
 -- toggle 'narrow selection' (fold all but visual line selection, unfold all)
-map('v', '<leader>zn', '<esc>`<kzfgg`>jzfG`<', { desc = 'fold all but selection' })
-map('n', '<leader>zn', 'zR', { desc = 'open all folds' })
+map('v', 'zn', '<esc>`<kzfgg`>jzfG`<')
+map('n', 'zn', 'zR')
 
--- panes
-map('n', '<leader>w', ':q<CR>')
-map('n', '<leader>W', ':qa<CR>')
-map('n', '=', '<cmd>vertical resize +5<cr>')
-map('n', '-', '<cmd>vertical resize -5<cr>')
-map('n', '+', '<cmd>horizontal resize +2<cr>')
-map('n', '_', '<cmd>horizontal resize -2<cr>')
+-- close window(s)
+map('n', '<leader>w', '<cmd>q<cr>')
+map('n', '<leader>W', '<cmd>qa<cr>')
+-- close buffer(s)
+-- (see mini config)
 
--- refresh
-map('n', '<leader>r', ':e<CR>')
+-- resize splits
+map({'n', 'x'}, '=', '<cmd>vertical resize +5<cr>')
+map({'n', 'x'}, '-', '<cmd>vertical resize -5<cr>')
+map({'n', 'x'}, '+', '<cmd>horizontal resize +2<cr>')
+map({'n', 'x'}, '_', '<cmd>horizontal resize -2<cr>')
+-- equalize splits
+map({'n', 'x'}, '<leader>=', '<c-w>=')

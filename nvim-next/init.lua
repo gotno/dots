@@ -7,7 +7,11 @@ vim.g.have_nerd_font = true
 require 'options'
 require 'keymaps'
 -- require 'autocmds'
-require 'pack'
+require 'lsp'
 
--- vim.cmd 'colorscheme rose-pine'
-
+require 'color'
+require 'git'
+require 'mini'
+require 'statusline'
+require 'tmux'
+require 'terminal'
