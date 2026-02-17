@@ -4,6 +4,10 @@
       "rev": "c3395c5",
       "src": "https://github.com/shaozi/active-gutter.nvim"
     },
+    "auto-session": {
+      "rev": "6243753",
+      "src": "https://github.com/rmagatti/auto-session"
+    },
     "darkmatter-nvim": {
       "rev": "5663ddc",
       "src": "https://github.com/stevedylandev/darkmatter-nvim"
