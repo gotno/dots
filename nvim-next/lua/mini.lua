@@ -1,3 +1,24 @@
+vim.pack.add({
+  'https://github.com/nvim-mini/mini.icons',
+  'https://github.com/nvim-mini/mini.pick',
+})
+require('mini.pick').setup()
+vim.keymap.set(
+  {'n', 'x'},
+  '<leader><leader>', MiniPick.builtin.resume,
+  { noremap = true, silent = true }
+)
+vim.keymap.set(
+  {'n', 'x'},
+  '<leader>f', MiniPick.builtin.files,
+  { noremap = true, silent = true }
+)
+vim.keymap.set(
+  {'n', 'x'},
+  '<leader>/', MiniPick.builtin.grep_live,
+  { noremap = true, silent = true }
+)
+
 -- MiniCompletion + MiniSnippets
 vim.pack.add({
   'https://github.com/nvim-mini/mini.icons',
@@ -80,13 +101,17 @@ local toggle_preview = function()
   require('mini.files').trim_right()
 end
 
--- TODO: switch to mini.pick
--- local grep_in_dir = function()
---   local path = (MiniFiles.get_fs_entry() or {}).path
---   if path == nil then return nil end
---   require('mini.files').close()
---   require('snacks.picker').grep({ dirs = { vim.fs.dirname(path)} })
--- end
+local grep_in_dir = function()
+  local path = (MiniFiles.get_fs_entry() or {}).path
+  if path == nil then return nil end
+  MiniFiles.close()
+  MiniPick.builtin.grep_live(nil, {
+    source = {
+      name = 'grep in ' .. vim.fn.fnamemodify(path, ':.:h'),
+      cwd = vim.fs.dirname(path)
+    },
+  });
+end
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'MiniFilesBufferCreate',
@@ -94,7 +119,7 @@ vim.api.nvim_create_autocmd('User', {
   callback = function(args)
     local buf_id = args.data.buf_id
     -- TODO picker
-    -- vim.keymap.set('n', 'g/', grep_in_dir, { buffer = buf_id, desc = 'grep in dir' })
+    vim.keymap.set('n', '<leader>/', grep_in_dir, { buffer = buf_id })
     vim.keymap.set({ 'n', 'x' }, 'zh', toggle_dotfiles, { buffer = buf_id })
     vim.keymap.set({ 'n', 'x' }, '<tab>', toggle_preview, { buffer = buf_id })
     vim.keymap.set(

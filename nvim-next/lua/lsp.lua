@@ -71,7 +71,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set(
       {'n', 'x'},
       'gdo', require("tiny-code-action").code_action,
-      { buffer = attach_event.buf }
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
     )
     vim.keymap.set(
       'n',
@@ -81,12 +85,61 @@ vim.api.nvim_create_autocmd('LspAttach', {
           border = 'rounded',
         })
       end,
-      { buffer = attach_event.buf }
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
     )
     vim.keymap.set(
       'n',
       'grd', vim.lsp.buf.definition,
-      { buffer = attach_event.buf }
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
+    )
+    vim.keymap.set(
+      'n',
+      'grr',
+      function()
+        local MiniPick = require('mini.pick')
+        vim.lsp.buf.references(
+          nil,
+          {
+            on_list = function(options)
+              local items = {}
+              for i, item in ipairs(options.items) do
+                items[i] = {
+                  text = table.concat({
+                    table.concat({
+                      vim.fs.basename(item.filename),
+                      item.lnum,
+                      item.col
+                    }, ':'),
+                    vim.fn.substitute(item.text, '^ *', '', 'g'),
+                  }, '  '),
+                  path = item.filename,
+                  col = item.col,
+                  lnum = item.lnum,
+                }
+              end
+              MiniPick.start({
+                source = {
+                  name = 'lsp references',
+                  items = items,
+                },
+              })
+            end,
+          }
+        )
+      end,
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
     )
     -- map('grn', vim.lsp.buf.rename, 'rename')
     -- map('grr', require('snacks.picker').lsp_references, 'goto references')
@@ -105,7 +158,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.diagnostic.setloclist()
         vim.opt_local.wrap = true
       end,
-      { buffer = attach_event.buf }
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
     )
 
     -- toggle diagnostic float
@@ -115,7 +172,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       function()
         vim.diagnostic.open_float()
       end,
-      { buffer = attach_event.buf }
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
     )
 
     -- toggle inlay hint
@@ -127,7 +188,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
           not vim.lsp.inlay_hint.is_enabled({ bufnr = attach_event.buf })
         )
       end,
-      { buffer = attach_event.buf }
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
     )
 
     -- highlight/unhighlight hovered word

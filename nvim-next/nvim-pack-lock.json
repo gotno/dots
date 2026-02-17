@@ -4,6 +4,14 @@
       "rev": "c3395c5",
       "src": "https://github.com/shaozi/active-gutter.nvim"
     },
+    "darkmatter-nvim": {
+      "rev": "5663ddc",
+      "src": "https://github.com/stevedylandev/darkmatter-nvim"
+    },
+    "everforest": {
+      "rev": "b03a031",
+      "src": "https://github.com/sainnhe/everforest"
+    },
     "friendly-snippets": {
       "rev": "6cd7280",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -40,6 +48,10 @@
       "rev": "29ec27f",
       "src": "https://github.com/nvim-mini/mini.notify"
     },
+    "mini.pick": {
+      "rev": "4ad37ad",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
     "mini.snippets": {
       "rev": "a5e5ff2",
       "src": "https://github.com/nvim-mini/mini.snippets"
@@ -63,6 +75,14 @@
     "slimline.nvim": {
       "rev": "6b1f207",
       "src": "https://github.com/sschleemilch/slimline.nvim"
+    },
+    "synth.nvim": {
+      "rev": "66a878b",
+      "src": "https://github.com/vertexE/synth.nvim"
+    },
+    "themery.nvim": {
+      "rev": "bfa58f4",
+      "src": "https://github.com/zaldih/themery.nvim"
     },
     "tiny-code-action.nvim": {
       "rev": "2215a73",
