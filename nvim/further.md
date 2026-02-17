@@ -7,6 +7,9 @@
   - [x] grep in directory: [https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/](https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/)
   - [ ] smarter truncate? https://github.com/folke/snacks.nvim/issues/708
 
+- [ ] [code actions indicator in signs column](https://github.com/kosayoda/nvim-lightbulb)
+
+
 themes
 - [ ] [themery picker](https://github.com/zaldih/themery.nvim)
 - [ ] [https://github.com/Koalhack/koalight.nvim](https://github.com/Koalhack/koalight.nvim)
