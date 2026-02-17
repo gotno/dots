@@ -49,3 +49,6 @@ vim.o.sessionoptions='blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 
 -- markdown wants 4 space tabs and that is gross
 vim.g.markdown_recommended_style = 0
+
+-- this should be set automatically but sometimes isn't?
+vim.opt.termguicolors = true
