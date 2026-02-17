@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "active-gutter.nvim": {
+      "rev": "c3395c5",
+      "src": "https://github.com/shaozi/active-gutter.nvim"
+    },
     "friendly-snippets": {
       "rev": "6cd7280",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -7,6 +11,10 @@
     "gitsigns.nvim": {
       "rev": "9f3c6dd",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "incline.nvim": {
+      "rev": "8b54c59",
+      "src": "https://github.com/b0o/incline.nvim"
     },
     "mini.animate": {
       "rev": "0365de8",
@@ -43,6 +51,10 @@
     "nvim-lspconfig": {
       "rev": "44acfe8",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "4d946667",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
       "rev": "b9fd522",
