@@ -6,19 +6,13 @@ require('toggleterm').setup({
   open_mapping = '<c-t>',
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ 'TermOpen' }, {
   callback = function()
-    local is_terminal = vim.bo.buftype == 'terminal'
+    local is_lazygit =
+      string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
 
-    local buf_name = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
-    local is_lazygit = string.find(buf_name, 'lazygit')
-
-    if is_terminal and not is_lazygit then
+    if not is_lazygit then
       vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
-    end
-
-    if is_terminal and is_lazygit then
-      vim.keymap.set('t', '<esc>', '<nop>', { buffer = true })
     end
   end,
 })
