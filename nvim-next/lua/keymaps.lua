@@ -29,7 +29,7 @@ map('n', 'cL', 'c$')
 map('n', 'yL', 'y$')
 
 -- clear search highlights
-map('n', '<leader><esc>', '<cmd>nohlsearch<cr>')
+map('n', '<esc>', '<cmd>nohlsearch<cr>', { noremap = false })
 
 -- splits
 map('n', '<leader>i', '<cmd>vsp<cr>')
