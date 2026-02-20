@@ -6,7 +6,7 @@ vim.g.have_nerd_font = true
 
 require 'options'
 require 'keymaps'
--- require 'autocmds'
+require 'autocmds'
 require 'lsp'
 
 require 'color'
