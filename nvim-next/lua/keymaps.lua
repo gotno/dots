@@ -59,7 +59,6 @@ map('n', '<leader>T', '<cmd>$tabnew<cr>')
 
 -- toggle 'narrow selection' (fold all but visual line selection, unfold all)
 map('v', 'zn', '<esc>`<kzfgg`>jzfG`<')
-map('n', 'zn', 'zR')
 
 -- close window(s)
 map('n', '<leader>w', '<cmd>q<cr>')
