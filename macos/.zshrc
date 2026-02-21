@@ -73,9 +73,5 @@ if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
 
-# <c-x><c-e> to edit command-line in EDITOR (like bash)
-autoload -Uz edit-command-line && zle -N edit-command-line && \
-  bindkey "${key_info[Control]}x${key_info[Control]}e" edit-command-line
-
 # <c-z> to toggle bg/fg
 bindkey -s "^z" "fg^M"
