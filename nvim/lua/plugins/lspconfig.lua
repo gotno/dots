@@ -17,6 +17,14 @@ return {
       settings = {
         tsserver_max_memory = 8192, -- megabytes, 3072 is vscode's default
       },
+      root_dir = function(bufnr, on_dir)
+        local root_markers = {
+          {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'},
+          {'.git'},
+        }
+
+        on_dir(vim.fs.root(bufnr, root_markers) or vim.fn.getcwd())
+      end,
     },
   },
   { 'dmmulroy/ts-error-translator.nvim' },
@@ -189,7 +197,14 @@ return {
                 callSnippet = 'Replace',
               },
               -- ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                globals = {
+                  'vim',
+                },
+                disable = {
+                  'missing-fields',
+                },
+              },
             },
           },
         },
