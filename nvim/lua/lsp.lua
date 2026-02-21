@@ -148,7 +148,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- map('grt', require('snacks.picker').lsp_type_definitions, 'goto type definition')
     -- map('gO', require('snacks.picker').lsp_symbols, 'goto document symbols')
     -- map('gW', require('snacks.picker').lsp_workspace_symbols, 'goto workspace symbols')
-    -- map('gH', ':LspClangdSwitchSourceHeader<CR>', 'c/c++ switch between source/header')
+    vim.keymap.set(
+      {'n', 'x'},
+      'gH', '<cmd>LspClangdSwitchSourceHeader<cr>',
+      {
+        buffer = attach_event.buf,
+        noremap = true,
+        silent = true,
+      }
+    )
 
     -- send diagnostics to loclist
     vim.keymap.set(
