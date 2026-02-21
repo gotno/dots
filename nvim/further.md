@@ -41,7 +41,7 @@ themes
   * https://trplan.si/blog/mini-files-bookmarks/
 - [x] mini.files toggle + expand to root
   * https://www.reddit.com/r/neovim/comments/1fzfiex/comment/lr1sg2l/
-- [ ] grep in directory from mini.files?
+- [x] grep in directory from mini.files?
   * https://www.reddit.com/r/neovim/comments/1ifcksk/how_do_i_limit_search_to_a_directory_when_using/
 
 - [ ] replace gitsigns with [mini.diff](https://github.com/nvim-mini/mini.diff)?
