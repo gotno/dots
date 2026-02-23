@@ -26,7 +26,7 @@ vim.lsp.enable('lua_ls')
 -- eslint
 vim.lsp.enable('eslint')
 
--- TODO: how do we do things
+-- TODO: how does H do things
 --       doesn't follow @imports
 -- css
 vim.lsp.enable('css-ls')
