@@ -17,6 +17,9 @@ require("tiny-code-action").setup({
   },
 })
 
+-- robot
+vim.lsp.enable('copilot')
+
 -- c, cpp
 vim.lsp.enable('clangd')
 

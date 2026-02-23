@@ -76,6 +76,10 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "sidekick.nvim": {
+      "rev": "c2bdf8c",
+      "src": "https://github.com/folke/sidekick.nvim"
+    },
     "slimline.nvim": {
       "rev": "6b1f207",
       "src": "https://github.com/sschleemilch/slimline.nvim"
