@@ -30,7 +30,10 @@ local lazygit = Terminal:new({
 
 vim.keymap.set(
   {'n', 't'},
-  ',,', function() lazygit:toggle() end,
+  function()
+    lazygit:toggle()
+    vim.schedule(function() vim.cmd('startinsert') end)
+  end,
   { noremap = true, silent = true }
 )
 
