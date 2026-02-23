@@ -2,24 +2,27 @@ vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
 })
 require('sidekick').setup({
-  -- cli = {
-  --   win = {
-  --     layout = 'right',
-  --     split = {
-  --       width = 140,
-  --     },
-  --   },
-  --   -- mux = {
-  --   --   backend = 'tmux',
-  --   --   enabled = true,
-  --   --   create = 'terminal',
-  --   --   -- split = {
-  --   --   --   vertical = true, -- vertical or horizontal split
-  --   --   --   size = 0.5, -- size of the split (0-1 for percentage)
-  --   --   -- },
-  --   -- },
-  -- },
+  cli = {
+    win = {
+      layout = 'right',
+      split = {
+        width = 80,
+      },
+    },
+    tools = {
+      copilot = { cmd = { 'copilot', '--banner', '--alt-screen=on' } },
+    },
+  },
 })
+
+vim.keymap.set(
+  {'n', 'x'},
+  ',.',
+  function()
+    require("sidekick.cli").toggle({ name = "copilot", focus = true })
+  end,
+  { noremap = true, silent = true }
+)
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
