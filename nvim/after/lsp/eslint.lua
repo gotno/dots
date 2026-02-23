@@ -165,6 +165,11 @@ return {
       if type(config.cmd) == 'table' and (vim.uv.fs_stat(pnp_cjs) or vim.uv.fs_stat(pnp_js)) then
         config.cmd = vim.list_extend({ 'yarn', 'exec' }, config.cmd --[[@as table]])
       end
+
+      -- for a certain monorepo with a dedicated libs/eslint-config workspace, point nodePath there
+      if vim.uv.fs_stat(root_dir .. '/libs/eslint-config/node_modules/eslint') then
+        config.settings.nodePath = 'libs/eslint-config'
+      end
     end
   end,
   handlers = {
