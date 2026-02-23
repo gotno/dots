@@ -6,17 +6,6 @@ require('toggleterm').setup({
   open_mapping = '<c-t>',
 })
 
-vim.api.nvim_create_autocmd({ 'TermOpen' }, {
-  callback = function()
-    local is_lazygit =
-      string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
-
-    if not is_lazygit then
-      vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
-    end
-  end,
-})
-
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = 'lazygit',
@@ -29,13 +18,50 @@ local lazygit = Terminal:new({
 })
 
 vim.keymap.set(
-  {'n', 't'},
+  {'n', 'x'},
+  ',,',
   function()
     lazygit:toggle()
     vim.schedule(function() vim.cmd('startinsert') end)
   end,
   { noremap = true, silent = true }
 )
+
+vim.api.nvim_create_autocmd({ 'TermOpen' }, {
+  callback = function()
+
+    local is_lazygit =
+      string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
+    -- toggle lazygit from within lazygit
+    if is_lazygit then
+      vim.keymap.set(
+        't',
+        ',,', function() lazygit:toggle() end,
+        { buffer = true, noremap = true, silent = true }
+      )
+    end
+
+    -- remap esc unless we're in lazygit
+    if not is_lazygit then
+      vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
+    end
+
+    -- fake mouse scrolling for copilot
+    local send_scroll_up = function()
+      vim.api.nvim_chan_send(vim.bo.channel, "\27[<64;1;1M")
+    end
+    local send_scroll_down = function()
+      vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
+    end
+
+    local is_copilot =
+      string.find(vim.api.nvim_buf_get_name(0), 'copilot') ~= nil
+    if is_copilot then
+      vim.keymap.set('t', '<c-k>', send_scroll_up, { buffer = true })
+      vim.keymap.set('t', '<c-j>', send_scroll_down, { buffer = true })
+    end
+  end,
+})
 
 -- heredoc swap
 -- local yml = [=[
