@@ -10,7 +10,7 @@ vim.pack.add({
 });
 require("tiny-code-action").setup({
   picker = {
-    'buffer',
+    'select',
     opts = {
       hotkeys = true,
     },
