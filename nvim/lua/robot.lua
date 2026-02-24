@@ -28,10 +28,18 @@ vim.keymap.set(
   {'n', 'i'},
   '<tab>',
   function()
-    -- if there is a next edit, jump to it, otherwise apply it if any
-    if not require("sidekick").nes_jump_or_apply() then
-      return "<tab>" -- fallback to normal tab
+    -- jump to or apply next edit
+    if require('sidekick').nes_jump_or_apply() then
+      return
     end
+
+    -- trigger inline completion if present
+    if vim.lsp.inline_completion.get() then
+      return
+    end
+
+    -- otherwise, fall back to default <tab>
+    return '<tab>'
   end,
   { noremap = true, silent = true }
 )
@@ -40,20 +48,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    local client_has_inline_completion =
+      client:supports_method(
+        vim.lsp.protocol.Methods.textDocument_inlineCompletion,
+        bufnr
+      )
 
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+    if client_has_inline_completion then
       vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
-
-      vim.keymap.set(
-        'i',
-        '<C-F>', vim.lsp.inline_completion.get,
-        { desc = 'LSP: accept inline completion', buffer = bufnr }
-      )
-      vim.keymap.set(
-        'i',
-        '<C-G>', vim.lsp.inline_completion.select,
-        { desc = 'LSP: switch inline completion', buffer = bufnr }
-      )
     end
   end
 })
