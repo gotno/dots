@@ -24,6 +24,18 @@ vim.keymap.set(
   { noremap = true, silent = true }
 )
 
+vim.keymap.set(
+  {'n', 'i'},
+  '<tab>',
+  function()
+    -- if there is a next edit, jump to it, otherwise apply it if any
+    if not require("sidekick").nes_jump_or_apply() then
+      return "<tab>" -- fallback to normal tab
+    end
+  end,
+  { noremap = true, silent = true }
+)
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local bufnr = args.buf
