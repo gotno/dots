@@ -8,6 +8,10 @@
       "rev": "6243753",
       "src": "https://github.com/rmagatti/auto-session"
     },
+    "bento.nvim": {
+      "rev": "aee8a54",
+      "src": "https://github.com/serhez/bento.nvim"
+    },
     "darkmatter-nvim": {
       "rev": "5663ddc",
       "src": "https://github.com/stevedylandev/darkmatter-nvim"
