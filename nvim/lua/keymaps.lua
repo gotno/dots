@@ -13,6 +13,9 @@ map('n', 'q:', '<nop>')
 map('n', 'q/', '<nop>')
 map('n', 'q?', '<nop>')
 
+-- for mis-timed shift+; on the planck 🙄
+map('n', '(;', ':')
+
 -- linewise nav works the same for wrapped lines
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
