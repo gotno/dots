@@ -5,7 +5,12 @@ vim.pack.add({
 require('mini.pick').setup()
 vim.keymap.set(
   {'n', 'x'},
-  '<leader><leader>', MiniPick.builtin.resume,
+  '<leader><leader>',
+  function()
+    if not pcall(MiniPick.builtin.resume) then
+      MiniPick.builtin.files()
+    end
+  end,
   { noremap = true, silent = true }
 )
 vim.keymap.set(
