@@ -32,6 +32,9 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
 
     local is_lazygit =
       string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
+    local is_copilot =
+      string.find(vim.api.nvim_buf_get_name(0), 'copilot') ~= nil
+
     -- toggle lazygit from within lazygit
     if is_lazygit then
       vim.keymap.set(
@@ -41,8 +44,8 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       )
     end
 
-    -- remap esc unless we're in lazygit
-    if not is_lazygit then
+    -- remap esc unless we're in a tui that wants control of esc
+    if not is_lazygit and not is_copilot then
       vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
     end
 
@@ -54,11 +57,16 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
     end
 
-    local is_copilot =
-      string.find(vim.api.nvim_buf_get_name(0), 'copilot') ~= nil
     if is_copilot then
       vim.keymap.set('t', '<c-k>', send_scroll_up, { buffer = true })
       vim.keymap.set('t', '<c-j>', send_scroll_down, { buffer = true })
+      vim.keymap.set(
+        't',
+        '<c-h>',
+        function()
+          require('sidekick.cli').toggle()
+        end,
+      { buffer = true, noremap = true })
     end
   end,
 })
