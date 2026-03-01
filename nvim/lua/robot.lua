@@ -23,6 +23,30 @@ vim.keymap.set(
   end,
   { noremap = true, silent = true }
 )
+vim.keymap.set(
+  {'n', 'x'},
+  ',t',
+  function()
+    require("sidekick.cli").send({ msg = "{this}" })
+  end,
+  { noremap = true, silent = true }
+)
+vim.keymap.set(
+  {'x'},
+  ',v',
+  function()
+    require("sidekick.cli").send({ msg = "{selection}" })
+  end,
+  { noremap = true, silent = true }
+)
+vim.keymap.set(
+  {'n'},
+  ',f',
+  function()
+    require("sidekick.cli").send({ msg = "{file}" })
+  end,
+  { noremap = true, silent = true }
+)
 
 vim.keymap.set(
   {'n', 'i'},
