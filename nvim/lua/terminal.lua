@@ -51,10 +51,18 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
 
     -- fake mouse scrolling for copilot
     local send_scroll_up = function()
-      vim.api.nvim_chan_send(vim.bo.channel, "\27[<64;1;1M")
+      -- scroll wheel up
+      -- vim.api.nvim_chan_send(vim.bo.channel, "\27[<64;1;1M")
+
+      -- pgup
+      vim.api.nvim_chan_send(vim.bo.channel, "\27[5~")
     end
     local send_scroll_down = function()
-      vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
+      -- scroll wheel down
+      -- vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
+
+      -- pgdown
+      vim.api.nvim_chan_send(vim.bo.channel, "\27[6~")
     end
 
     if is_copilot then
