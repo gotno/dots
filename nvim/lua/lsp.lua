@@ -43,6 +43,9 @@ vim.pack.add({
   'https://github.com/pmizio/typescript-tools.nvim',
 });
 require('typescript-tools').setup({
+  settings = {
+    tsserver_max_memory = 8192, -- megabytes, 3072 is vscode's default
+  },
 	root_dir = function(bufnr, on_dir)
 		local root_markers = {
 	    {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'},
