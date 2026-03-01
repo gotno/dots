@@ -46,14 +46,14 @@ require('typescript-tools').setup({
   settings = {
     tsserver_max_memory = 8192, -- megabytes, 3072 is vscode's default
   },
-	root_dir = function(bufnr, on_dir)
-		local root_markers = {
-	    {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'},
-			{'.git'},
-		}
+  root_dir = function(bufnr, on_dir)
+    local root_markers = {
+      {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'},
+      {'.git'},
+    }
 
-		on_dir(vim.fs.root(bufnr, root_markers) or vim.fn.getcwd())
-	end,
+    on_dir(vim.fs.root(bufnr, root_markers) or vim.fn.getcwd())
+  end,
 })
 
 -- LspAttach
