@@ -22,7 +22,7 @@ vim.pack.add({
 })
 require('bento').setup({
   ui = {
-    mode = "floating", -- "floating" | "tabline"
+    mode = 'floating', -- "floating" | "tabline"
     floating = {
       -- position = "middle-right", -- See position options below
       -- offset_x = 0, -- Horizontal offset from position
