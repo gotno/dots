@@ -10,14 +10,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- trim trailing whitespace before writing buffer
-vim.api.nvim_create_autocmd(
-  'BufWritePre',
-  {
-    callback = function ()
-      local view = vim.fn.winsaveview()
-      vim.cmd [[keepp %s/\s\+$//e]]
-      -- vim.cmd 'update' -- save if altered
-      vim.fn.winrestview(view)
-    end
-  }
-)
+vim.api.nvim_create_autocmd('BufWritePre', {
+  callback = function ()
+    local view = vim.fn.winsaveview()
+    vim.cmd [[keepp %s/\s\+$//e]]
+    -- vim.cmd 'update' -- toggle to save if altered
+    vim.fn.winrestview(view)
+  end
+})
+
+-- fix unsaved changes warnings for plugin buffers
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = '*mininotify*',
+  callback = function()
+    vim.bo.buftype = 'nofile'
+  end,
+})
