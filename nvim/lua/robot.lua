@@ -3,6 +3,10 @@ vim.pack.add({
 })
 require('sidekick').setup({
   cli = {
+    mux = {
+      enabled = true,
+      backend = 'tmux',
+    },
     win = {
       layout = 'right',
       split = {

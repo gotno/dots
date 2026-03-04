@@ -33,7 +33,9 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
     local is_lazygit =
       string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
     local is_copilot =
-      string.find(vim.api.nvim_buf_get_name(0), 'copilot') ~= nil
+      string.find(vim.bo.filetype, 'sidekick_terminal') ~= nil
+      -- when cli.mux.enabled, the buffer's name is blank
+      -- string.find(vim.api.nvim_buf_get_name(0), 'copilot') ~= nil
 
     -- toggle lazygit from within lazygit
     if is_lazygit then
