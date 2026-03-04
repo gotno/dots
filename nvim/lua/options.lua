@@ -8,6 +8,8 @@ vim.o.expandtab = true
 vim.o.wrap = false
 -- wrapped line repeats indent
 vim.o.breakindent = true
+-- wrapped line breaks at word boundary
+vim.o.linebreak = true
 
 -- line numbers
 vim.o.number = true
