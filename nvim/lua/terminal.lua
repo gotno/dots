@@ -72,11 +72,14 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       vim.keymap.set('t', '<c-j>', send_scroll_down, { buffer = true })
       vim.keymap.set(
         't',
-        '<c-h>',
-        function()
-          require('sidekick.cli').toggle()
-        end,
-      { buffer = true, noremap = true })
+        '<c-h>', function() require('sidekick.cli').toggle() end,
+        { buffer = true, noremap = true }
+      )
+      vim.keymap.set(
+        't',
+        '<c-l>', '<c-\\><c-n>',
+        { buffer = true, noremap = true }
+      )
     end
   end,
 })
