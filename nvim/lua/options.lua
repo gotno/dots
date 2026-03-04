@@ -18,6 +18,7 @@ vim.o.signcolumn = 'yes'
 
 -- highlighted rows & columns
 vim.o.cursorline = true
+-- vim.o.cursorcolumn = true
 vim.o.colorcolumn = '81'
 
 -- min lines above & below cursor
