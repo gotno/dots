@@ -14,6 +14,7 @@ require('nvim-treesitter').install({
   'cpp',
   'html',
   'css',
+  'scss',
   'jsdoc',
   'javascript',
   'typescript',
