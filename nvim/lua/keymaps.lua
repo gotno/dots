@@ -1,7 +1,7 @@
 local map = function(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
-        options = vim.tbl_extend("force", options, opts)
+        options = vim.tbl_extend('force', options, opts)
     end
     vim.keymap.set(mode, lhs, rhs, options)
 end
@@ -76,3 +76,44 @@ map({'n', 'x'}, '+', '<cmd>horizontal resize +2<cr>')
 map({'n', 'x'}, '_', '<cmd>horizontal resize -2<cr>')
 -- equalize splits
 map({'n', 'x'}, '<leader>=', '<c-w>=')
+
+-- yank file path/name
+local function buf_abs()
+  return vim.api.nvim_buf_get_name(0)
+end
+vim.keymap.set(
+  'n', '<leader>yr',
+  function()
+    local rel = vim.fn.fnamemodify(buf_abs(), ':.')
+    vim.fn.setreg('+', rel)
+    vim.notify('yanked ' .. rel)
+  end,
+  { desc = 'yank relative path' }
+)
+vim.keymap.set(
+  'n', '<leader>ya',
+  function()
+    local abs = vim.fn.fnamemodify(buf_abs(), ':p')
+    vim.fn.setreg('+', abs)
+    vim.notify('yanked ' .. abs)
+  end,
+  { desc = 'yank absolute path' }
+)
+vim.keymap.set(
+  'n', '<leader>yd',
+  function()
+    local dir = vim.fn.fnamemodify(buf_abs(), ':p:h')
+    vim.fn.setreg('+', dir)
+    vim.notify('yanked ' .. dir)
+  end,
+  { desc = 'yank directory' }
+)
+vim.keymap.set(
+  'n', '<leader>yf',
+  function()
+    local name = vim.fn.fnamemodify(buf_abs(), ':t')
+    vim.fn.setreg('+', name)
+    vim.notify('yanked ' .. name)
+  end,
+  { desc = 'yank filename' }
+)
