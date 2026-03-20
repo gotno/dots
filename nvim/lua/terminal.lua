@@ -7,6 +7,7 @@ require('toggleterm').setup({
 })
 
 local Terminal  = require('toggleterm.terminal').Terminal
+
 local lazygit = Terminal:new({
   cmd = 'lazygit',
   hidden = true,
@@ -16,7 +17,6 @@ local lazygit = Terminal:new({
     border = 'rounded',
   },
 })
-
 vim.keymap.set(
   {'n', 'x'},
   ',,',
@@ -27,11 +27,32 @@ vim.keymap.set(
   { noremap = true, silent = true }
 )
 
+local lazydocker = Terminal:new({
+  cmd = 'lazydocker',
+  hidden = true,
+  dir = 'git_dir',
+  direction = 'float',
+  float_opts = {
+    border = 'rounded',
+  },
+})
+vim.keymap.set(
+  {'n', 'x'},
+  ',d',
+  function()
+    lazydocker:toggle()
+    vim.schedule(function() vim.cmd('startinsert') end)
+  end,
+  { noremap = true, silent = true }
+)
+
 vim.api.nvim_create_autocmd({ 'TermOpen' }, {
   callback = function()
 
     local is_lazygit =
       string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
+    local is_lazydocker =
+      string.find(vim.api.nvim_buf_get_name(0), 'lazydocker') ~= nil
     local is_copilot =
       string.find(vim.bo.filetype, 'sidekick_terminal') ~= nil
       -- when cli.mux.enabled, the buffer's name is blank
@@ -46,8 +67,17 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       )
     end
 
+    -- toggle lazydocker from within lazydocker
+    if is_lazydocker then
+      vim.keymap.set(
+        't',
+        ',d', function() lazydocker:toggle() end,
+        { buffer = true, noremap = true, silent = true }
+      )
+    end
+
     -- remap esc unless we're in a tui that wants control of esc
-    if not is_lazygit and not is_copilot then
+    if not is_lazygit and not is_lazydocker and not is_copilot then
       vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
     end
 
