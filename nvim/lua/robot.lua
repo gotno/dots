@@ -18,7 +18,6 @@ require('sidekick').setup({
         cmd = {
           'copilot',
           '--banner',
-          '--alt-screen=on',
           '--allow-tool=shell(date:*)',
           '--allow-tool=shell(echo:*)',
           '--allow-tool=shell(cat:*)',
