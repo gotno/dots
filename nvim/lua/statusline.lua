@@ -57,6 +57,11 @@ require('slimline').setup({
 })
 
 -- incline (filename labels)
+vim.pack.add({
+  'https://github.com/shaozi/active-gutter.nvim',
+  'https://github.com/b0o/incline.nvim',
+})
+
 local function truncate(path, num_chars_in_truncation, num_full_dirs)
   local parts = {}
   for part in path:gmatch('[^/]+') do
@@ -79,10 +84,6 @@ local function truncate(path, num_chars_in_truncation, num_full_dirs)
   return table.concat(truncated, '/')
 end
 
-vim.pack.add({
-  'https://github.com/shaozi/active-gutter.nvim',
-  'https://github.com/b0o/incline.nvim',
-})
 require('incline').setup({
   render = function(props)
     local result = {}
