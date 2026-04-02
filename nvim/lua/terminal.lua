@@ -46,6 +46,25 @@ vim.keymap.set(
   { noremap = true, silent = true }
 )
 
+local btop = Terminal:new({
+  cmd = 'btop',
+  hidden = true,
+  dir = 'git_dir',
+  direction = 'float',
+  float_opts = {
+    border = 'rounded',
+  },
+})
+vim.keymap.set(
+  {'n', 'x'},
+  ',b',
+  function()
+    btop:toggle()
+    vim.schedule(function() vim.cmd('startinsert') end)
+  end,
+  { noremap = true, silent = true }
+)
+
 vim.api.nvim_create_autocmd({ 'TermOpen' }, {
   callback = function()
 
@@ -53,6 +72,8 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       string.find(vim.api.nvim_buf_get_name(0), 'lazygit') ~= nil
     local is_lazydocker =
       string.find(vim.api.nvim_buf_get_name(0), 'lazydocker') ~= nil
+    local is_btop =
+      string.find(vim.api.nvim_buf_get_name(0), 'btop') ~= nil
     local is_copilot =
       string.find(vim.bo.filetype, 'sidekick_terminal') ~= nil
       -- when cli.mux.enabled, the buffer's name is blank
@@ -76,8 +97,17 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       )
     end
 
+    -- toggle btop from within btop
+    if is_btop then
+      vim.keymap.set(
+        't',
+        ',b', function() btop:toggle() end,
+        { buffer = true, noremap = true, silent = true }
+      )
+    end
+
     -- remap esc unless we're in a tui that wants control of esc
-    if not is_lazygit and not is_lazydocker and not is_copilot then
+    if not is_lazygit and not is_lazydocker and not is_btop and not is_copilot then
       vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
     end
 
