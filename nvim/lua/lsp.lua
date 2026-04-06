@@ -56,6 +56,9 @@ require('typescript-tools').setup({
   end,
 })
 
+vim.lsp.enable('terraform-ls')
+vim.lsp.enable('tofu-ls')
+
 -- LspAttach
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('gtno-lsp-attach', { clear = true }),
