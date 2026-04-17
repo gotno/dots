@@ -43,6 +43,14 @@ require('sidekick').setup({
 
 vim.keymap.set(
   {'n', 'x'},
+  ',c',
+  function()
+    require("sidekick.cli").toggle({ name = "claude", focus = true })
+  end,
+  { noremap = true, silent = true }
+)
+vim.keymap.set(
+  {'n', 'x'},
   ',.',
   function()
     require("sidekick.cli").toggle({ name = "copilot", focus = true })
