@@ -27,6 +27,7 @@ require('nvim-treesitter').install({
   'query',
   'vim',
   'vimdoc',
+  'yaml',
 })
 
 -- `:echo getcompletion('', 'filetype')`
@@ -46,6 +47,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'viminfo',
     'xhtml',
     'json',
+    'yaml',
   },
   callback = function()
     vim.treesitter.start()
