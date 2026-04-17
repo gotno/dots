@@ -29,6 +29,7 @@ require('sidekick').setup({
           '--allow-tool=shell(sort:*)',
           '--allow-tool=shell(grep:*)',
           '--allow-tool=shell(tr:*)',
+          '--allow-tool=shell(find:*)',
           '--allow-tool=shell(git add:*)',
           '--allow-tool=shell(git commit:*)',
           '--allow-tool=shell(git status:*)',
