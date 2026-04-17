@@ -2,7 +2,32 @@ vim.pack.add({
   'https://github.com/nvim-mini/mini.icons',
   'https://github.com/nvim-mini/mini.pick',
 })
-require('mini.pick').setup()
+
+require('mini.pick').setup({
+  window = {
+    -- config = {
+    --   anchor = 'NW',
+    --   relative = 'cursor',
+    --   width = 40,
+    --   height = 20,
+    --   row = 0,
+    --   col = 0,
+    -- },
+    prompt_caret = '|',
+    prompt_prefix = ' > ',
+    config = function()
+      local height = math.floor(0.618 * vim.o.lines)
+      local width = math.floor(0.618 * vim.o.columns)
+      return {
+        border = 'rounded',
+        anchor = 'NW', height = height, width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+      }
+    end,
+  },
+})
+
 vim.keymap.set(
   {'n', 'x'},
   '<leader><leader>',
