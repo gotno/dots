@@ -11,6 +11,7 @@ require 'lsp'
 
 require 'color'
 require 'git'
+require 'markdown'
 require 'mini'
 require 'robot'
 require 'session'
