@@ -10,7 +10,7 @@ require('sidekick').setup({
     win = {
       layout = 'right',
       split = {
-        width = 100,
+        width = 80,
       },
     },
     tools = {
