@@ -44,7 +44,7 @@ vim.pack.add({
 });
 require('typescript-tools').setup({
   settings = {
-    tsserver_max_memory = 8192, -- megabytes, 3072 is vscode's default
+    tsserver_max_memory = 3072, -- megabytes, 3072 is vscode's default
   },
   root_dir = function(bufnr, on_dir)
     local root_markers = {
