@@ -17,7 +17,7 @@
       "src": "https://github.com/stevedylandev/darkmatter-nvim"
     },
     "everforest": {
-      "rev": "b03a031",
+      "rev": "aeef62ee97872d2557d25904d160ec93a4a355f8",
       "src": "https://github.com/sainnhe/everforest"
     },
     "friendly-snippets": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "e1fb5425c8812214209b3f24eaa582c6c552cf98",
+      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "incline.nvim": {
@@ -33,47 +33,47 @@
       "src": "https://github.com/b0o/incline.nvim"
     },
     "mini.bufremove": {
-      "rev": "ee69f823f84508c556127a5882760d9783692023",
+      "rev": "8603490905fdfa31943cf2ede7ef4475e3dbac9a",
       "src": "https://github.com/nvim-mini/mini.bufremove"
     },
     "mini.completion": {
-      "rev": "4f94cafdeef02bf3ef9997cd6862658801caa22c",
+      "rev": "ffbdb06d2fa6a3fcef3891108bb38e33223b27a7",
       "src": "https://github.com/nvim-mini/mini.completion"
     },
     "mini.files": {
-      "rev": "b4796e09eb103f9f2d1e00aa2dab3753b879b17b",
+      "rev": "e8db416c9f5dbce70f5501da28263d45c0a4df6b",
       "src": "https://github.com/nvim-mini/mini.files"
     },
     "mini.icons": {
-      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
+      "rev": "bac6317300e205335df425296570d84322730067",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.notify": {
-      "rev": "e506fb6da26c0a31ee6b1d2eb99626cb147f28ca",
+      "rev": "9e68ab0a54f90567b4fec2de22c851dba8480439",
       "src": "https://github.com/nvim-mini/mini.notify"
     },
     "mini.pick": {
-      "rev": "fe079c2bd894a5ee70b62f23d819620ef40c4949",
+      "rev": "437d44eb57312f23e6b931704694fc294922cd88",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.snippets": {
-      "rev": "c7a5fd5e767dcc732940f59f2a83c64ea7346a3e",
+      "rev": "8e3acd41bd7ee8f89967c83bacc93871b98a14aa",
       "src": "https://github.com/nvim-mini/mini.snippets"
     },
     "neovim": {
-      "rev": "cf2a288",
+      "rev": "9504524e5ed0e326534698f637f9d038ba4cd0ee",
       "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-lspconfig": {
-      "rev": "8e2084bf5e40c79c1f42210a6ef96a0a4793a763",
+      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "539abf6da5ee8702e37b82cc953131dadd570da2",
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
-      "rev": "b9fd522",
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
@@ -85,7 +85,7 @@
       "src": "https://github.com/folke/sidekick.nvim"
     },
     "slimline.nvim": {
-      "rev": "2ca5a979698fd0af0406770fa5dc81899fb53106",
+      "rev": "6e1387e69e222957ff87e5ddc61470d4e04ac683",
       "src": "https://github.com/sschleemilch/slimline.nvim"
     },
     "synth.nvim": {
@@ -97,7 +97,7 @@
       "src": "https://github.com/zaldih/themery.nvim"
     },
     "tiny-code-action.nvim": {
-      "rev": "8e72efa075ba3154bbc4c7d1db532b03b4e68373",
+      "rev": "9f4b05c2f93f76a7bd517d9587ad0dc73cca0d0d",
       "src": "https://github.com/rachartier/tiny-code-action.nvim"
     },
     "toggleterm.nvim": {
