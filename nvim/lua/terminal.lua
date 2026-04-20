@@ -111,25 +111,25 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
     end
 
-    -- fake mouse scrolling for copilot
-    local send_scroll_up = function()
-      -- scroll wheel up
-      -- vim.api.nvim_chan_send(vim.bo.channel, "\27[<64;1;1M")
-
-      -- pgup
+    -- fake mouse/pgup/pgdown scrolling for copilot
+    local send_pg_up = function()
       vim.api.nvim_chan_send(vim.bo.channel, "\27[5~")
     end
-    local send_scroll_down = function()
-      -- scroll wheel down
-      -- vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
-
-      -- pgdown
+    local send_scroll_up = function()
+      vim.api.nvim_chan_send(vim.bo.channel, "\27[<64;1;1M")
+    end
+    local send_pg_down = function()
       vim.api.nvim_chan_send(vim.bo.channel, "\27[6~")
+    end
+    local send_scroll_down = function()
+      vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
     end
 
     if is_copilot then
       vim.keymap.set('t', '<c-k>', send_scroll_up, { buffer = true })
       vim.keymap.set('t', '<c-j>', send_scroll_down, { buffer = true })
+      vim.keymap.set('t', '<c-u>', send_pg_up, { buffer = true })
+      vim.keymap.set('t', '<c-d>', send_pg_down, { buffer = true })
       vim.keymap.set(
         't',
         '<c-h>', function() require('sidekick.cli').toggle() end,
