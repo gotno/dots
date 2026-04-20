@@ -10,10 +10,10 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'markdown' },
   group = vim.api.nvim_create_augroup('gtno-markdown', { clear = true }),
   callback = function()
-    vim.o.wrap = true
-    vim.o.number = false
-    vim.o.relativenumber = false
-    vim.o.cursorline = false
-    vim.o.colorcolumn = ''
+    vim.opt_local.wrap = true
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.cursorline = false
+    vim.opt_local.colorcolumn = ''
   end,
 })
