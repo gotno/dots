@@ -147,6 +147,17 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
         { buffer = true, noremap = true }
       )
     end
+
+    -- tmux nav
+    -- in a terminal, exit insert mode first
+    vim.keymap.set('t', '<c-h>', '<c-\\><c-n><cmd>TmuxNavigateLeft<cr>')
+    vim.keymap.set('t', '<c-l>', '<c-\\><c-n><cmd>TmuxNavigateRight<cr>')
+    vim.keymap.set('t', '<c-\\>', '<c-\\><c-n><cmd>TmuxNavigatePrevious<cr>')
+    -- lazygit uses ctrl-j/k to reorder commits
+    if not is_lazygit then
+      vim.keymap.set('t', '<c-j>', '<c-\\><c-n><cmd>TmuxNavigateDown<cr>')
+      vim.keymap.set('t', '<c-k>', '<c-\\><c-n><cmd>TmuxNavigateUp<cr>')
+    end
   end,
 })
 
