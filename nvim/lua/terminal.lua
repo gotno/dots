@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       string.find(vim.api.nvim_buf_get_name(0), 'lazydocker') ~= nil
     local is_btop =
       string.find(vim.api.nvim_buf_get_name(0), 'btop') ~= nil
-    local is_copilot =
+    local is_robot =
       string.find(vim.bo.filetype, 'sidekick_terminal') ~= nil
       -- when cli.mux.enabled, the buffer's name is blank
       -- string.find(vim.api.nvim_buf_get_name(0), 'copilot') ~= nil
@@ -113,11 +113,11 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
     end
 
     -- remap esc unless we're in a tui that wants control of esc
-    if not is_lazygit and not is_lazydocker and not is_btop and not is_copilot then
+    if not is_lazygit and not is_lazydocker and not is_btop and not is_robot then
       vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { buffer = true })
     end
 
-    -- fake mouse/pgup/pgdown scrolling for copilot
+    -- fake mouse/pgup/pgdown scrolling for robots
     local send_pg_up = function()
       vim.api.nvim_chan_send(vim.bo.channel, "\27[5~")
     end
@@ -131,7 +131,7 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       vim.api.nvim_chan_send(vim.bo.channel, "\27[<65;1;1M")
     end
 
-    if is_copilot then
+    if is_robot then
       vim.keymap.set('t', '<c-k>', send_scroll_up, { buffer = true })
       vim.keymap.set('t', '<c-j>', send_scroll_down, { buffer = true })
       vim.keymap.set('t', '<c-u>', send_pg_up, { buffer = true })
