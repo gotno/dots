@@ -13,7 +13,8 @@ vim.keymap.set({ 'n', 'v' }, '<c-\\>', '<cmd>TmuxNavigatePrevious<cr>')
 -- see terminal.lua for in-terminal mappings
 
 vim.pack.add({
-  'https://github.com/serhez/bento.nvim',
+  -- 'https://github.com/serhez/bento.nvim',
+  { src = 'https://github.com/gotno/bento.nvim', version = 'handle-tabpages' },
 })
 require('bento').setup({
   ui = {
