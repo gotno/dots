@@ -6,6 +6,12 @@ require('toggleterm').setup({
   open_mapping = '<c-t>',
 })
 
+vim.keymap.set('t', '<c-r>', function()
+  local next_char_code = vim.fn.getchar()
+  local next_char = vim.fn.nr2char(math.tointeger(next_char_code))
+  return '<C-\\><C-N>"'..next_char..'pi'
+end, { expr = true })
+
 local Terminal  = require('toggleterm.terminal').Terminal
 
 local lazygit = Terminal:new({
