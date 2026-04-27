@@ -33,6 +33,10 @@
       "rev": "8b54c59",
       "src": "https://github.com/b0o/incline.nvim"
     },
+    "milli.nvim": {
+      "rev": "7a71269b97af6ac29351d8340bd115e133195234",
+      "src": "https://github.com/Amansingh-afk/milli.nvim"
+    },
     "mini.bufremove": {
       "rev": "8603490905fdfa31943cf2ede7ef4475e3dbac9a",
       "src": "https://github.com/nvim-mini/mini.bufremove"
