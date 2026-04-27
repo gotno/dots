@@ -187,6 +187,13 @@ vim.keymap.set(
     require('mini.bufremove').delete(vim.api.nvim_get_current_buf())
   end
 )
+
+local function is_normal_file_buffer(bufnum)
+  return vim.api.nvim_buf_is_valid(bufnum)
+    and vim.fn.buflisted(bufnum) == 1
+    and vim.bo[bufnum].buftype == ""
+    and vim.api.nvim_buf_get_name(bufnum) ~= ""
+end
 vim.keymap.set(
   -- delete other buffers
   {'n', 'x'},
@@ -194,7 +201,7 @@ vim.keymap.set(
   function()
     local current_buf = vim.api.nvim_get_current_buf()
     for _, bufnum in ipairs(vim.api.nvim_list_bufs()) do
-      if bufnum ~= current_buf then
+      if bufnum ~= current_buf and is_normal_file_buffer(bufnum) then
         require('mini.bufremove').delete(bufnum)
       end
     end
