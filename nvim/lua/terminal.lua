@@ -137,22 +137,29 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       vim.keymap.set('t', '<c-u>', send_pg_up, { buffer = true })
       vim.keymap.set('t', '<c-d>', send_pg_down, { buffer = true })
       vim.keymap.set(
-        't',
-        '<c-h>', function() require('sidekick.cli').toggle() end,
+        't', '<c-h>', function() require('sidekick.cli').toggle() end,
         { buffer = true, noremap = true }
       )
       vim.keymap.set(
-        't',
-        '<c-l>', '<c-\\><c-n>',
+        't', '<c-l>', '<c-\\><c-n>',
         { buffer = true, noremap = true }
       )
     end
 
     -- tmux nav
     -- in a terminal, exit insert mode first
-    vim.keymap.set('t', '<c-h>', '<c-\\><c-n><cmd>TmuxNavigateLeft<cr>')
-    vim.keymap.set('t', '<c-l>', '<c-\\><c-n><cmd>TmuxNavigateRight<cr>')
-    vim.keymap.set('t', '<c-\\>', '<c-\\><c-n><cmd>TmuxNavigatePrevious<cr>')
+    vim.keymap.set(
+      't', '<c-h>', '<c-\\><c-n><cmd>TmuxNavigateLeft<cr>',
+      { buffer = true }
+    )
+    vim.keymap.set(
+      't', '<c-l>', '<c-\\><c-n><cmd>TmuxNavigateRight<cr>',
+      { buffer = true }
+    )
+    vim.keymap.set(
+      't', '<c-\\>', '<c-\\><c-n><cmd>TmuxNavigatePrevious<cr>',
+      { buffer = true }
+    )
     -- lazygit uses ctrl-j/k to reorder commits
     if not is_lazygit then
       vim.keymap.set(
