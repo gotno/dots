@@ -5,6 +5,10 @@ require('render-markdown').setup({
   -- render_modes = true,
   -- anti_conceal = { enabled = false },
   completions = { lsp = { enabled = true } },
+  heading = {
+    icons = { '󰬺 ', '󰬻 ', '󰬼 ', '󰬽 ', '󰬾 ', '󰬿 ' },
+  },
+  sign = { enabled = false },
 })
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'markdown' },
