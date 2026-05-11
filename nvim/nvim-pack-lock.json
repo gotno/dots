@@ -5,7 +5,7 @@
       "src": "https://github.com/shaozi/active-gutter.nvim"
     },
     "auto-session": {
-      "rev": "6243753",
+      "rev": "daa7c996a0395e26342934843938647d0f1e87f4",
       "src": "https://github.com/rmagatti/auto-session"
     },
     "bento.nvim": {
@@ -26,15 +26,15 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
+      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "incline.nvim": {
-      "rev": "8b54c59",
+      "rev": "debd628e9395f7a9da57bdc31ce75ca6b40a880b",
       "src": "https://github.com/b0o/incline.nvim"
     },
     "milli.nvim": {
-      "rev": "7a71269b97af6ac29351d8340bd115e133195234",
+      "rev": "6a19fe9ab2a068b7ce384cea277c24672add161e",
       "src": "https://github.com/Amansingh-afk/milli.nvim"
     },
     "mini.bufremove": {
@@ -66,11 +66,11 @@
       "src": "https://github.com/nvim-mini/mini.snippets"
     },
     "neovim": {
-      "rev": "9504524e5ed0e326534698f637f9d038ba4cd0ee",
+      "rev": "6a961effd67f6130d36df6d1c05c48c739796dd2",
       "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-lspconfig": {
-      "rev": "eeef061d58d759b5419c1e20c4b3a5bc3154f871",
+      "rev": "451d4ef9abd4f0f08e379ef0d55d1c391b6125a7",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -82,7 +82,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "3f3eea97b80839f629c951ca660ffd125bfa5b34",
+      "rev": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "sidekick.nvim": {
@@ -116,6 +116,14 @@
     "vim-tmux-navigator": {
       "rev": "e41c431",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "wayfinder.nvim": {
+      "rev": "c5fafe5189b3b9ef1a7a4bee7498619e0aa1329d",
+      "src": "https://github.com/error311/wayfinder.nvim"
+    },
+    "winshift.nvim": {
+      "rev": "37468ed6f385dfb50402368669766504c0e15583",
+      "src": "https://github.com/sindrets/winshift.nvim"
     }
   }
 }
