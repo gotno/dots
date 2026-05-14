@@ -65,6 +65,10 @@
       "rev": "8e3acd41bd7ee8f89967c83bacc93871b98a14aa",
       "src": "https://github.com/nvim-mini/mini.snippets"
     },
+    "mini.splitjoin": {
+      "rev": "146aef247d9bfc58bab20dd921ba6b75ac4b8cf9",
+      "src": "https://github.com/nvim-mini/mini.splitjoin"
+    },
     "neovim": {
       "rev": "6a961effd67f6130d36df6d1c05c48c739796dd2",
       "src": "https://github.com/rose-pine/neovim"

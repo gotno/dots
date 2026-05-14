@@ -117,3 +117,9 @@ vim.keymap.set(
   end,
   { desc = 'yank filename' }
 )
+
+-- `gS` to split/join argument lists
+vim.pack.add({
+  'https://github.com/nvim-mini/mini.splitjoin',
+})
+require('mini.splitjoin').setup()
