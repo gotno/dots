@@ -1,6 +1,6 @@
 git:
-  pagers:
-    - pager: delta --dark --paging=never
-    - colorArg: always
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --24-bit-color=never
 os:
   editPreset: nvim-remote
