@@ -3,11 +3,12 @@ vim.pack.add({
 })
 require('code-preview').setup({
   diff = {
-    layout = 'tab', -- tab | vsplit | inline (github-style (?))
+    layout = 'tab', -- tab (split diff) | vsplit | inline (tab but unified diff)
     labels = { current = 'NOW', proposed = 'PROPOSED' },
   }
 })
 -- run :CodePreviewInstallCopilotCliHooks
+--     :CodePreviewInstallClaudeCodeHooks
 
 vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
