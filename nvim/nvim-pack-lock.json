@@ -5,17 +5,13 @@
       "src": "https://github.com/shaozi/active-gutter.nvim"
     },
     "auto-session": {
-      "rev": "daa7c996a0395e26342934843938647d0f1e87f4",
+      "rev": "3e145ee9af42eb6764908a1a481f53fe7f0bdbe5",
       "src": "https://github.com/rmagatti/auto-session"
     },
     "bento.nvim": {
       "rev": "4561b3075a78c3706f305f203b70fbfbbc9bb99c",
       "src": "https://github.com/gotno/bento.nvim",
       "version": "'handle-tabpages'"
-    },
-    "code-preview.nvim": {
-      "rev": "9ec3a33",
-      "src": "https://github.com/Cannon07/code-preview.nvim"
     },
     "darkmatter-nvim": {
       "rev": "dccd1a7feb626eee0f3dde3d2c587b9f698eb940",
@@ -38,35 +34,35 @@
       "src": "https://github.com/b0o/incline.nvim"
     },
     "milli.nvim": {
-      "rev": "6a19fe9ab2a068b7ce384cea277c24672add161e",
+      "rev": "00274623b76a66356e31e1861360b269987a7f64",
       "src": "https://github.com/Amansingh-afk/milli.nvim"
     },
     "mini.bufremove": {
-      "rev": "8603490905fdfa31943cf2ede7ef4475e3dbac9a",
+      "rev": "4cfbb201b2760da79ca6e1a00e9f67cbc99cbb8f",
       "src": "https://github.com/nvim-mini/mini.bufremove"
     },
     "mini.completion": {
-      "rev": "667d94669be66043123cac44e7c5d65a31657732",
+      "rev": "04abe6fc7860858785ba63c435d76bf5b8b64b5f",
       "src": "https://github.com/nvim-mini/mini.completion"
     },
     "mini.files": {
-      "rev": "3e247eb12ca8c05622ceb8745f9004f761b22ef8",
+      "rev": "423d6b5afb7a94e658950d470957f830d43dd41e",
       "src": "https://github.com/nvim-mini/mini.files"
     },
     "mini.icons": {
-      "rev": "bac6317300e205335df425296570d84322730067",
+      "rev": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.notify": {
-      "rev": "9e68ab0a54f90567b4fec2de22c851dba8480439",
+      "rev": "7e75de73c60590e3f35d5cecd5677a68a437fc54",
       "src": "https://github.com/nvim-mini/mini.notify"
     },
     "mini.pick": {
-      "rev": "437d44eb57312f23e6b931704694fc294922cd88",
+      "rev": "4522d9ab65224675df2cf1ede8c12f0410aae2be",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.snippets": {
-      "rev": "8e3acd41bd7ee8f89967c83bacc93871b98a14aa",
+      "rev": "9a08aa14e02abb790c823a622d7d6c736cbbe65a",
       "src": "https://github.com/nvim-mini/mini.snippets"
     },
     "mini.splitjoin": {
@@ -74,11 +70,11 @@
       "src": "https://github.com/nvim-mini/mini.splitjoin"
     },
     "neovim": {
-      "rev": "6a961effd67f6130d36df6d1c05c48c739796dd2",
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
       "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-lspconfig": {
-      "rev": "451d4ef9abd4f0f08e379ef0d55d1c391b6125a7",
+      "rev": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -126,7 +122,7 @@
       "src": "https://github.com/christoomey/vim-tmux-navigator"
     },
     "wayfinder.nvim": {
-      "rev": "c5fafe5189b3b9ef1a7a4bee7498619e0aa1329d",
+      "rev": "33841c6f4aa47297e5629456c42f5cf036257d01",
       "src": "https://github.com/error311/wayfinder.nvim"
     },
     "winshift.nvim": {
