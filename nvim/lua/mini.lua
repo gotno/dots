@@ -117,8 +117,22 @@ end
 
 local show_preview = false
 local preview_width = function ()
-  -- TODO: 80 OR remaining available columns
-  return 80
+  local max_preview_width = 80
+  local explorer_state = MiniFiles.get_explorer_state()
+  if explorer_state == nil then return max_preview_width end
+
+  local preview_path =
+    show_preview and explorer_state.branch[explorer_state.depth_focus + 1] or nil
+  local used_columns = 0
+
+  for _, window in ipairs(explorer_state.windows) do
+    if window.path ~= preview_path then
+      used_columns = used_columns + vim.api.nvim_win_get_width(window.win_id) + 2
+    end
+  end
+
+  local remaining_columns = vim.o.columns - used_columns - 2
+  return math.max(1, math.min(max_preview_width, remaining_columns))
 end
 local toggle_preview = function()
   show_preview = not show_preview
