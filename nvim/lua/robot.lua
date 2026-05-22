@@ -1,4 +1,15 @@
 vim.pack.add({
+  'https://github.com/Cannon07/code-preview.nvim',
+})
+require('code-preview').setup({
+  diff = {
+    layout = 'tab', -- tab | vsplit | inline (github-style (?))
+    labels = { current = 'NOW', proposed = 'PROPOSED' },
+  }
+})
+-- run :CodePreviewInstallCopilotCliHooks
+
+vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
 })
 require('sidekick').setup({
