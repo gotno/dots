@@ -27,6 +27,7 @@ require('mini.pick').setup({
     end,
   },
 })
+local MiniPick = require('mini.pick')
 
 vim.keymap.set(
   {'n', 'x'},
@@ -86,11 +87,12 @@ require('mini.files').setup({
     use_as_default_explorer = true,
   },
 })
+local MiniFiles = require('mini.files')
+
 vim.keymap.set(
   { 'n', 'x' },
   '<leader>e',
   function ()
-    local MiniFiles = require("mini.files")
     local _ = MiniFiles.close()
       or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
     vim.defer_fn(function()
@@ -108,7 +110,7 @@ local filter_hide_dots = function(fs_entry)
 end
 local toggle_dotfiles = function()
   show_dotfiles = not show_dotfiles
-  require('mini.files').refresh({
+  MiniFiles.refresh({
     content = {
       filter = show_dotfiles and filter_show_dots or filter_hide_dots,
     },
@@ -136,13 +138,13 @@ local preview_width = function ()
 end
 local toggle_preview = function()
   show_preview = not show_preview
-  require('mini.files').refresh({
+  MiniFiles.refresh({
     windows = {
       preview = show_preview,
       width_preview = preview_width(),
     },
   })
-  require('mini.files').trim_right()
+  MiniFiles.trim_right()
 end
 
 local grep_in_dir = function()
@@ -180,13 +182,13 @@ vim.api.nvim_create_autocmd('User', {
     vim.keymap.set({ 'n', 'x' }, '<tab>', toggle_preview, { buffer = buf_id })
     vim.keymap.set(
       { 'n', 'x' },
-      '<esc>', require("mini.files").close,
+      '<esc>', MiniFiles.close,
       { buffer = buf_id }
     )
 
     -- restore previous state
     vim.defer_fn(function()
-      require('mini.files').refresh({
+      MiniFiles.refresh({
         content = {
           filter = show_dotfiles and filter_show_dots or filter_hide_dots
         },
