@@ -13,6 +13,10 @@
       "src": "https://github.com/gotno/bento.nvim",
       "version": "'handle-tabpages'"
     },
+    "code-preview.nvim": {
+      "rev": "9ec3a336ea905666538f8ea6a97dc40ce5c5271a",
+      "src": "https://github.com/Cannon07/code-preview.nvim"
+    },
     "darkmatter-nvim": {
       "rev": "dccd1a7feb626eee0f3dde3d2c587b9f698eb940",
       "src": "https://github.com/stevedylandev/darkmatter-nvim"
