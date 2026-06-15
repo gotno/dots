@@ -173,8 +173,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
       {'n', 'x'},
       'gll',
       function()
+        local curwin = vim.api.nvim_get_current_win()
         vim.diagnostic.setloclist()
-        vim.opt_local.wrap = true
+        local loclist_win = vim.fn.getloclist(curwin, {winid = 0}).winid
+        if loclist_win ~= 0 then
+          vim.wo[loclist_win].wrap = true
+        end
       end,
       {
         buffer = attach_event.buf,
