@@ -6,6 +6,8 @@ vim.pack.add({
   'https://github.com/sainnhe/everforest',
   'https://github.com/rose-pine/neovim',
   'https://github.com/vertexE/synth.nvim',
+  'https://github.com/kbraggins/duskhaven.nvim',
+  'https://github.com/github-main-user/lytmode.nvim',
 })
 
 require('rose-pine').setup({
@@ -19,6 +21,20 @@ require('themery').setup({
     {
       name = 'darkmatter',
       colorscheme = 'darkmatter',
+      before = [[
+        vim.opt.background = 'dark'
+      ]],
+    },
+    {
+      name = 'duskhaven',
+      colorscheme = 'duskhaven',
+      before = [[
+        vim.opt.background = 'dark'
+      ]],
+    },
+    {
+      name = 'lytmode',
+      colorscheme = 'lytmode',
       before = [[
         vim.opt.background = 'dark'
       ]],
