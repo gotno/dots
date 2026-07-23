@@ -169,6 +169,12 @@ local find_in_dir = function()
     },
   });
 end
+local term_in_dir = function()
+  local path = (MiniFiles.get_fs_entry() or {}).path
+  if path == nil then return nil end
+  MiniFiles.close()
+  vim.cmd({ cmd = "ToggleTerm", args = { "dir=" .. vim.fs.dirname(path) } })
+end
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'MiniFilesBufferCreate',
@@ -178,6 +184,7 @@ vim.api.nvim_create_autocmd('User', {
     -- TODO picker
     vim.keymap.set('n', '<leader>f', find_in_dir, { buffer = buf_id })
     vim.keymap.set('n', '<leader>/', grep_in_dir, { buffer = buf_id })
+    vim.keymap.set('n', '<leader>s', term_in_dir, { buffer = buf_id })
     vim.keymap.set({ 'n', 'x' }, 'zh', toggle_dotfiles, { buffer = buf_id })
     vim.keymap.set({ 'n', 'x' }, '<tab>', toggle_preview, { buffer = buf_id })
     vim.keymap.set(
