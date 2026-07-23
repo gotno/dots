@@ -14,6 +14,31 @@ vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
 })
 require('sidekick').setup({
+    nes = {
+    ---@type boolean|fun(buf:integer):boolean?
+    enabled = function(buf)
+      return vim.g.sidekick_nes ~= false and vim.b.sidekick_nes ~= false
+    end,
+    debounce = 100,
+    trigger = {
+      -- events that trigger sidekick next edit suggestions
+      events = { "ModeChanged i:n", "TextChanged", "User SidekickNesDone" },
+    },
+    clear = {
+      -- events that clear the current next edit suggestion
+      events = { "TextChangedI", "InsertEnter" },
+      esc = true, -- clear next edit suggestions when pressing <Esc>
+    },
+    ---@class sidekick.diff.Opts
+    ---@field inline? "words"|"chars"|false Enable inline diffs
+    ---@field show? "always"|"cursor" `cursor` will only show the diff when the cursor is at the edit position.
+    diff = {
+      inline = false,
+      show = "always",
+    },
+    signs = true, -- show signs for next edit suggestions
+    jumplist = true, -- add an entry to the jumplist
+  },
   cli = {
     mux = {
       enabled = true,
