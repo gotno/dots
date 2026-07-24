@@ -136,11 +136,6 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
       vim.keymap.set('t', '<c-j>', send_scroll_down, { buffer = true })
       vim.keymap.set('t', '<c-u>', send_pg_up, { buffer = true })
       vim.keymap.set('t', '<c-d>', send_pg_down, { buffer = true })
-      -- navigate leftward to toggle robot
-      vim.keymap.set(
-        't', '<c-h>', function() require('sidekick.cli').toggle() end,
-        { buffer = true, noremap = true }
-      )
       -- navigate rightward to exit insert mode
       vim.keymap.set(
         't', '<c-l>', '<c-\\><c-n>',
