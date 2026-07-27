@@ -195,6 +195,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       'n',
       'gdf',
       function()
+        local ft = vim.bo[attach_event.buf].filetype
+
+        if ft == 'typescript' or ft == 'typescriptreact' then
+          require('pretty-ts-errors').show_formatted_error()
+          return
+        end
+
         vim.diagnostic.open_float()
       end,
       {
@@ -292,4 +299,3 @@ vim.diagnostic.config({
     end,
   },
 })
-
