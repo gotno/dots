@@ -2,8 +2,6 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
 });
 
-local potential_clients = { 'lua_ls', 'clangd', 'typescript-tools' }
-
 -- code actions
 vim.pack.add({
   'https://github.com/rachartier/tiny-code-action.nvim',
@@ -65,6 +63,7 @@ vim.lsp.enable('terraform-ls')
 vim.lsp.enable('tofu-ls')
 
 -- LspAttach
+local potential_clients = { 'lua_ls', 'clangd', 'tsgo' }
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('gtno-lsp-attach', { clear = true }),
   callback = function(attach_event)
