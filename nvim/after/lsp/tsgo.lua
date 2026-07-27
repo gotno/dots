@@ -2,11 +2,28 @@
 
 ---@type vim.lsp.Config
 return {
+  settings = {
+    typescript = {
+      inlayHints = {
+        parameterNames = {
+          enabled = 'literals',
+          suppressWhenArgumentMatchesName = true,
+        },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        enumMemberValues = { enabled = true },
+      },
+    },
+  },
   cmd = function(dispatchers, config)
     local cmd = 'tsgo'
-    local local_cmd = (config or {}).root_dir and config.root_dir .. '/node_modules/.bin/tsgo'
-    if local_cmd and vim.fn.executable(local_cmd) == 1 then
-      cmd = local_cmd
+    if (config or {}).root_dir then
+      local local_cmd = vim.fs.joinpath(config.root_dir, 'node_modules/.bin', cmd)
+      if vim.fn.executable(local_cmd) == 1 then
+        cmd = local_cmd
+      end
     end
     return vim.lsp.rpc.start({ cmd, '--lsp', '--stdio' }, dispatchers)
   end,
@@ -17,6 +34,10 @@ return {
     'typescriptreact',
   },
   root_dir = function(bufnr, on_dir)
+    -- The project root is where the LSP can be started from
+    -- As stated in the documentation above, this LSP supports monorepos and simple projects.
+    -- We select then from the project root, which is identified by the presence of a package
+    -- manager lock file.
     local root_markers = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
     -- Give the root markers equal priority by wrapping them in a table
     root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }

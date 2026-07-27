@@ -37,25 +37,29 @@ vim.lsp.enable('css-ls')
 -- vim.lsp.enable('stylelint')
 
 -- typescript
--- vim.lsp.enable('tsgo')
+vim.lsp.enable('tsgo')
 vim.pack.add({
-  'https://github.com/nvim-lua/plenary.nvim',
-  'https://github.com/pmizio/typescript-tools.nvim',
+  -- requires `npm install -g pretty-ts-errors-markdown`
+  'https://github.com/youyoumu/pretty-ts-errors.nvim',
 });
-require('typescript-tools').setup({
-  settings = {
-    tsserver_max_memory = 6144, -- 6gb, vscode's 3gb default crashes out
-    separate_diagnostic_server = false,
-  },
-  root_dir = function(bufnr, on_dir)
-    local root_markers = {
-      {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'},
-      {'.git'},
-    }
-
-    on_dir(vim.fs.root(bufnr, root_markers) or vim.fn.getcwd())
-  end,
-})
+-- vim.pack.add({
+--   'https://github.com/nvim-lua/plenary.nvim',
+--   'https://github.com/pmizio/typescript-tools.nvim',
+-- });
+-- require('typescript-tools').setup({
+--   settings = {
+--     tsserver_max_memory = 6144, -- 6gb, vscode's 3gb default crashes out
+--     separate_diagnostic_server = false,
+--   },
+--   root_dir = function(bufnr, on_dir)
+--     local root_markers = {
+--       {'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'},
+--       {'.git'},
+--     }
+--
+--     on_dir(vim.fs.root(bufnr, root_markers) or vim.fn.getcwd())
+--   end,
+-- })
 
 vim.lsp.enable('terraform-ls')
 vim.lsp.enable('tofu-ls')
