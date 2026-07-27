@@ -1,3 +1,14 @@
+vim.pack.add({
+  'https://github.com/rashedInt32/claude-sessions.nvim',
+})
+require('claude-sessions').setup({
+  statusline = {
+    max_dots = 3,
+    dim_own = false,
+    bg = nil,
+  }
+})
+
 -- slimline (statusline)
 vim.pack.add({
   'https://github.com/sschleemilch/slimline.nvim',
@@ -11,17 +22,21 @@ require('slimline').setup({
       'git',
     },
     center = {
-      -- lsp_status,
     },
     right = {
       'diagnostics',
       'filetype_lsp',
       'progress',
+      function ()
+        local cs = require("claude-sessions")
+        if cs.has_sessions() then return cs.status() end
+      end
     },
   },
   style = 'fg',
   bold = true,
   hl = {
+    base = 'Normal',
     secondary = 'Comment',
   },
   configs = {
