@@ -49,8 +49,8 @@ require('winshift').setup({})
 
 -- briefly change background color to highlight the moved window
 local flash = function(cmd)
-  local init_bg = vim.api.nvim_get_hl_by_name("Normal", true).background
-  local hi = vim.api.nvim_get_hl_by_name("Visual", true).background
+  local init_bg = vim.api.nvim_get_hl(0, { name = 'Normal', link = false }).bg
+  local hi = vim.api.nvim_get_hl(0, { name = 'Visual', link = false }).bg
   vim.api.nvim_set_hl(0, 'normal', { bg = hi })
   vim.cmd(cmd)
   vim.defer_fn(
