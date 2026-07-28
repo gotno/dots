@@ -32,6 +32,15 @@ require('bento').setup({
   },
 })
 
+vim.keymap.set(
+  {'n', 'x'},
+  '<leader>;',
+  function()
+    require("bento.ui").toggle_menu()
+  end,
+  { noremap = true, silent = true }
+)
+
 -- winshift for moving windows around
 vim.pack.add({
   'https://github.com/sindrets/winshift.nvim'
