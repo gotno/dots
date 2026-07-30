@@ -21,6 +21,10 @@ local lazygit = Terminal:new({
   direction = 'float',
   float_opts = {
     border = 'rounded',
+    width = vim.o.columns - 6,
+    height = vim.o.lines - 4,
+    row = 2,
+    col = 3,
   },
 })
 vim.keymap.set(
