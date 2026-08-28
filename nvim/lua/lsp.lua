@@ -124,10 +124,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
             on_list = function(options)
               local items = {}
               for i, item in ipairs(options.items) do
+                local parts = vim.split(vim.fs.normalize(item.filename), '/', { plain = true })
                 items[i] = {
                   text = table.concat({
                     table.concat({
-                      vim.fs.basename(item.filename),
+                      table.concat(vim.list_slice(parts, math.max(1, #parts - 3)), '/'),
                       item.lnum,
                       item.col
                     }, ':'),
