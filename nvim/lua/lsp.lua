@@ -6,11 +6,30 @@ vim.pack.add({
 vim.pack.add({
   'https://github.com/rachartier/tiny-code-action.nvim',
 });
-require("tiny-code-action").setup({
+require('tiny-code-action').setup({
   picker = {
     'select',
     opts = {
       hotkeys = true,
+    },
+  },
+})
+
+-- inline diagnostics
+vim.pack.add({
+  'https://github.com/rachartier/tiny-inline-diagnostic.nvim',
+});
+require('tiny-inline-diagnostic').setup({
+  preset = 'powerline',
+  options = {
+    multilines = {
+      enabled = true,
+      always_show = true,
+      severity = { vim.diagnostic.severity.ERROR },
+    },
+    show_source = { enabled = true },
+    add_messages = {
+      show_multiple_glyphs = true,
     },
   },
 })
@@ -212,22 +231,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       }
     )
 
-    -- toggle inlay hint
-    vim.keymap.set(
-      'n',
-      '<leader>th',
-      function()
-        vim.lsp.inlay_hint.enable(
-          not vim.lsp.inlay_hint.is_enabled({ bufnr = attach_event.buf })
-        )
-      end,
-      {
-        buffer = attach_event.buf,
-        noremap = true,
-        silent = true,
-      }
-    )
-
     -- highlight/unhighlight hovered word
     local client = vim.lsp.get_client_by_id(attach_event.data.client_id)
     local supports_highlight = client and
@@ -286,17 +289,5 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = '󰌶 ',
     },
   } or {},
-  virtual_text = {
-    source = 'if_many',
-    spacing = 2,
-    format = function(diagnostic)
-      local diagnostic_message = {
-        [vim.diagnostic.severity.ERROR] = diagnostic.message,
-        [vim.diagnostic.severity.WARN] = diagnostic.message,
-        [vim.diagnostic.severity.INFO] = diagnostic.message,
-        [vim.diagnostic.severity.HINT] = diagnostic.message,
-      }
-      return diagnostic_message[diagnostic.severity]
-    end,
-  },
+  virtual_text = false,
 })
