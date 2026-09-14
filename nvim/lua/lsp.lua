@@ -82,24 +82,9 @@ vim.lsp.enable('terraform-ls')
 vim.lsp.enable('tofu-ls')
 
 -- LspAttach
-local potential_clients = { 'lua_ls', 'clangd', 'tsgo' }
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('gtno-lsp-attach', { clear = true }),
   callback = function(attach_event)
-    -- restart active lsps
-    vim.keymap.set(
-      'n',
-      '<leader>R',
-      function()
-        for _, client in ipairs(potential_clients) do
-          if vim.lsp.is_enabled(client) then
-            vim.lsp.enable(client, false)
-            vim.lsp.enable(client, true)
-          end
-        end
-      end
-    )
-
     vim.keymap.set(
       {'n', 'x'},
       'gdo', require("tiny-code-action").code_action,

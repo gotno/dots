@@ -60,6 +60,11 @@ map(
 )
 map('n', '<leader>T', '<cmd>$tabnew<cr>')
 
+-- reload buffer
+map('n', '<leader>r', '<cmd>e<cr>')
+-- restart vim
+map('n', '<leader>R', '<cmd>restart<cr>')
+
 -- toggle 'narrow selection' (fold all but visual line selection, unfold all)
 map('v', 'zn', '<esc>`<kzfgg`>jzfG`<')
 
