@@ -3,7 +3,14 @@ local highlight_group =
   vim.api.nvim_create_augroup("gtno-yank-highlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.hl_op({ higroup = 'Visual', timeout = 300 })
+  end,
+  group = highlight_group,
+  pattern = "*",
+})
+vim.api.nvim_create_autocmd("TextPutPost", {
+  callback = function()
+    vim.hl.hl_op({ higroup = 'Visual', timeout = 300 })
   end,
   group = highlight_group,
   pattern = "*",
