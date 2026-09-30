@@ -126,13 +126,56 @@ vim.api.nvim_create_autocmd('LspAttach', {
           nil,
           {
             on_list = function(options)
+              -- nearest named package.json per directory, resolved lazily and
+              -- cached since most references share a handful of directories.
+              -- stops at the repo root so the walk can't escape into $HOME,
+              -- and skips manifests without a name (workspace roots, stubs)
+              local packages = {}
+              local function package_of(dir)
+                if packages[dir] == nil then
+                  packages[dir] = false
+                  local stop = vim.fs.root(dir, '.git')
+                  local manifests = vim.fs.find(
+                    'package.json',
+                    { path = dir, upward = true, type = 'file', limit = math.huge, stop = stop and vim.fs.dirname(stop) }
+                  )
+                  for _, manifest in ipairs(manifests) do
+                    local ok, decoded = pcall(function()
+                      return vim.json.decode(table.concat(vim.fn.readfile(manifest), '\n'))
+                    end)
+                    local name = ok and type(decoded) == 'table' and decoded.name
+                    if type(name) == 'string' and name ~= '' then
+                      packages[dir] = { name = name, root = vim.fs.dirname(manifest) }
+                      break
+                    end
+                  end
+                end
+                return packages[dir]
+              end
+              local function tail(parts)
+                if #parts <= 4 then
+                  return table.concat(parts, '/')
+                end
+                return '…/' .. table.concat(vim.list_slice(parts, #parts - 3), '/')
+              end
               local items = {}
               for i, item in ipairs(options.items) do
-                local parts = vim.split(vim.fs.normalize(item.filename), '/', { plain = true })
+                local filename = vim.fs.normalize(item.filename)
+                local pkg = package_of(vim.fs.dirname(filename))
+                local relative = pkg and vim.fs.relpath(pkg.root, filename)
+                local location
+                if relative then
+                  location = table.concat({
+                    pkg.name,
+                    tail(vim.split(relative, '/', { plain = true })),
+                  }, ' ')
+                else
+                  location = tail(vim.split(filename, '/', { plain = true }))
+                end
                 items[i] = {
                   text = table.concat({
                     table.concat({
-                      table.concat(vim.list_slice(parts, math.max(1, #parts - 3)), '/'),
+                      location,
                       item.lnum,
                       item.col
                     }, ':'),
