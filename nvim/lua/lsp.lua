@@ -54,7 +54,7 @@ vim.lsp.enable('css-ls')
 -- vim.lsp.enable('stylelint')
 
 -- typescript
-vim.lsp.enable('tsgo')
+vim.lsp.enable('tsc')
 vim.pack.add({
   -- requires `npm install -g pretty-ts-errors-markdown`
   'https://github.com/youyoumu/pretty-ts-errors.nvim',
