@@ -122,7 +122,7 @@ vim.keymap.set(
 )
 
 vim.keymap.set(
-  {'n', 'i'},
+  {'i'},
   '<tab>',
   function()
     -- jump to or apply next edit
