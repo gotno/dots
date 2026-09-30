@@ -81,6 +81,7 @@ end
 return {
   settings = {
     ['js/ts'] = {
+      maximumHoverLength = 10000,
       inlayHints = {
         parameterNames = {
           enabled = 'literals',
