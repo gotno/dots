@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(attach_event)
     vim.keymap.set(
       {'n', 'x'},
-      'gdo', require("tiny-code-action").code_action,
+      'gdo', require('tiny-code-action').code_action,
       {
         buffer = attach_event.buf,
         noremap = true,
