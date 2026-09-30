@@ -21,5 +21,8 @@ require 'terminal'
 require 'nav'
 require 'treesitter'
 
+-- g< to show spill ([+n] indicator)
+require('vim._core.ui2').enable({})
+
 -- cleanup:
 -- :lua =vim.pack.del(vim.iter(vim.pack.get()):filter(function(x) return not x.active end):map(function(x) return x.spec.name end):totable())
