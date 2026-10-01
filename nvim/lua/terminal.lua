@@ -14,6 +14,17 @@ end, { expr = true })
 
 local Terminal  = require('toggleterm.terminal').Terminal
 
+-- width of a sidekick_terminal window in the current tab, or 0 if none
+local function sidekick_width()
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.bo[buf].filetype == 'sidekick_terminal' then
+      return vim.api.nvim_win_get_width(win) + 1
+    end
+  end
+  return 0
+end
+
 local lazygit = Terminal:new({
   cmd = 'lazygit',
   hidden = true,
@@ -21,10 +32,11 @@ local lazygit = Terminal:new({
   direction = 'float',
   float_opts = {
     border = 'rounded',
-    width = vim.o.columns - 6,
+    -- leave room for sidekick if it is open
+    width = function() return vim.o.columns - sidekick_width() - 6 end,
     height = vim.o.lines - 4,
-    row = 2,
-    col = 3,
+    row = 1,
+    col = 2,
   },
 })
 vim.keymap.set(
