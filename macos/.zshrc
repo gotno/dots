@@ -9,8 +9,8 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=nvim
 export TERM=xterm-256color
 
-PROMPT=$(date +%H:%M:%S)
-PROMPT=$'[%4~] $(git_prompt_info)\n '
+PROMPT='$(date +%H:%M:%S)'
+PROMPT+=$' [%4~] $(git_prompt_info)\n '
 
 # if .secrets exists, source it
 if [ -f "$HOME/.secrets" ]; then
