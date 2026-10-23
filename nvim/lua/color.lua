@@ -8,6 +8,7 @@ vim.pack.add({
   'https://github.com/vertexE/synth.nvim',
   'https://github.com/kbraggins/duskhaven.nvim',
   'https://github.com/github-main-user/lytmode.nvim',
+  'https://github.com/WTFox/luna.nvim',
 })
 
 require('rose-pine').setup({
@@ -85,6 +86,13 @@ require('themery').setup({
       before = [[
         vim.opt.background = 'light'
         vim.g.everforest_background = 'hard'
+      ]],
+    },
+    {
+      name = 'luna',
+      colorscheme = 'luna',
+      before = [[
+        vim.opt.background = 'dark'
       ]],
     },
     {
