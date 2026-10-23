@@ -147,6 +147,18 @@ local toggle_preview = function()
   MiniFiles.trim_right()
 end
 
+local open_in_split = function()
+  local path = (MiniFiles.get_fs_entry() or {}).path
+  if path == nil then return nil end
+  MiniFiles.close()
+  vim.cmd({ cmd = "split", args = { path } })
+end
+local open_in_vsplit = function()
+  local path = (MiniFiles.get_fs_entry() or {}).path
+  if path == nil then return nil end
+  MiniFiles.close()
+  vim.cmd({ cmd = "vsplit", args = { path } })
+end
 local grep_in_dir = function()
   local path = (MiniFiles.get_fs_entry() or {}).path
   if path == nil then return nil end
@@ -181,10 +193,11 @@ vim.api.nvim_create_autocmd('User', {
   group = vim.api.nvim_create_augroup('gtno-minifiles-spawn', { clear = true }),
   callback = function(args)
     local buf_id = args.data.buf_id
-    -- TODO picker
+    vim.keymap.set('n', '<leader>o', open_in_split, { buffer = buf_id })
+    vim.keymap.set('n', '<leader>i', open_in_vsplit, { buffer = buf_id })
     vim.keymap.set('n', '<leader>f', find_in_dir, { buffer = buf_id })
     vim.keymap.set('n', '<leader>/', grep_in_dir, { buffer = buf_id })
-    vim.keymap.set('n', '<leader>s', term_in_dir, { buffer = buf_id })
+    vim.keymap.set('n', '<leader>t', term_in_dir, { buffer = buf_id })
     vim.keymap.set({ 'n', 'x' }, 'zh', toggle_dotfiles, { buffer = buf_id })
     vim.keymap.set({ 'n', 'x' }, '<tab>', toggle_preview, { buffer = buf_id })
     vim.keymap.set(
