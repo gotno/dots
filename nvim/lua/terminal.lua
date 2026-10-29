@@ -25,8 +25,63 @@ local function sidekick_width()
   return 0
 end
 
+local lazygit_theme_path = vim.fn.tempname() .. '.yml'
+local lazygit_env = {}
+local lazygit_theme = {
+  activeBorderColor = { fg = 'MatchParen', bold = true },
+  cherryPickedCommitBgColor = { fg = 'Identifier' },
+  cherryPickedCommitFgColor = { fg = 'Function' },
+  defaultFgColor = { fg = 'Normal' },
+  inactiveBorderColor = { fg = 'FloatBorder' },
+  optionsTextColor = { fg = 'Function' },
+  searchingActiveBorderColor = { fg = 'MatchParen', bold = true },
+  selectedLineBgColor = { bg = 'Visual' },
+  unstagedChangesColor = { fg = 'DiagnosticError' },
+}
+
+local function update_lazygit_theme()
+  local lines = { 'gui:', '  theme:' }
+  for key, spec in pairs(lazygit_theme) do
+    local attr = spec.fg and 'fg' or 'bg'
+    local hl = vim.api.nvim_get_hl(0, {
+      name = spec[attr],
+      link = false,
+      create = false,
+    })
+    if hl[attr] then
+      local colors = { string.format('#%06x', hl[attr]) }
+      if spec.bold then table.insert(colors, 'bold') end
+      table.insert(lines, '    ' .. key .. ': ' .. vim.json.encode(colors))
+    end
+  end
+  vim.fn.writefile(lines, lazygit_theme_path)
+end
+
 local lazygit = Terminal:new({
-  cmd = 'lazygit',
+  cmd = function()
+    update_lazygit_theme()
+    if not lazygit_env.LG_CONFIG_FILE then
+      local config_files = vim.env.LG_CONFIG_FILE or ''
+      if config_files == '' then
+        local result = vim.system({ 'lazygit', '-cd' }, { text = true }):wait()
+        if result.code ~= 0 then
+          error('Failed to find LazyGit config directory: ' .. vim.trim(result.stderr))
+        end
+        local config_path = vim.fs.joinpath(vim.trim(result.stdout), 'config.yml')
+        if vim.fn.filereadable(config_path) == 1 then
+          config_files = config_path
+        end
+      end
+      lazygit_env.LG_CONFIG_FILE = config_files == '' and lazygit_theme_path
+        or config_files .. ',' .. lazygit_theme_path
+    end
+    return 'lazygit'
+  end,
+  env = lazygit_env,
+  on_open = function(term)
+    -- LazyGit reloads changed config files when it receives focus.
+    vim.api.nvim_chan_send(term.job_id, '\27[I')
+  end,
   hidden = true,
   dir = 'git_dir',
   direction = 'float',
@@ -39,6 +94,19 @@ local lazygit = Terminal:new({
     col = 2,
   },
 })
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  group = vim.api.nvim_create_augroup('LazygitTheme', { clear = true }),
+  callback = function()
+    if lazygit_env.LG_CONFIG_FILE then
+      update_lazygit_theme()
+      if lazygit:is_open() then
+        vim.api.nvim_chan_send(lazygit.job_id, '\27[I')
+      end
+    end
+  end,
+})
+
 vim.keymap.set(
   {'n', 'x'},
   ',,',
