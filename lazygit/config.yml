@@ -4,3 +4,16 @@ git:
 os:
   editPreset: nvim-remote
   copyToClipboardCmd: printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty
+
+customCommands:
+  # Create worktree from selected branch (when in branches view)
+  # thanks https://www.jamescrosswell.dev/posts/switching-to-git-worktrees/
+  - key: "N"
+    context: "localBranches"
+    description: "Create new worktree from selected branch"
+    prompts:
+      - type: "input"
+        title: "Create a new worktree from {{ .SelectedLocalBranch.Name }} with what name?"
+        key: "Name"
+        initialValue: ""
+    command: "git worktree add ../{{ .Form.Name }} {{ .SelectedLocalBranch.Name }} -b {{ .Form.Name }}"
