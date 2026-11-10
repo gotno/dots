@@ -1,8 +1,22 @@
+vim.pack.add({ 'https://github.com/nvim-mini/mini.indentscope' })
+require('mini.indentscope').setup({
+  draw = {
+    animation = require('mini.indentscope').gen_animation.quadratic({
+      easing = 'out',
+      duration = 6,
+      unit = 'step',
+    })
+  },
+  options = {
+    -- drawn for scope for which the cursor is at the head/tail
+    try_as_border = true,
+  },
+})
+
 vim.pack.add({
   'https://github.com/nvim-mini/mini.icons',
   'https://github.com/nvim-mini/mini.pick',
 })
-
 require('mini.pick').setup({
   window = {
     -- config = {
