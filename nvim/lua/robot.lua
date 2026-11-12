@@ -13,6 +13,68 @@ require('code-preview').setup({
 vim.pack.add({
   'https://github.com/folke/sidekick.nvim',
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'sidekick_terminal',
+  callback = function(args)
+    local light = vim.o.background == 'light'
+    vim.b[args.buf].sidekick_palette_light = light
+    if light then
+      vim.b[args.buf].terminal_color_7 = '#333333'
+    end
+  end,
+})
+
+local palette_update = 0
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    palette_update = palette_update + 1
+    local update = palette_update
+    vim.defer_fn(function()
+      if update ~= palette_update then return end
+      local light = vim.o.background == 'light'
+      local terminals = require('sidekick.cli.terminal').sessions()
+      local session = require('sidekick.cli.session')
+
+      for _, terminal in ipairs(terminals) do
+        if terminal:buf_valid() and vim.b[terminal.buf].sidekick_palette_light ~= light then
+          if terminal.mux_backend ~= 'tmux' or not terminal.parent then
+            vim.notify('Cannot refresh a Sidekick terminal without a tmux session', vim.log.levels.WARN)
+          else
+            local current_win = vim.api.nvim_get_current_win()
+            local visible = terminal:is_open()
+            local focused = visible and current_win == terminal.win
+            local normal_mode = terminal.normal_mode
+            local width = visible and vim.api.nvim_win_get_width(terminal.win)
+            local tab = visible and vim.api.nvim_win_get_tabpage(terminal.win)
+            local parent = terminal.parent
+
+            if tab then vim.api.nvim_set_current_tabpage(tab) end
+            terminal:close()
+            parent.started = true
+            local refreshed = session.attach(parent)
+            if not refreshed:is_running() then
+              vim.notify('Failed to reconnect the Sidekick tmux session', vim.log.levels.ERROR)
+            elseif not visible then
+              refreshed:hide()
+            else
+              vim.api.nvim_win_set_width(refreshed.win, width)
+              if focused then
+                vim.api.nvim_set_current_win(refreshed.win)
+                refreshed.normal_mode = normal_mode
+                if not normal_mode then vim.cmd.startinsert() end
+              end
+            end
+            if not focused and vim.api.nvim_win_is_valid(current_win) then
+              vim.api.nvim_set_current_win(current_win)
+            end
+          end
+        end
+      end
+    end, 250)
+  end,
+})
+
 require('sidekick').setup({
     nes = {
     ---@type boolean|fun(buf:integer):boolean?
