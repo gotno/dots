@@ -13,6 +13,22 @@ require('mini.indentscope').setup({
   },
 })
 
+-- disable indentscope in terminals and markdown files
+local indentscope_group =
+  vim.api.nvim_create_augroup('gtno-miniindentscope-disable', { clear = true })
+local disable_indentscope = function(args)
+  vim.b[args.buf].miniindentscope_disable = true
+end
+vim.api.nvim_create_autocmd('FileType', {
+  group = indentscope_group,
+  pattern = 'markdown',
+  callback = disable_indentscope,
+})
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = indentscope_group,
+  callback = disable_indentscope,
+})
+
 vim.pack.add({
   'https://github.com/nvim-mini/mini.icons',
   'https://github.com/nvim-mini/mini.pick',
